@@ -4,11 +4,65 @@ from django.template import RequestContext, loader
 
 from wa.models import User, Language, Book, Paragraph, UserHistory, Document
 from wa.forms import DocumentForm
+from django.http import HttpResponseRedirect
+from django.contrib import auth
+from django.core.context_processors import csrf
+from django.contrib.auth.forms import UserCreationForm
+from forms import CustomUserCreationForm
+from django.shortcuts import render
 
 from wa.tasks import soundProcessingWithAuphonicTask
 from django.core.urlresolvers import reverse
 # Create your views here.
 
+def error_processor(request):
+	if 'error' in request.session:
+		return {'msg': request.session['error']}
+	else:
+		return {}
+	
+def front(request):
+	c=RequestContext(request,{'foo':'bar',},[error_processor])
+	if 'error' in request.session:
+		del request.session['error']
+	return render_to_response('wa/session/front.html',c)
+	
+def logout(request):
+	auth.logout(request)
+	#return render_to_response('WikiApp/session/front.html')	
+	return HttpResponseRedirect('/wa')
+	
+def auth_view(request):
+	username= request.POST.get('username','')
+	password= request.POST.get('password','')
+	user= auth.authenticate(username=username, password=password)
+	if user is not None:
+		auth.login(request, user)
+		return HttpResponseRedirect('/wa/home')
+	else:
+		request.session['error'] = "Username and Password do not match.Try Again!"
+		return HttpResponseRedirect('/wa')
+#Have not done auth.logout(request)	
+def home(request):
+	return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known})
+	#return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
+
+def register_user(request):
+	if request.method == 'POST':
+		form=CustomUserCreationForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/wa/register_success')
+	else:
+		form= CustomUserCreationForm()
+	return render(request,  'wa/session/register.html', {
+		'form': form,
+	})
+def register_success(request):
+	return render_to_response('wa/session/register_success.html')
+	
+def digitize(request):
+	return render_to_response('wa/AudioDigi/Digitize.html')
 def audio(request):
     #languages = Language.objects.all()
 	#context = {'all_languages' : all_languages}
