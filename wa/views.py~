@@ -1,12 +1,9 @@
 from django.shortcuts import render,render_to_response
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirct
 from django.template import RequestContext, loader
 
 from wa.models import User, Language, Book, Paragraph, UserHistory, Document
 from wa.forms import DocumentForm
-
-from wa.tasks import soundProcessingWithAuphonicTask
-from django.core.urlresolvers import reverse
 # Create your views here.
 
 def audio(request):
@@ -33,7 +30,7 @@ def audioUpload(request):
             newdoc.docfile.save('Ashu.wav',request.FILES['docfile'])
             #soundProcessWithAuphonic('documents/Ashu.wav')
             soundProcessingWithAuphonicTask.delay('../documents/ashu.mp3')
-            return HttpResponseRedirect(reverse('wa.views.audio'))
+            return HttpResponseRedirect(reverse('myRecordUpload.views.index'))
     else:
         form = DocumentForm() # A empty, unbound form
 
