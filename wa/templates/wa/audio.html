@@ -1,0 +1,14 @@
+<h2>Hello</h2>
+<script type="text/javascript" >
+function displayBooks()
+{
+	// make ajax requests to get images of books with selected language
+	
+}
+</script>
+<label>Language :</label>
+<select id = 'language' onchange = 'displayBooks()'>
+{% for lang in langs %}
+        <option value = "{{lang.langName}}">{{lang.langName}}</option>
+{% endfor %}
+</select>

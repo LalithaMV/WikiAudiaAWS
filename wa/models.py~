@@ -17,7 +17,7 @@ class Language(models.Model):
     langName = models.CharField(max_length = 30)
 
 class Book(models.Model):
-    bookId = models.PositiveIntegerField(default = 0) #do not use bookId 0 while assigning 
+    #bookId = models.PositiveIntegerField(default = 0) #do not use bookId 0 while assigning 
     lang = models.ForeignKey(Language)
     author = models.CharField(max_length=200)
     bookName = models.CharField(max_length=200)
@@ -31,11 +31,11 @@ class Book(models.Model):
 class Paragraph(models.Model):
     book = models.ForeignKey(Book)
     paraId = models.PositiveIntegerField(default = 0)
-    audioAssignedTo = models.ForeignKey(User, related_name = 'assignedTo')
-    audioReadBy = models.ForeignKey(User, related_name = 'readBy')
+    audioAssignedTo = models.ForeignKey(User, related_name = 'audioAssignedTo')
+    audioReadBy = models.ForeignKey(User, related_name = 'audioReadBy')
     isRecording = models.BooleanField(default = False)
-    digiAssignedTo = models.ForeignKey(User)
-    digiBy = models.ForeignKey(User)
+    digiAssignedTo = models.ForeignKey(User, related_name = 'digiAssignedTo')
+    digiBy = models.ForeignKey(User, related_name = 'digiBy')
     isDigitizing = models.BooleanField(default = False)
     isChapter = models.BooleanField(default = False)
     validAudioVersionNumber = models.PositiveIntegerField()

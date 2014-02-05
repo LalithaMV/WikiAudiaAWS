@@ -15,22 +15,26 @@ class User(models.Model):
 class Language(models.Model):
     #langId = models.IntegerField()
     langName = models.CharField(max_length = 30)
+    def __unicode__(self):
+        return self.langName
 
 class Book(models.Model):
-    bookId = models.PositiveIntegerField(default = 0) #do not use bookId 0 while assigning 
+    #bookId = models.PositiveIntegerField(default = 0) #do not use bookId 0 while assigning 
     lang = models.ForeignKey(Language)
     author = models.CharField(max_length=200)
     bookName = models.CharField(max_length=200)
-    imageOfBook = models.CharField(max_length=254)
-    percentageCompleteAudio = models.FloatField()
-    percentageCompleteDigi = models.FloatField()
-    percentageAudioInvalid = models.FloatField()
+    #imageOfBook = models.CharField(max_length=254)
+    percentageCompleteAudio = models.FloatField(default = 0)
+    percentageCompleteDigi = models.FloatField(default = 0)
+    percentageAudioInvalid = models.FloatField(default = 0)
     dBookDownloads = models.PositiveIntegerField(default = 0)
     aBookDownloads = models.PositiveIntegerField(default = 0)
+    def __unicode__(self):
+        return self.author + ',' + self.bookName + ',' + self.lang.langName
 
 class Paragraph(models.Model):
     book = models.ForeignKey(Book)
-    paraId = models.PositiveIntegerField(default = 0)
+    #paraId = models.PositiveIntegerField(default = 0)
     audioAssignedTo = models.ForeignKey(User, related_name = 'audioAssignedTo')
     audioReadBy = models.ForeignKey(User, related_name = 'audioReadBy')
     isRecording = models.BooleanField(default = False)
