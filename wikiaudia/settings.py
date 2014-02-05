@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import djcelery
+djcelery.setup_loader()
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -38,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'wa',
     'south',
+    'djcelery'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -59,11 +62,11 @@ WSGI_APPLICATION = 'wikiaudia.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+    'ENGINE': 'django.db.backends.mysql',
         'NAME': 'wikiaudia',
 	'USER': 'jo',
 	'PASSWORD': 'mineSweeper15',
-	'PORT': '3360',
+	'PORT': '3306',
     }
 }
 
@@ -85,3 +88,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+#celery settings
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
