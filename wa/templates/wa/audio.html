@@ -1,14 +1,12 @@
 <h2>Hello</h2>
-<script type="text/javascript" >
-function displayBooks()
-{
-	// make ajax requests to get images of books with selected language
-	
-}
-</script>
+{% load staticfiles %}
+<script src="{% static "wa/js/jquery.js" %}"></script>
+<script src="{% static "wa/js/audio.js" %}"></script>
 <label>Language :</label>
-<select id = 'language' onchange = 'displayBooks()'>
+<select id = 'language' onfocus="this.oldvalue = this.value;" >
 {% for lang in langs %}
         <option value = "{{lang.langName}}">{{lang.langName}}</option>
 {% endfor %}
 </select>
+<div id = 'dispBooks'>
+</div>
