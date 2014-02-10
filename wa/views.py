@@ -10,6 +10,7 @@ from django.core.context_processors import csrf
 from django.contrib.auth.forms import UserCreationForm
 from forms import CustomUserCreationForm
 from django.shortcuts import render
+from fpdf import FPDF
 
 from wa.tasks import soundProcessingWithAuphonicTask
 from django.core.urlresolvers import reverse
@@ -104,11 +105,11 @@ def audioUpload(request):
 
 def uploadDigi(request):
 	if request.POST.has_key('unicode_data'):
-		file = open("DigiFiles/one.txt", "w")
+		file = open("DigiFiles/KannadaInput.txt", "w")
 		file.write((request.POST['unicode_data']).encode('utf8'))
 		file.close()
 		#concatenateDigi(request)
-		#txt2pdf1(request)
+		pdfGen(request)
 		x = request.POST['unicode_data']
 		return HttpResponse(x)
 	
@@ -123,17 +124,25 @@ def ajax(request):
 		return render_to_response('WikiApp/AudioDigi/trial.html', context_instance=RequestContext(request))		
 		
 def concatenateDigi(request):
-	
-	'''filenames = ['DigiFiles/one.txt', 'DigiFiles/two.txt','DigiFiles/three.txt']
-	with open('DigiFiles/final.txt', 'w') as outfile:
-		for fname in filenames:
-			with open(fname) as infile:
-				for line in infile:
-					outfile.write(line)'''
-					
 	filenames = ['DigiFiles/one.txt','DigiFiles/two.txt']
 	with open('DigiFiles/final.txt', 'w') as fout:
 		for line in fileinput.input(filenames):
 			fout.write(line)
+def pdfGen(request):
+	pdf = FPDF()
+	pdf.add_page()
+	#pdf.add_font('gargi', '', 'gargi.ttf', uni=True) 
+	#pdf.set_font('gargi', '', 14)
+	#pdf.write(8, u'Hindi: एक अमरीकि')
+	pdf.add_font('Kedage-b', '', 'Kedage-b.ttf', uni=True) 
+	pdf.set_font('Kedage-b', '', 14)
+	#pdf.add_font('TSCu_SaiIndira', '', 'TSCu_SaiIndira.ttf', uni=True) 
+	#pdf.set_font('TSCu_SaiIndira', '', 14)
+	linestring = open('DigiFiles/KannadaInput.txt', 'r').read()
+	pdf.write(8,linestring)
+	pdf.ln(20)
+	pdf.output("DigiFiles/KannadaOutput.pdf", 'F')
+			
+			
 
 	
