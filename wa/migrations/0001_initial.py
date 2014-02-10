@@ -31,14 +31,12 @@ class Migration(SchemaMigration):
         # Adding model 'Book'
         db.create_table(u'wa_book', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('bookId', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('lang', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wa.Language'])),
             ('author', self.gf('django.db.models.fields.CharField')(max_length=200)),
             ('bookName', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('imageOfBook', self.gf('django.db.models.fields.CharField')(max_length=254)),
-            ('percentageCompleteAudio', self.gf('django.db.models.fields.FloatField')()),
-            ('percentageCompleteDigi', self.gf('django.db.models.fields.FloatField')()),
-            ('percentageAudioInvalid', self.gf('django.db.models.fields.FloatField')()),
+            ('percentageCompleteAudio', self.gf('django.db.models.fields.FloatField')(default=0)),
+            ('percentageCompleteDigi', self.gf('django.db.models.fields.FloatField')(default=0)),
+            ('percentageAudioInvalid', self.gf('django.db.models.fields.FloatField')(default=0)),
             ('dBookDownloads', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('aBookDownloads', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
         ))
@@ -48,7 +46,6 @@ class Migration(SchemaMigration):
         db.create_table(u'wa_paragraph', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('book', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wa.Book'])),
-            ('paraId', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('audioAssignedTo', self.gf('django.db.models.fields.related.ForeignKey')(related_name='audioAssignedTo', to=orm['wa.User'])),
             ('audioReadBy', self.gf('django.db.models.fields.related.ForeignKey')(related_name='audioReadBy', to=orm['wa.User'])),
             ('isRecording', self.gf('django.db.models.fields.BooleanField')(default=False)),
@@ -76,6 +73,13 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'wa', ['UserHistory'])
 
+        # Adding model 'Document'
+        db.create_table(u'wa_document', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('docfile', self.gf('django.db.models.fields.files.FileField')(max_length=100)),
+        ))
+        db.send_create_signal(u'wa', ['Document'])
+
 
     def backwards(self, orm):
         # Deleting model 'User'
@@ -93,21 +97,27 @@ class Migration(SchemaMigration):
         # Deleting model 'UserHistory'
         db.delete_table(u'wa_userhistory')
 
+        # Deleting model 'Document'
+        db.delete_table(u'wa_document')
+
 
     models = {
         u'wa.book': {
             'Meta': {'object_name': 'Book'},
             'aBookDownloads': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             'author': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
-            'bookId': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             'bookName': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'dBookDownloads': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'imageOfBook': ('django.db.models.fields.CharField', [], {'max_length': '254'}),
             'lang': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['wa.Language']"}),
-            'percentageAudioInvalid': ('django.db.models.fields.FloatField', [], {}),
-            'percentageCompleteAudio': ('django.db.models.fields.FloatField', [], {}),
-            'percentageCompleteDigi': ('django.db.models.fields.FloatField', [], {})
+            'percentageAudioInvalid': ('django.db.models.fields.FloatField', [], {'default': '0'}),
+            'percentageCompleteAudio': ('django.db.models.fields.FloatField', [], {'default': '0'}),
+            'percentageCompleteDigi': ('django.db.models.fields.FloatField', [], {'default': '0'})
+        },
+        u'wa.document': {
+            'Meta': {'object_name': 'Document'},
+            'docfile': ('django.db.models.fields.files.FileField', [], {'max_length': '100'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
         },
         u'wa.language': {
             'Meta': {'object_name': 'Language'},
@@ -126,7 +136,6 @@ class Migration(SchemaMigration):
             'isChapter': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'isDigitizing': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'isRecording': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'paraId': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             'status': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
             'upVotes': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             'validAudioVersionNumber': ('django.db.models.fields.PositiveIntegerField', [], {})

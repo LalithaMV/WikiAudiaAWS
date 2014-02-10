@@ -17,7 +17,7 @@ function addBooksToPage(data)
 {
 	//alert(this.oldvalue);
 	dispDiv = document.getElementById('dispBooks');
-	/*var allLinks = $('a[id^="waLink_"]')
+	var allLinks = $('a[id^="waLink_"]')
 	alert("length" + allLinks.length);
 	for (var aLink in allLinks)
 	{
@@ -25,7 +25,7 @@ function addBooksToPage(data)
 		//alert(aLink.id);
 		if(($(aLink).parent('div#dispBooks').length) != 0)
 			dispDiv.removeChild(aLink);
-	} */
+	} 
 	var json = JSON.parse(data);
 	//alert(json[0].fields.lang);
 	//alert(dispDiv);

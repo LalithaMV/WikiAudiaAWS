@@ -1,0 +1,16 @@
+from django.conf.urls import patterns, url;
+from wa import views;
+
+urlpatterns = patterns('',
+<<<<<<< HEAD
+	url(r'audio/getimage/(?P<book_id>\d+)/', views.getImage, name = 'getImage'),
+	url(r'audio/(?P<book_id>\d+)/', views.audioUpload, name = 'audioUpload'),
+	url(r'audio/langBooks/', views.langBooks, name='langBooks'),
+    url(r'audio/', views.audioSelection, name='audioSelection'),                                                                                                                   
+    #url(r'^(?P<poll_id>\d+)/results/$', views.results, name='results'),
+=======
+    url(r'^$', views.audio, name='audio'),
+    url(r'^audioUpload/$', views.audioUpload, name='audioUpload'),
+    url(r'^uploadBook/$', views.uploadBook, name='uploadBook')
+>>>>>>> 08b0b73ec4b0d599b9e5be4f379e1fc9a899130e
+)

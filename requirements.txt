@@ -6,3 +6,6 @@ distribute==0.7.3
 django-separatedvaluesfield==0.1
 wsgiref==0.1.2
 yolk==0.4.3
+celery-with-redis
+django-celery
+requests

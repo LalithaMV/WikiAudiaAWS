@@ -7,7 +7,7 @@ from django.conf import settings
 import os
 from PIL import Image
 from django.core.urlresolvers import reverse
-from wa.models import User,Language,Book, Paragraph, UserHistory, Document# Create your views here.
+from wa.models import User,Language,Book, Paragraph, UserHistory# Create your views here.
 from wa.forms import DocumentForm
 from wa.tasks import soundProcessingWithAuphonicTask
 # Create your views here.

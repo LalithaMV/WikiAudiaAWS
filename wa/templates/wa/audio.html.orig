@@ -1,0 +1,16 @@
+<h2>Hello</h2>
+{% load staticfiles %}
+<script src="{% static "wa/js/jquery.js" %}"></script>
+<script src="{% static "wa/js/audio.js" %}"></script>
+<label>Language :</label>
+<select id = 'language' onfocus="this.oldvalue = this.value;" >
+{% for lang in langs %}
+        <option value = "{{lang.langName}}">{{lang.langName}}</option>
+{% endfor %}
+</select>
+<<<<<<< HEAD
+<div id = 'dispBooks'>
+</div>
+=======
+<a href="/wikiaudia/audioUpload">Upload audio</a>
+>>>>>>> 08b0b73ec4b0d599b9e5be4f379e1fc9a899130e

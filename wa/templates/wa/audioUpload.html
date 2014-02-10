@@ -1,0 +1,17 @@
+<script src="http://cwilso.github.io/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js"></script>
+<script src="/static/wa/js/recorderjs/recorder.js"></script>
+<script src="/static/wa/js/index.js"></script>
+<button onclick="toggleRecording(this)">Record</button>
+<button onclick="saveAudio()">Done</button>
+
+		<!-- Upload form. Note enctype attribute! -->
+		<form action="{% url "audioSelection" %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<p>{{ form.non_field_errors }}</p>
+			<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+			<p>
+				{{ form.docfile.errors }}
+				{{ form.docfile }}
+			</p>
+			<p><input type="submit" value="Upload" /></p>
+		</form>
