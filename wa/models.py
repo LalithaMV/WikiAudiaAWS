@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.models import BaseUserManager
+
 # Create your models here.
 # Have used camel case for all var names
 class CustomUserManager(BaseUserManager):
@@ -56,10 +57,14 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
     languages_known=models.CharField(max_length=50)
     
+    phoneNo = models.PositiveIntegerField(default = 0)
+    loginTimes = models.IntegerField(default=0)
+    points = models.IntegerField(default=0)
+    
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['languages_known','first_name']
+    REQUIRED_FIELDS = ['languages_known','first_name','phoneNo','loginTimes','points']
 
     class Meta:
         verbose_name = _('user')

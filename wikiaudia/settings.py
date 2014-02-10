@@ -63,9 +63,9 @@ WSGI_APPLICATION = 'wikiaudia.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'abc',
-	'USER': 'xyz',
-	'PASSWORD': 'keepsmiling',
+        'NAME': 'wikiaudia',
+	'USER': 'jo',
+	'PASSWORD': 'mineSweeper15',
 	'PORT': '3306',
     }
 }

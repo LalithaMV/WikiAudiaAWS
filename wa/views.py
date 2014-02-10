@@ -44,7 +44,7 @@ def auth_view(request):
 		return HttpResponseRedirect('/wa')
 #Have not done auth.logout(request)	
 def home(request):
-	return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known})
+	return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
 	#return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
 
 def register_user(request):
@@ -101,3 +101,39 @@ def audioUpload(request):
        
         context_instance=RequestContext(request)
     )
+
+def uploadDigi(request):
+	if request.POST.has_key('unicode_data'):
+		file = open("DigiFiles/one.txt", "w")
+		file.write((request.POST['unicode_data']).encode('utf8'))
+		file.close()
+		#concatenateDigi(request)
+		#txt2pdf1(request)
+		x = request.POST['unicode_data']
+		return HttpResponse(x)
+	
+def ajax(request):
+	if request.POST.has_key('client_response'):
+		x = request.POST['client_response']                 
+		#y = socket.gethostbyname(x)                          
+		response_dict = {}                                         
+		#response_dict.update({'server_response': y })                                                                  
+		return HttpResponse('Success')
+	else:
+		return render_to_response('WikiApp/AudioDigi/trial.html', context_instance=RequestContext(request))		
+		
+def concatenateDigi(request):
+	
+	'''filenames = ['DigiFiles/one.txt', 'DigiFiles/two.txt','DigiFiles/three.txt']
+	with open('DigiFiles/final.txt', 'w') as outfile:
+		for fname in filenames:
+			with open(fname) as infile:
+				for line in infile:
+					outfile.write(line)'''
+					
+	filenames = ['DigiFiles/one.txt','DigiFiles/two.txt']
+	with open('DigiFiles/final.txt', 'w') as fout:
+		for line in fileinput.input(filenames):
+			fout.write(line)
+
+	
