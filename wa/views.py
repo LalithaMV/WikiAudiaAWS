@@ -66,19 +66,24 @@ def register_user(request):
 	})
 def register_success(request):
 	return render_to_response('wa/session/register_success.html')
-	
-def digitize(request):
-	return render_to_response('wa/AudioDigi/Digitize.html')
+
+def digiSelection(request):
+	#return render_to_response('wa/AudioDigi/Digitize.html')
+	request.session['action'] = "digitize";
+	langs = Language.objects.all()
+	context = RequestContext(request, {'langs': langs, } )
+	return render(request, 'wa/chooseLanguage.html', context)
 
 def audioSelection(request):
     #languages = Language.objects.all()
 	#context = {'all_languages' : all_languages}
     #return render(request, 'wa/audio.html', context)
     #return HttpResponse("You're looking at the results of poll ")
+    request.session['action'] = "record";
     langs = Language.objects.all()
     #context = {'langs': langs}
     context = RequestContext(request, {'langs': langs, } )
-    return render(request, 'wa/audio.html', context)
+    return render(request, 'wa/chooseLanguage.html', context)
 
 def getImage(request, book_id):
 	response = HttpResponse(mimetype = "image/jpg");
@@ -90,6 +95,9 @@ def getImage(request, book_id):
 		image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + "default/" + "frontcover.jpg")
 	image.save(response, 'png');
 	return response; 
+
+def digitize(request, book_id):
+	return render_to_response('wa/AudioDigi/Digitize.html')
 
 def audioUpload(request, book_id):
     #print("book_id")
@@ -125,6 +133,12 @@ def audioUpload(request, book_id):
        
         context_instance=RequestContext(request)
     )
+def chooseAction(request, book_id):
+	if(request.session['action'] == "digitize"):
+		resp = digitize(request, book_id)
+	elif(request.session['action'] == "record"):
+		resp = audioUpload(request, book_id)
+	return resp;
 
 def langBooks(request):
 	#print(os.path.dirname(settings.BASE_DIR))
