@@ -40,7 +40,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'wa',
     'south',
-    'djcelery'
+    'djcelery',
+    'storages'
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,7 +68,13 @@ DATABASES = {
         'NAME': 'wikiaudia',
 	'USER': 'jo',
 	'PASSWORD': 'mineSweeper15',
-	'PORT': '3306',
+	'PORT': 3306,
+    },
+    'fileMongo': {
+        'NAME': 'file_storage_data',
+        'ENGINE': 'django_mongodb_engine',
+        'HOST':'localhost',
+        'PORT':27017
     }
 }
 
@@ -92,3 +100,5 @@ STATIC_URL = '/static/'
 BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
+DEFAULT_FILE_STORAGE='storages.backends.mongodb.GridFSStorage'
+GRIDFS_DATABASE = 'fileMongo'

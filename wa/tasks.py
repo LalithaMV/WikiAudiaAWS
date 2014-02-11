@@ -3,6 +3,9 @@ import sys
 import getpass
 import time
 import requests
+import re
+from wand.image import Image
+import gridfs
 from requests.auth import HTTPBasicAuth
 API_URL = "https://auphonic.com/api/simple/productions.json"
 API_DETAILS_URL = "https://auphonic.com/api/production/%s.json"
@@ -41,4 +44,17 @@ def soundProcessingWithAuphonicTask(f):
 	#use this URL to download back into the server 
 	print download_url		
 	return 0
+
+@app.task(name='wa.tasks.uploadSplitBookIntoGridFS')
+def uploadSplitBookIntoGridFS(f):
+	rxcountpages = re.compile(r"$\s*/Type\s*/Page[/\s]", re.MULTILINE|re.DOTALL)
+	data = file(filename,"rb").read()
+    no_pages = len(rxcountpages.findall(data))
+    file_for = filename+"[%d]"
+    for i in range(0,2):
+	   	filen = file_for%i
+		with Image(filename=filen) as img:
+     	    img.save(filename=("temp[%d].jpg"%i))
+
+
     
