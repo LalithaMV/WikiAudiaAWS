@@ -8,7 +8,7 @@ from django.conf import settings
 import os
 from PIL import Image
 from django.core.urlresolvers import reverse
-from wa.models import User,Language,Book, Paragraph, UserHistory, Document# Create your views here.
+from wa.models import Language,Book, Paragraph, UserHistory, Document# Create your views here.
 from wa.forms import DocumentForm
 from django.http import HttpResponseRedirect
 from django.contrib import auth

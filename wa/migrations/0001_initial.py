@@ -174,7 +174,10 @@ class Migration(SchemaMigration):
             'languages_known': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
             'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
+            'loginTimes': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
+            'phoneNo': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
+            'points': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'related_name': "u'user_set'", 'blank': 'True', 'to': u"orm['auth.Permission']"})
         },
         u'wa.document': {
