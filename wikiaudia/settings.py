@@ -109,6 +109,6 @@ STATIC_URL = '/static/'
 BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
-#DEFAULT_FILE_STORAGE='storages.backends.mongodb.GridFSStorage'
+DEFAULT_FILE_STORAGE='storages.backends.mongodb.GridFSStorage'
 
-#GRIDFS_DATABASE = 'fileMongo'
+GRIDFS_DATABASE = 'fileMongo'

@@ -22,4 +22,5 @@ urlpatterns = patterns('',
 	url(r'^uploadDigi/$', views.uploadDigi, name='uploadDigi'),
 	url(r'^ajaxexample_json/$', views.ajax, name='ajax'),
 	url(r'^concatenate_digi/$', views.concatenateDigi, name='concatenateDigi'),
+	url(r'^uploadBook/$', views.uploadBook, name='uploadBook'),
 )

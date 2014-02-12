@@ -17,8 +17,9 @@ from django.contrib.auth.forms import UserCreationForm
 from forms import CustomUserCreationForm
 from django.shortcuts import render
 from fpdf import FPDF
-from wa.tasks import soundProcessingWithAuphonicTask
+from wa.tasks import soundProcessingWithAuphonicTask,uploadSplitBookIntoGridFS
 from django.core.urlresolvers import reverse
+import splitBook
 # Create your views here.
 
 def error_processor(request):
@@ -118,7 +119,7 @@ def audioUpload(request, book_id):
             newdoc = Document(docfile = request.FILES['docfile'])
             newdoc.docfile.save('Ashu.wav',request.FILES['docfile'])
             #soundProcessWithAuphonic('documents/Ashu.wav')
-            soundProcessingWithAuphonicTask.delay('../documents/ashu.mp3')
+            #soundProcessingWithAuphonicTask.delay('../documents/ashu.mp3')
             return HttpResponseRedirect(reverse('wa.views.audioSelection'))
     else:
         form = DocumentForm() # A empty, unbound form
@@ -139,13 +140,19 @@ def chooseAction(request, book_id):
 	elif(request.session['action'] == "record"):
 		resp = audioUpload(request, book_id)
 	return resp;
-
+'''
+upload the recorded audio file to the server 
+'''
 def audioUploadForm(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             newdoc = Document(docfile = request.FILES['docfile'])
-            newdoc.docfile.save('Ashu.wav',request.FILES['docfile'])
+            newdoc.save()
+            
+            #The Above call is just temoraray 
+            #Use this if the name of the file is to be changed and saved with a path
+            #newdoc.docfile.save('Ashu.wav',request.FILES['docfile'])
             #soundProcessWithAuphonic('documents/Ashu.wav')
             soundProcessingWithAuphonicTask.delay('../documents/ashu.mp3')
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
@@ -184,9 +191,9 @@ def uploadBook(request):
         if form.is_valid():
             newdoc = Document(docfile = request.FILES['docfile'])
             newdoc.save()
-
+            #uploadSplitBookIntoGridFS.delay('documents/2014/02/12/passport1.pdf',splitBook.splitBookIntoPages)
             # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('wa.views.audio'))
+            return HttpResponseRedirect(reverse('wa.views.audioSelection'))
     else:
         form = DocumentForm() # A empty, unbound form
 
