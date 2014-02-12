@@ -3,7 +3,9 @@ import sys
 import getpass
 import time
 import requests
+from splitBook import splitBookIntoPages
 from requests.auth import HTTPBasicAuth
+
 API_URL = "https://auphonic.com/api/simple/productions.json"
 API_DETAILS_URL = "https://auphonic.com/api/production/%s.json"
 
@@ -41,4 +43,9 @@ def soundProcessingWithAuphonicTask(f):
 	#use this URL to download back into the server 
 	print download_url		
 	return 0
+
+@app.task(name='wa.tasks.uploadSplitBookIntoGridFS')
+def uploadSplitBookIntoGridFS(f):
+	splitBookIntoPages(f)
+
     
