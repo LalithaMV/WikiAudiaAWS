@@ -58,6 +58,15 @@ ROOT_URLCONF = 'wikiaudia.urls'
 
 WSGI_APPLICATION = 'wikiaudia.wsgi.application'
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -94,11 +103,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+AUTH_USER_MODEL = 'wa.CustomUser'
 STATIC_URL = '/static/'
 #celery settings
 BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
-DEFAULT_FILE_STORAGE='storages.backends.mongodb.GridFSStorage'
-GRIDFS_DATABASE = 'fileMongo'
+#DEFAULT_FILE_STORAGE='storages.backends.mongodb.GridFSStorage'
+
+#GRIDFS_DATABASE = 'fileMongo'

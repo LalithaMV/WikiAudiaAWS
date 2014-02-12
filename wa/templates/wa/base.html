@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}WikiAudia{% endblock %}</title>
+	
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static "wa/css/base.css" %}" type="text/css">
+	
+</head>
+
+<body>
+	
+    <div id="title">
+        {% block head %}
+			<h1>WikiAudia</h1>
+			<a href="">Contribute</a>
+			<a href="">About Us</a>
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}
+		{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "wa/session/base_session.html" %}
+
+{% block content %}
+<ul>
+<li>Record and Upload Audio</li>
+<li>Digitize the books</li>
+<li>Validate others clips</li>
+<li>Upload a book of your choice</li>
+</ul>
+<br></br>
+<h3>Login here</h3>
+{% if form.errors %}
+	<p class="error">Its a invalid user name or pwd !</p>
+{%  endif %}
+
+	<form action="/wa/auth/" method="post" >{% csrf_token %}
+		<label for="username">User Name :</label>
+        <input type="text" name="username" id="username" value="" />
+		<label for="password">Password :</label>
+        <input type="password" name="password" id="password" value="" />
+		</br></br>
+		<input type="submit" value="login" />
+	</form>
+<div id="Wrong Credentials">{{ msg }}</div>
+<h3>Are you yet to register ?</h3>
+<a href="/wa/register">Register Here</a>
+{% endblock %}
+

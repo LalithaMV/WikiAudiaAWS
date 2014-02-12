@@ -44,7 +44,7 @@ def soundProcessingWithAuphonicTask(f):
 	#use this URL to download back into the server 
 	print download_url		
 	return 0
-
+'''
 @app.task(name='wa.tasks.uploadSplitBookIntoGridFS')
 def uploadSplitBookIntoGridFS(f):
 	rxcountpages = re.compile(r"$\s*/Type\s*/Page[/\s]", re.MULTILINE|re.DOTALL)
@@ -55,6 +55,6 @@ def uploadSplitBookIntoGridFS(f):
 	   	filen = file_for%i
 		with Image(filename=filen) as img:
      	    img.save(filename=("temp[%d].jpg"%i))
-
+'''
 
     
