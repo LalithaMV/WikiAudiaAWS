@@ -133,6 +133,12 @@ def audioUpload(request, book_id):
        
         context_instance=RequestContext(request)
     )
+def chooseAction(request, book_id):
+	if(request.session['action'] == "digitize"):
+		resp = digitize(request, book_id)
+	elif(request.session['action'] == "record"):
+		resp = audioUpload(request, book_id)
+	return resp;
 
 def audioUploadForm(request):
     if request.method == 'POST':
