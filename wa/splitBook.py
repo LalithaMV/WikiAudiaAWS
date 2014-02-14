@@ -31,6 +31,7 @@ def splitBookIntoPages(f_arg):
 				myfile = File(f)
 				default_storage.save("temp[%d].jpg"%i,myfile)
 				os.remove("temp[%d].jpg"%i)
+				#close file
 
 
 	'''
