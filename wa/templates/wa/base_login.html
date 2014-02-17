@@ -30,9 +30,10 @@
             <div class="dropdown-wrap">
 		    			<ul class="dropdown clearfix">
 		    				<li class="myWebsiteLogo menu-level-0"><span>WikiAudia</span></li>
+		    				<li class="menu-level-0"><a href="#"><span>My Profile</span></a></li>
 		    				<li class="menu-level-0"><a href="#"><span>Contribute</span></a></li>
 		    				<li class="menu-level-0"><a href="#"><span>About Us</span></a></li>
-		    				<li class="menu-level-0" id="Logout"></li>
+		    				<li class="menu-level-0"><a href="/wa/logout"><span>Logout</span></a></li>
 		    			</ul>
 		    		</div>
             </div>
@@ -40,22 +41,13 @@
     <div class="container">
 	    <!-- content -->
     	<div class="content " role="main">
-		    <!--<div class="row">
-		        <div class="col-sm-8">
-		    		<div class="dropdown-wrap">
-		    			<ul class="dropdown clearfix">
-		    				<li class="menu-level-0"><a href="#"><span>Contribute</span></a></li>
-		    				<li class="menu-level-0"><a href="#"><span>About Us</span></a></li>
-		    			</ul>
-		    		</div>
-		    	</div>
-		    </div>	-->	    
-		</div>
-	</div>
-
-    <div id="content">
+		    <div id="content">
         {% block content %}
 		{% endblock %}
     </div>
+		</div>
+	</div>
+
+    
 </body>
 </html>

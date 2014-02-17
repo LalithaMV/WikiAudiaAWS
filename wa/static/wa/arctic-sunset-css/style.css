@@ -1049,6 +1049,7 @@ label, input, button, select, textarea {
 
 input[type="text"],
 input[type="password"],
+input[type="email"],
 textarea,
 .select_styled{
 	border:none;
@@ -1074,7 +1075,8 @@ textarea,
 textarea {padding:10px 16px;}
 
 input[type="text"],
-input[type="password"]{
+input[type="password"],
+input[type="email"]{
 	width:100%;
 	height:36px;
 	margin: 0;
@@ -1086,7 +1088,8 @@ input[type="password"]{
 }
 textarea:focus,
 input[type="text"]:focus,
-input[type="password"]:focus{
+input[type="password"]:focus
+input[type="email"]:focus,{
 	border-color: #B2B2B2;
 	box-shadow: none;
 }
@@ -2112,3 +2115,11 @@ input[type="password"]:focus{
 .badges .badge{margin-right: -12px;}
 .ribbons{background: url(images/ribbons-shadow.png) 4px 0 no-repeat; padding-top: 45px; height: 250px;}
 .ribbons .ribbon{margin-bottom: 4px; display: block;}
+
+.myWebsiteLogo{
+	font-family: 'Gilda Display', serif;
+	font-size: 30px;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	padding-right: 9px;
+}
