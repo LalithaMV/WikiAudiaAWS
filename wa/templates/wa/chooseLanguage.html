@@ -1,3 +1,7 @@
+{% extends "wa/base_login.html" %}
+
+{% block content %}
+
 <h2>Hello</h2>
 {% load staticfiles %}
 <script src="{% static "wa/js/jquery.js" %}"></script>
@@ -10,3 +14,5 @@
 </select>
 <div id = 'dispBooks'>
 </div>
+
+{% endblock %}
