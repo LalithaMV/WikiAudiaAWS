@@ -3,11 +3,18 @@
 <script src="{% static "wa/js/jquery.js" %}"></script>
 <script src="{% static "wa/js/audio.js" %}"></script>
 <label>Language :</label>
-<select id = 'language' onchange = 'displayBooks()'>
-	<option value = "default">--Choose a Language--</option>
+<select id = 'language' onfocus="this.oldvalue = this.value;" >
 {% for lang in langs %}
         <option value = "{{lang.langName}}">{{lang.langName}}</option>
 {% endfor %}
 </select>
+<<<<<<< HEAD
 <div id = 'dispBooks'>
 </div>
+=======
+<a href="/wa/audioUpload">Upload audio</a>
+<<<<<<< HEAD
+>>>>>>> 7f58a1a2316c5080bc1194dc42178074e24bf489
+=======
+>>>>>>> a79ac10a670fc3b0897133aca70fcaf3230c0c52
+>>>>>>> LalithaMV-master

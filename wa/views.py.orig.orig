@@ -8,8 +8,10 @@ from django.conf import settings
 import os
 from PIL import Image
 from django.core.urlresolvers import reverse
-from wa.models import Language,Book, Paragraph, UserHistory, Document# Create your views here.
+from wa.models import User,Language,Book, Paragraph, UserHistory, Document# Create your views here.
 from wa.forms import DocumentForm
+<<<<<<< HEAD
+=======
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.context_processors import csrf
@@ -17,10 +19,18 @@ from django.contrib.auth.forms import UserCreationForm
 from forms import CustomUserCreationForm
 from django.shortcuts import render
 from fpdf import FPDF
+
+<<<<<<< HEAD
+>>>>>>> 7f58a1a2316c5080bc1194dc42178074e24bf489
+=======
+>>>>>>> a79ac10a670fc3b0897133aca70fcaf3230c0c52
+>>>>>>> LalithaMV-master
 from wa.tasks import soundProcessingWithAuphonicTask
-from django.core.urlresolvers import reverse
 # Create your views here.
 
+<<<<<<< HEAD
+def audioSelection(request):
+=======
 def error_processor(request):
 	if 'error' in request.session:
 		return {'msg': request.session['error']}
@@ -69,8 +79,12 @@ def register_success(request):
 	
 def digitize(request):
 	return render_to_response('wa/AudioDigi/Digitize.html')
-
-def audioSelection(request):
+def audio(request):
+<<<<<<< HEAD
+>>>>>>> 7f58a1a2316c5080bc1194dc42178074e24bf489
+=======
+>>>>>>> a79ac10a670fc3b0897133aca70fcaf3230c0c52
+>>>>>>> LalithaMV-master
     #languages = Language.objects.all()
 	#context = {'all_languages' : all_languages}
     #return render(request, 'wa/audio.html', context)
@@ -126,6 +140,7 @@ def audioUpload(request, book_id):
         context_instance=RequestContext(request)
     )
 
+<<<<<<< HEAD
 def langBooks(request):
 	#print(os.path.dirname(settings.BASE_DIR))
 	#outside = os.path.dirname(settings.BASE_DIR)
@@ -164,7 +179,7 @@ def uploadBook(request):
         {'form': form},
         context_instance=RequestContext(request)
     )
-
+=======
 def uploadDigi(request):
 	if request.POST.has_key('unicode_data'):
 		file = open("DigiFiles/KannadaInput.txt", "w")
@@ -208,3 +223,8 @@ def pdfGen(request):
 			
 
 	
+<<<<<<< HEAD
+>>>>>>> 7f58a1a2316c5080bc1194dc42178074e24bf489
+=======
+>>>>>>> a79ac10a670fc3b0897133aca70fcaf3230c0c52
+>>>>>>> LalithaMV-master

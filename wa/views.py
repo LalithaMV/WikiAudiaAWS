@@ -6,7 +6,7 @@ import json
 from django.core import serializers
 from django.conf import settings
 import os
-#from PIL import Image
+from PIL import Image
 from django.core.urlresolvers import reverse
 from wa.models import Language,Book, Paragraph, UserHistory, Document# Create your views here.
 from wa.forms import DocumentForm
@@ -19,6 +19,11 @@ from django.shortcuts import render
 from fpdf import FPDF
 from wa.tasks import soundProcessingWithAuphonicTask,uploadSplitBookIntoGridFS
 from django.core.urlresolvers import reverse
+import logging
+from django.core.files.storage import default_storage
+from django.core.files.storage import FileSystemStorage
+from django.core.files import File
+#from wa.splitBook import splitBookIntoPages
 # Create your views here.
 
 def error_processor(request):
@@ -75,6 +80,8 @@ def digiSelection(request):
     return render(request, 'wa/chooseLanguage.html', context)
 
 def audioSelection(request):
+    log = logging.getLogger("wa")
+    log.info("in audio Selection")
     #languages = Language.objects.all()
     #context = {'all_languages' : all_languages}
     #return render(request, 'wa/audio.html', context)
@@ -87,17 +94,17 @@ def audioSelection(request):
 
 def getImage(request, book_id):
     response = HttpResponse(mimetype = "image/jpg");
-    #path = os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + book_id + "/" + "frontcover.jpg"
+    path = os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + book_id + "/" + "frontcover.jpg"
     #print(path);
-    #if(os.path.exists(path)):
-    #   image = Image.open(path)
-    #else:
-    #   image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + "default/" + "frontcover.jpg")
-    #image.save(response, 'png');
+    if(os.path.exists(path)):
+       image = Image.open(path)
+    else:
+       image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + "default/" + "frontcover.jpg")
+    image.save(response, 'png');
     return response; 
 
 def digitize(request, book_id):
-    return render_to_response('wa/AudioDigi/Digitize.html')
+    return render_to_response('wa/AudioDigi/Digitize.html', {'book_id': book_id})
 
 def audioUpload(request, book_id):
     #print("book_id")
@@ -129,7 +136,7 @@ def audioUpload(request, book_id):
     # Render list page with the documents and the form
     return render_to_response(
         'wa/audioUpload.html',
-        {'documents': documents, 'form': form},
+        {'documents': documents, 'form': form, 'book_id': book_id},
        
         context_instance=RequestContext(request)
     )
@@ -139,6 +146,24 @@ def chooseAction(request, book_id):
 	elif(request.session['action'] == "record"):
 		resp = audioUpload(request, book_id)
 	return resp;
+
+def getParagraph(request, book_id):
+    response = HttpResponse(mimetype = "image/jpg")
+    '''
+    image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + book_id + "/" + "frontcover.jpg")
+    image.save(response, 'png')
+    '''
+    b = Book.objects.get(pk = book_id)
+    para =  Paragraph.objects.filter(book = b, audioReadBy__isnull = True)[0]
+    #Should be server by nginx-gridfs
+    path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"
+    a = default_storage.open(path_to_save)
+    local_fs = FileSystemStorage(location='/tmp/pdf')
+    local_fs.save(a.name,a)
+    image = Image.open("/tmp/pdf/"+a.name)
+    image.save(response, 'png')
+    return response
+
 '''
 upload the recorded audio file to the server 
 '''
@@ -188,10 +213,28 @@ def uploadBook(request):
 
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
+            #add book to book table
+
+            b = Book(lang = Language.objects.get(langName = request.POST.get("language", "")), author = request.POST.get("author", ""), bookName = request.POST.get("bookName", ""))
+            b.save()
             newdoc = Document(docfile = request.FILES['docfile'])
-            newdoc.save()
-            #--TODOJO--Pass the right argument file to be split 
-            uploadSplitBookIntoGridFS.delay("documents/2014/02/12/try.pdf")
+            #newdoc.docfile.save(str(b.id) + "/original/originalBook.pdf", request.FILES['docfile'], save=False)
+            newdoc.docfile.save(str(b.id), request.FILES['docfile'], save=False)
+            a = default_storage.open("documents/"+str(b.id))
+            local_fs = FileSystemStorage(location='/tmp/pdf')
+            local_fs.save(a.name,a)
+            #b = default_storage.save(str(b.id) + "/original/originalBook.pdf",a)
+            log = logging.getLogger("wa")
+            log.info((a.name))
+            mod_path = "/tmp/pdf/"+a.name
+            f = open(mod_path, 'r')
+            myfile = File(f)
+            new_name =str(b.id) + "/original/originalBook.pdf"
+            default_storage.save(new_name,myfile)
+            os.remove(mod_path)
+            #--TODO--add it to user history
+            #splitBookIntoPages(str(b.id) + "/original/originalBook.pdf")
+            uploadSplitBookIntoGridFS.delay( str(b.id) + "/original/originalBook.pdf", b.id)
             # Redirect to the document list after POST
             return HttpResponseRedirect(reverse('wa.views.audioSelection'))
     else:

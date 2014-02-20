@@ -5,6 +5,16 @@ import time
 import requests
 from splitBook import splitBookIntoPages
 from requests.auth import HTTPBasicAuth
+from wa.models import Language, Book, Paragraph, UserHistory, Document
+from django.core.files.storage import default_storage
+from django.core.files.storage import FileSystemStorage
+from django.core.files import File
+from wand.image import Image
+#from wa.dbOps import addParagraph
+#from wa.models import Language,Book, Paragraph, UserHistory, Document
+#import wikiaudia.settings
+import re,os,sys
+import logging
 
 API_URL = "https://auphonic.com/api/simple/productions.json"
 API_DETAILS_URL = "https://auphonic.com/api/production/%s.json"
@@ -45,7 +55,5 @@ def soundProcessingWithAuphonicTask(f):
 	return 0
 
 @app.task(name='wa.tasks.uploadSplitBookIntoGridFS')
-def uploadSplitBookIntoGridFS(f):
-	splitBookIntoPages(f)
-
-    
+def uploadSplitBookIntoGridFS(f,bookID):
+	splitBookIntoPages(f,bookID)

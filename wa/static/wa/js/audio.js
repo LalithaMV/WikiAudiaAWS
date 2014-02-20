@@ -10,7 +10,8 @@ function init()
 function langChanged(event)
 {
 	//event.preventDefault();
-	$.get('/wa/audio/langBooks/', {language : langSel.val()}, addBooksToPage);
+	if(langSel.val() != "default")
+		$.get('/wa/audio/langBooks/', {language : langSel.val()}, addBooksToPage);
 }
 
 function addBooksToPage(data)
