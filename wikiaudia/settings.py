@@ -13,7 +13,7 @@ import os
 import djcelery
 djcelery.setup_loader()
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+#sys.path.append('/home/jo/wikiaudia/')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
