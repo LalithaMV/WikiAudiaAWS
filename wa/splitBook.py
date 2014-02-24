@@ -2,7 +2,7 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wand.image import Image
-#from wa.dbOps import addParagraph
+from wa.models import Book
 from wa.models import Language,Book, Paragraph, UserHistory, Document
 #import wikiaudia.settings
 import re,os,sys

@@ -236,6 +236,8 @@ def uploadBook(request):
             #splitBookIntoPages(str(b.id) + "/original/originalBook.pdf")
             uploadSplitBookIntoGridFS.delay( str(b.id) + "/original/originalBook.pdf", b.id)
             # Redirect to the document list after POST
+            #delete the file from default storage
+            default_storage.delete("documents/"+ str(b.id))
             return HttpResponseRedirect(reverse('wa.views.audioSelection'))
     else:
         form = DocumentForm() # A empty, unbound form

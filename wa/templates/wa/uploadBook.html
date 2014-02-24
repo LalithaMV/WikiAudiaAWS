@@ -1,4 +1,5 @@
  <form action="{% url "uploadBook" %}" method="post" enctype="multipart/form-data">
+ 	<label></label>
     {% csrf_token %}
     	<label>Book Name</label>
     	<input type="text" name="bookName"></input>

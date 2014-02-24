@@ -82,3 +82,23 @@
 [20/Feb/2014 12:04:02] INFO [wa:228] documents/16
 [20/Feb/2014 12:04:02] INFO [wa:20] 16/original/originalBook.pdf
 [20/Feb/2014 12:04:02] INFO [wa:84] in audio Selection
+[24/Feb/2014 13:33:48] INFO [wa:84] in audio Selection
+[24/Feb/2014 13:35:24] INFO [wa:84] in audio Selection
+[24/Feb/2014 13:36:33] INFO [wa:149] In checkForCompletion
+[24/Feb/2014 13:36:33] INFO [wa:228] documents/17
+[24/Feb/2014 13:36:33] INFO [wa:20] 17/original/originalBook.pdf
+[24/Feb/2014 13:36:33] INFO [wa:84] in audio Selection
+[24/Feb/2014 13:43:14] INFO [wa:149] In checkForCompletion
+[24/Feb/2014 13:44:19] INFO [wa:149] In checkForCompletion
+[24/Feb/2014 13:44:24] INFO [wa:149] In checkForCompletion
+[24/Feb/2014 13:46:32] INFO [wa:149] In checkForCompletion
+[24/Feb/2014 13:46:32] INFO [wa:228] documents/21
+[24/Feb/2014 13:46:32] INFO [wa:20] 21/original/originalBook.pdf
+[24/Feb/2014 14:01:45] INFO [wa:149] In checkForCompletion
+[24/Feb/2014 14:01:45] INFO [wa:228] documents/22
+[24/Feb/2014 14:01:45] INFO [wa:20] 22/original/originalBook.pdf
+[24/Feb/2014 14:01:45] INFO [wa:84] in audio Selection
+[24/Feb/2014 14:02:55] INFO [wa:149] In checkForCompletion
+[24/Feb/2014 14:02:56] INFO [wa:228] documents/23
+[24/Feb/2014 14:02:56] INFO [wa:20] 23/original/originalBook.pdf
+[24/Feb/2014 14:02:56] INFO [wa:84] in audio Selection
