@@ -63,6 +63,7 @@ class Migration(SchemaMigration):
             ('percentageAudioInvalid', self.gf('django.db.models.fields.FloatField')(default=0)),
             ('dBookDownloads', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('aBookDownloads', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
+            ('numberOfChunks', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
         ))
         db.send_create_signal(u'wa', ['Book'])
 
@@ -70,14 +71,14 @@ class Migration(SchemaMigration):
         db.create_table(u'wa_paragraph', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('book', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wa.Book'])),
-            ('audioAssignedTo', self.gf('django.db.models.fields.related.ForeignKey')(related_name='audioAssignedTo', to=orm['wa.CustomUser'])),
-            ('audioReadBy', self.gf('django.db.models.fields.related.ForeignKey')(related_name='audioReadBy', to=orm['wa.CustomUser'])),
+            ('audioAssignedTo', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='audioAssignedTo', null=True, blank=True, to=orm['wa.CustomUser'])),
+            ('audioReadBy', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='audioReadBy', null=True, blank=True, to=orm['wa.CustomUser'])),
             ('isRecording', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('digiAssignedTo', self.gf('django.db.models.fields.related.ForeignKey')(related_name='digiAssignedTo', to=orm['wa.CustomUser'])),
-            ('digiBy', self.gf('django.db.models.fields.related.ForeignKey')(related_name='digiBy', to=orm['wa.CustomUser'])),
+            ('digiAssignedTo', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='digiAssignedTo', null=True, blank=True, to=orm['wa.CustomUser'])),
+            ('digiBy', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='digiBy', null=True, blank=True, to=orm['wa.CustomUser'])),
             ('isDigitizing', self.gf('django.db.models.fields.BooleanField')(default=False)),
             ('isChapter', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('validAudioVersionNumber', self.gf('django.db.models.fields.PositiveIntegerField')()),
+            ('validAudioVersionNumber', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('upVotes', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('downVotes', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('status', self.gf('django.db.models.fields.CharField')(max_length=2)),
@@ -160,6 +161,7 @@ class Migration(SchemaMigration):
             'dBookDownloads': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'lang': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['wa.Language']"}),
+            'numberOfChunks': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             'percentageAudioInvalid': ('django.db.models.fields.FloatField', [], {'default': '0'}),
             'percentageCompleteAudio': ('django.db.models.fields.FloatField', [], {'default': '0'}),
             'percentageCompleteDigi': ('django.db.models.fields.FloatField', [], {'default': '0'})
@@ -195,11 +197,11 @@ class Migration(SchemaMigration):
         },
         u'wa.paragraph': {
             'Meta': {'object_name': 'Paragraph'},
-            'audioAssignedTo': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'audioAssignedTo'", 'to': u"orm['wa.CustomUser']"}),
-            'audioReadBy': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'audioReadBy'", 'to': u"orm['wa.CustomUser']"}),
+            'audioAssignedTo': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'related_name': "'audioAssignedTo'", 'null': 'True', 'blank': 'True', 'to': u"orm['wa.CustomUser']"}),
+            'audioReadBy': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'related_name': "'audioReadBy'", 'null': 'True', 'blank': 'True', 'to': u"orm['wa.CustomUser']"}),
             'book': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['wa.Book']"}),
-            'digiAssignedTo': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'digiAssignedTo'", 'to': u"orm['wa.CustomUser']"}),
-            'digiBy': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'digiBy'", 'to': u"orm['wa.CustomUser']"}),
+            'digiAssignedTo': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'related_name': "'digiAssignedTo'", 'null': 'True', 'blank': 'True', 'to': u"orm['wa.CustomUser']"}),
+            'digiBy': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'related_name': "'digiBy'", 'null': 'True', 'blank': 'True', 'to': u"orm['wa.CustomUser']"}),
             'downVotes': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'isChapter': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
@@ -207,7 +209,7 @@ class Migration(SchemaMigration):
             'isRecording': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'status': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
             'upVotes': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
-            'validAudioVersionNumber': ('django.db.models.fields.PositiveIntegerField', [], {})
+            'validAudioVersionNumber': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'})
         },
         u'wa.userhistory': {
             'Meta': {'object_name': 'UserHistory'},

@@ -1,15 +1,18 @@
-{% extends "wa/session/base_session.html" %}
+{% extends "wa/base_login.html" %}
 
 {% block content %}
 
+<<<<<<< HEAD
 <h3>Welcome {{full_name}} to this enchanting world of audio books! You have registered for {{languages_known}}<h3>
 <h2>You Have Earned currently {{points}} points.<h2>
-<a href="">Record</a>
-<a href="/wa/digitize">Digitize</a>
+<a href="/wa/audio">Record</a>
+<a href="/wa/digiSelection">Digitize</a>
 <a href="">Validate</a></br>
-<a href="/wa/audio">Upload</a>
+<a href="">Upload</a>
 <a href="">History</a>
 <a href="">Trending</a>
 </br> </br></br>
 <a href="/wa/logout">Logout</a>
+=======
+>>>>>>> a124d5b21b7a33cc3e63295d9823804f7f91aee2
 {% endblock %}

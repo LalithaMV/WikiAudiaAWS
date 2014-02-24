@@ -21,6 +21,12 @@ class Migration(SchemaMigration):
             ('is_active', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('date_joined', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
             ('languages_known', self.gf('django.db.models.fields.CharField')(max_length=50)),
+<<<<<<< HEAD
+=======
+            ('phoneNo', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
+            ('loginTimes', self.gf('django.db.models.fields.IntegerField')(default=0)),
+            ('points', self.gf('django.db.models.fields.IntegerField')(default=0)),
+>>>>>>> LalithaMV-master
         ))
         db.send_create_signal(u'wa', ['CustomUser'])
 
@@ -174,7 +180,14 @@ class Migration(SchemaMigration):
             'languages_known': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
             'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
+<<<<<<< HEAD
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
+=======
+            'loginTimes': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
+            'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
+            'phoneNo': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
+            'points': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
+>>>>>>> LalithaMV-master
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'related_name': "u'user_set'", 'blank': 'True', 'to': u"orm['auth.Permission']"})
         },
         u'wa.document': {

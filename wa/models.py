@@ -7,6 +7,9 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.models import BaseUserManager
+from django.db.models.signals import pre_save#, post_save, pre_delete, post_delete, request_started, request_finished
+from django.dispatch import receiver
+import logging
 
 # Create your models here.
 # Have used camel case for all var names
@@ -110,31 +113,43 @@ class Language(models.Model):
 
 class Book(models.Model):
     #bookId = models.PositiveIntegerField(default = 0) #do not use bookId 0 while assigning 
+    #add field for number of chunks
     lang = models.ForeignKey(Language)
     author = models.CharField(max_length=200)
     bookName = models.CharField(max_length=200)
     percentageCompleteAudio = models.FloatField(default = 0)
     percentageCompleteDigi = models.FloatField(default = 0)
-    percentageAudioInvalid = models.FloatField(default = 0)
+    percentageAudioInvalid = models.FloatField(default = 0) 
     dBookDownloads = models.PositiveIntegerField(default = 0)
     aBookDownloads = models.PositiveIntegerField(default = 0)
+    numberOfChunks = models.PositiveIntegerField(default = 0)
     def __unicode__(self):
         return self.author + ',' + self.bookName + ',' + self.lang.langName
 
 class Paragraph(models.Model):
     book = models.ForeignKey(Book)
     #paraId = models.PositiveIntegerField(default = 0)
-    audioAssignedTo = models.ForeignKey(CustomUser, related_name = 'audioAssignedTo')
-    audioReadBy = models.ForeignKey(CustomUser, related_name = 'audioReadBy')
+    audioAssignedTo = models.ForeignKey(CustomUser, related_name = 'audioAssignedTo', default= None, blank = True, null = True)
+    audioReadBy = models.ForeignKey(CustomUser, related_name = 'audioReadBy', default= None, blank = True, null = True)
     isRecording = models.BooleanField(default = False)
-    digiAssignedTo = models.ForeignKey(CustomUser, related_name = 'digiAssignedTo')
-    digiBy = models.ForeignKey(CustomUser, related_name = 'digiBy')
+    digiAssignedTo = models.ForeignKey(CustomUser, related_name = 'digiAssignedTo', default= None, blank = True, null = True)
+    digiBy = models.ForeignKey(CustomUser, related_name = 'digiBy', default= None, blank = True, null = True)
     isDigitizing = models.BooleanField(default = False)
     isChapter = models.BooleanField(default = False)
-    validAudioVersionNumber = models.PositiveIntegerField()
+    validAudioVersionNumber = models.PositiveIntegerField(default = 0)
     upVotes = models.PositiveIntegerField(default = 0)
     downVotes = models.PositiveIntegerField(default = 0)
     status = models.CharField(max_length = 2, choices = (('re', 'Recording'),('va', 'Validating'),('do', 'Done')))
+
+#@receiver(pre_save, sender=Book)
+#check for completion pre_save of Paragraph
+def checkForCompletion(sender, **kwargs): 
+    log = logging.getLogger("wa")
+    log.setLevel(10)
+    log.info("In checkForCompletion")
+    #log.debug("In checkForCompletion")
+    print("In check for completion")
+pre_save.connect(checkForCompletion, sender=Book)
 
 class UserHistory(models.Model):
     user = models.ForeignKey(CustomUser)
@@ -147,4 +162,4 @@ class UserHistory(models.Model):
 #autoincr??
 
 class Document(models.Model):
-    docfile = models.FileField(upload_to='documents/%Y/%m/%d')
+    docfile = models.FileField(upload_to='documents/')

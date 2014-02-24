@@ -13,7 +13,7 @@ import os
 import djcelery
 djcelery.setup_loader()
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+#sys.path.append('/home/jo/wikiaudia/')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'wa',
     'south',
     'djcelery',
-    'storages'
+    'storages',
 
 )
 
@@ -87,6 +87,54 @@ DATABASES = {
     }
 }
 
+MEDIA_ROOT = "/root/"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+    },
+    'handlers': {
+        'null': {
+            'level':'DEBUG',
+            'class':'django.utils.log.NullHandler',
+        },
+        'logfile': {
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR + "/logfile",
+            'maxBytes': 50000,
+            'backupCount': 2,
+            'formatter': 'standard',
+        },
+        'console':{
+            'level':'INFO',
+            'class':'logging.StreamHandler',
+            'formatter': 'standard'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['console'],
+            'propagate': True,
+            'level':'WARN',
+        },
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'wa': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+        },
+    }
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -107,8 +155,9 @@ AUTH_USER_MODEL = 'wa.CustomUser'
 STATIC_URL = '/static/'
 #celery settings
 BROKER_URL = 'redis://localhost:6379/0'
+CELERY_IMPORTS = ("wa.tasks", "wa.models", "wa.splitBook")
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-
+CELERY_IMPORTS = ("wa.tasks", "wa.models","wa.splitBook")
 DEFAULT_FILE_STORAGE='storages.backends.mongodb.GridFSStorage'
 
 GRIDFS_DATABASE = 'fileMongo'

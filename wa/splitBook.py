@@ -2,36 +2,70 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wand.image import Image
+from wa.models import Book
+from wa.models import Language,Book, Paragraph, UserHistory, Document
 #import wikiaudia.settings
 import re,os,sys
-def splitBookIntoPages(f_arg):
+import logging
+def splitBookIntoPages(f_arg, book_id):
 	#print 'splitbook'
 	rxcountpages = re.compile(r"$\s*/Type\s*/Page[/\s]", re.MULTILINE|re.DOTALL)
-	#--TODOJO--Change this depending on your system path
-	sys.path.append('/home/pc/Documents/finalyear/jo/Wikiaudia')
-	os.environ['DJANGO_SETTINGS_MODULE']='wikiaudia.settings'
 
+	#--TODOJO--Change this depending on your system path
+	sys.path.append('/home/jo/wikiaudia/')
+	#sys.path.append('/home/jo/wikiaudia/wa/')
+	os.environ['DJANGO_SETTINGS_MODULE']='wikiaudia.settings'
+	log = logging.getLogger("wa")
+	#log.info("hiiii")
+	log.info(f_arg)
+	print f_arg
+	print "Before IF"
 	if default_storage.exists(f_arg):
 		print "splitbook file exists"
 		a = default_storage.open(f_arg)
+		
 		local_fs = FileSystemStorage(location='/tmp/pdf')
 		local_fs.save(a.name,a)
-		mod_path = "/tmp/pdf/"+a.name
+		mod_path = "/tmp/pdf/"+ f_arg
+		print mod_path
+		
 		data = file(mod_path,"rb").read()
+		#log.info(file(mod_path,"rb").size())
 		no_pages = len(rxcountpages.findall(data))
 		file_for = mod_path+"[%d]"
 		#--TODOJO--save the image in the path as required. Cuurently just stores as temp[i]. 
 		print no_pages
-		for i in range(0,no_pages):
+		continueConversion = True
+		i = 0
+		_img = Image(filename=file_for)
+		while continueConversion:
 			filen = file_for%i
 			with Image(filename=filen) as img:
-				print type(img)
-				img.save(filename=("temp[%d].jpg"%i))
-			with open("temp[%d].jpg"%i, 'r') as f:
+				if img:
+					print type(img)
+					i=i+1
+
+					img.save(filename=("temp[%d].png"%i))
+				else:
+					continueConversion = False
+			with open("temp[%d].png"%i, 'r') as f:
 				myfile = File(f)
-				default_storage.save("temp[%d].jpg"%i,myfile)
-				os.remove("temp[%d].jpg"%i)
-				#close file
+				para = Paragraph(book = Book.objects.get(pk = book_id))
+				para.save()
+				print "para ID: " + str(para.id)
+				path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"
+				default_storage.save(path_to_save, myfile)
+				os.remove("temp[%d].png"%i)
+		os.remove(mod_path)
+		
+	else:
+		print "doesn't exist"
+
+def to_infinity():
+	index = 0
+	while 1: 
+		yield index
+		index += 1
 
 
 	'''
