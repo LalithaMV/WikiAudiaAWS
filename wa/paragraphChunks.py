@@ -49,5 +49,7 @@ def assignWindow(window_size,bookID,userID):
 				i=i+1
 			except:
 				break
+        else:
+            break            
 
 

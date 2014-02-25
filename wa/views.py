@@ -63,7 +63,9 @@ def register_user(request):
         form=CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            languages_known_v = form.clean_data.get('Languages')
+            #languages_known_v = form.Languages
+            log = logging.getLogger("wa")
+            #log.info(languages_known_v)
             return HttpResponseRedirect('/wa/register_success')
     else:
         form= CustomUserCreationForm()
