@@ -141,27 +141,17 @@ def audioUpload(request, book_id):
         context_instance=RequestContext(request)
     )
 def chooseAction(request, book_id):
-	if(request.session['action'] == "digitize"):
-		resp = digitize(request, book_id)
-	elif(request.session['action'] == "record"):
-		resp = audioUpload(request, book_id)
-	return resp;
+    if(request.session['action'] == "digitize"):
+        resp = digitize(request, book_id)
+    elif(request.session['action'] == "record"):
+        resp = audioUpload(request, book_id)
+    return resp;
 
 def getParagraph(request, book_id):
     response = HttpResponse(mimetype = "image/jpg")
-    '''
-    image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + book_id + "/" + "frontcover.jpg")
+    image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/hindi.jpg") 
     image.save(response, 'png')
-    '''
-    b = Book.objects.get(pk = book_id)
-    para =  Paragraph.objects.filter(book = b, audioReadBy__isnull = True)[0]
-    #Should be server by nginx-gridfs
-    path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"
-    a = default_storage.open(path_to_save)
-    local_fs = FileSystemStorage(location='/tmp/pdf')
-    local_fs.save(a.name,a)
-    image = Image.open("/tmp/pdf/"+a.name)
-    image.save(response, 'png')
+    #image = Image.open(settings.BASE_DIR) 
     return response
 
 '''
