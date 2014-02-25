@@ -6,7 +6,7 @@ import json
 from django.core import serializers
 from django.conf import settings
 import os
-from PIL import Image
+#from PIL import Image
 from django.core.urlresolvers import reverse
 from wa.models import Language,Book, Paragraph, UserHistory, Document# Create your views here.
 from wa.forms import DocumentForm
@@ -63,6 +63,9 @@ def register_user(request):
         form=CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            #languages_known_v = form.Languages
+            log = logging.getLogger("wa")
+            #log.info(languages_known_v)
             return HttpResponseRedirect('/wa/register_success')
     else:
         form= CustomUserCreationForm()
