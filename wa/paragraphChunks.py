@@ -2,21 +2,22 @@
 	Input the userID and whether the paragraph should 
 	be given for recording or digitization 
 '''
-from wa.models import Paragraph,CustomUser
+from wa.models import Paragraph,CustomUser,Book
 def getChunkID(userID,bookID,type):
     try:       
         cu = CustomUser.objects.get(pk=userID)
+        book_instance = Book.objects.get(pk=bookID)
         if type is 0:
-        	chunks_assigned_to_user =  Paragraph.objects.filter(bookID=bookID
+        	chunks_assigned_to_user =  Paragraph.objects.filter(book=book_instance
         		).filter(audioAssignedTo_id=userID
         		).filter(audioReadBy_id__isnull=True)
-        	if chunks_assigned_to_user.length is not null:
+        	if len(chunks_assigned_to_user) is not 0:
         		'''
         			If a chunk which is assigned to user is found
         			but is not recorded send the first available row 
         			back to the user
         		'''
-        		return chunks_assigned_to_user[0]
+        		return chunks_assigned_to_user[0].id
         	else:
         		'''
         			Assign a range to the user according to window size
@@ -25,17 +26,18 @@ def getChunkID(userID,bookID,type):
         		#last_unread_para_id =         		     		
         		window_size = 3
         		assignWindow(window_size,bookID,userID)
-        		chunks_assigned_to_user =  Paragraph.objects.filter(bookID=bookID
+        		chunks_assigned_to_user =  Paragraph.objects.filter(book=book_instance
         		).filter(audioAssignedTo_id=userID
         		).filter(audioReadBy_id__isnull=True)
-        		return chunks_assigned_to_user[0]
+        		return chunks_assigned_to_user[0].id
 
-    except:
+    except Exception as e:
+        print e.message
         return 0
 
 def assignWindow(window_size,bookID,userID):
-	chunkId = startId
-	chunk = Paragraph.objects.filter(bookID=bookID
+	book_instance = Book.objects.get(pk=bookID)
+	chunk = Paragraph.objects.filter(book=book_instance
 				).filter(audioReadBy_id__isnull=True)	
 	i = 0 
 	for c in chunk:
