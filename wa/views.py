@@ -64,22 +64,21 @@ def home(request):
     #return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
 	else:
 		return HttpResponseRedirect('/wa')
+
 def register_user(request):
-	if request.method == 'POST':
-		form=CustomUserCreationForm(request.POST)
-	#for field in form.fields:
-	#form.fields[field].required = False
-		if form.is_valid():
-			form.save()
+    if request.method == 'POST':
+        form=CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
             #languages_known_v = form.Languages
             log = logging.getLogger("wa")
             #log.info(languages_known_v)
-			return HttpResponseRedirect('/wa/register_success')
-	else:
-		form= CustomUserCreationForm()
-	#else:
-	#	return render(request,  'wa/session/register.html', {'form': CustomUserCreationForm(request.POST),})
-		return render(request,  'wa/session/register.html',{'form':form})
+            return HttpResponseRedirect('/wa/register_success')
+    else:
+        form= CustomUserCreationForm()
+    return render(request,  'wa/session/register.html', {
+        'form': form,
+    })
 
 def register_success(request):
     return render_to_response('wa/session/register_success.html')
