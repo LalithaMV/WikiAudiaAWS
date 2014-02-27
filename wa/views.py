@@ -194,6 +194,7 @@ def getParagraph(request, book_id, para_id):
     local_fs.save(a.name,a)
     image = Image.open("/tmp/pdf/"+a.name)
     image.save(response, 'png')
+    local_fs.delete(a.name)
     return response
 
 '''
@@ -284,11 +285,16 @@ def uploadBook(request):
 	else :
 		return render_to_response('/wa')
 
-def uploadDigi(request):
+def uploadDigi(request, book_id, para_id):
     if request.POST.has_key('unicode_data'):
         file = open("DigiFiles/KannadaInput.txt", "w")
         file.write((request.POST['unicode_data']).encode('utf8'))
-        file.close()
+	file.close()
+	f = open("DigiFiles/KannadaInput.txt", "r")
+	#get latest version and then save
+	path_to_save = str(book_id) + "/chunks/" + str(para_id) + "/DigiFiles/1.txt"
+	default_storage.save(path_to_save, File(f))
+	f.close()  
         #concatenateDigi(request)
         #pdfGen(request)
         x = request.POST['unicode_data']
