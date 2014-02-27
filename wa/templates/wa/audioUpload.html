@@ -10,20 +10,16 @@
 
 
 		<!-- Upload form. Note enctype attribute! -->
-<<<<<<< HEAD
+
 		<div class="row">
-			<img src = "/wa/getParagraph/{{ book_id }}/">	
-		</div>
-		<div class="row">
-		<div>
-            <a href="toggleRecording(this)" class="btn btn-round"><span>Record Audio</span></a>
-            <a href="toggleRecording(this)" class="btn btn-round"><span>Save Audio</span></a>
-        </div>
+		
 		<div class = "col-sm-10">
-		<p>Sounds ok? Upload the Audio File!</p>
-=======
 		<img src = "/wa/getParagraph/{{ book_id }}/{{ para_id }}/">
->>>>>>> e203c130852616199956f256c3d37b598a1330f8
+		<div>
+            <a onclick ="toggleRecording(this)" href="#" class="btn btn-round"><span>Record Audio</span></a>
+            <a onclick="saveAudio()" href="#" class="btn btn-round"><span>Save Audio</span></a>
+        </div>
+        <p>Sounds ok? Upload the Audio File!</p>
 		<form action="{% url "audioUploadForm" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			<p>{{ form.non_field_errors }}</p>
