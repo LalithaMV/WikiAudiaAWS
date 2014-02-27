@@ -295,6 +295,7 @@ def uploadDigi(request, book_id, para_id):
 	path_to_save = str(book_id) + "/chunks/" + str(para_id) + "/DigiFiles/1.txt"
 	default_storage.save(path_to_save, File(f))
 	f.close()  
+	#delete file - todo
         #concatenateDigi(request)
         #pdfGen(request)
         x = request.POST['unicode_data']
