@@ -7,7 +7,7 @@
 <button onclick="saveAudio()">Done</button>
 
 		<!-- Upload form. Note enctype attribute! -->
-		<img src = "/wa/getParagraph/{{ book_id }}/">
+		<img src = "/wa/getParagraph/{{ book_id }}/{{ para_id }}/">
 		<form action="{% url "audioUploadForm" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			<p>{{ form.non_field_errors }}</p>
