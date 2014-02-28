@@ -205,13 +205,14 @@ def audioUploadForm(request, book_id, para_id):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             newdoc = Document(docfile = request.FILES['docfile'])
-            newdoc.save()
+            #newdoc.save()
             
             #The Above call is just temoraray 
             #Use this if the name of the file is to be changed and saved with a path
-            #newdoc.docfile.save('Ashu.wav',request.FILES['docfile'])
+            file_name = str(book_id)+"_"+str(para_id)+"_"+"sound.wav"
+            newdoc.docfile.save(file_name,request.FILES['docfile'])
             #soundProcessWithAuphonic('documents/Ashu.wav')
-            #soundProcessingWithAuphonicTask.delay('../documents/ashu.mp3')
+            soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
         
                 
