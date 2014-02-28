@@ -109,16 +109,17 @@ def audioSelection(request):
         return render(request, 'wa/chooseLanguage.html', context)
     else :
         return HttpResponseRedirect('/wa')
+
 def getImage(request, book_id):
-    response = HttpResponse(mimetype = "image/jpg");
-    path = os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + book_id + "/" + "frontcover.jpg"
-    #print(path);
-    if(os.path.exists(path)):
-       image = Image.open(path)
-    else:
-       image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + "default/" + "frontcover.jpg")
-    image.save(response, 'png');
-    return response; 
+    response = HttpResponse(mimetype = "image/jpg")
+    path_to_save = str(book_id) +"/bookThumbnail.png"
+    a = default_storage.open(path_to_save)
+    local_fs = FileSystemStorage(location='/tmp/pdf')
+    local_fs.save(a.name,a)
+    image = Image.open("/tmp/pdf/"+a.name)
+    image.save(response, 'png')
+    local_fs.delete(a.name)
+    return response
 
 def digitize(request, book_id):
     if request.user.is_authenticated():
