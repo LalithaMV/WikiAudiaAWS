@@ -24,6 +24,7 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wa.paragraphChunks import getChunkID
+
 #from wa.splitBook import splitBookIntoPages
 # Create your views here.
 
@@ -122,11 +123,7 @@ def getImage(request, book_id):
 
 def digitize(request, book_id):
 	if request.user.is_authenticated():
-            #a = 10
-            #set the para_id 
-	    #b = Book.objects.get(pk = book_id)
 	    #print("user_id:" + str(request.user.id))
-	    #user = CustomUser.objects.get(pk = request.user.id)
             para_id = getChunkID(request.user.id,book_id,0)
 	    print("para_id: " + str(para_id))
 	    return render_to_response('wa/AudioDigi/Digitize.html', {'book_id': book_id, 'para_id': para_id} )
@@ -135,11 +132,6 @@ def digitize(request, book_id):
 
 def audioUpload(request, book_id):
 	if request.user.is_authenticated():
-		#print("book_id")
-		#print(book_id)
-		#return HttpResponse("You're looking at poll %s" %  book_id)
-		#Make a function call for choosing a para for the user.
-		#render ash's view
 		# Handle file upload
 		'''
 		Add additional inputs to post to figure out the book and 
@@ -178,16 +170,14 @@ def chooseAction(request, book_id):
         resp = audioUpload(request, book_id)
     return resp;
 
-def getParagraph(request, book_id, para_id):
+def getParagraph(request, book_id, para_id): 
+    #Should be served by nginx-gridfs
     response = HttpResponse(mimetype = "image/jpg")
     '''
     image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/hindi.jpg") 
     image.save(response, 'png')
     #image = Image.open(settings.BASE_DIR) 
     '''
-    #b = Book.objects.get(pk = book_id)
-    #para =  Paragraph.objects.filter(book = b, audioReadBy__isnull = True)[0]
-    #Should be served by nginx-gridfs
     path_to_save = str(book_id) + "/chunks/" + str(para_id) + "/image.png"
     a = default_storage.open(path_to_save)
     local_fs = FileSystemStorage(location='/tmp/pdf')
@@ -277,9 +267,10 @@ def uploadBook(request):
 			form = DocumentForm() # A empty, unbound form
 
 		# Render list page with the documents and the form
+		langs = Language.objects.all()
 		return render_to_response(
 			'wa/uploadBook.html',
-			{'form': form},
+			{'form': form, 'langs': langs},
 			context_instance=RequestContext(request)
 		)
 	else :

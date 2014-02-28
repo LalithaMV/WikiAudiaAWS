@@ -56,6 +56,7 @@ def splitBookIntoPages(f_arg, book_id):
 				path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"
 				default_storage.save(path_to_save, myfile)
 				os.remove("temp[%d].png"%i)
+		print("i = " + str(i))
 		os.remove(mod_path)
 		
 	else:
