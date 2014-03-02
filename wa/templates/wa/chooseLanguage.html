@@ -9,10 +9,10 @@
 
 
 
-<select id = 'language' onchange = 'displayBooks()' class="chosen">
+<select id = 'language' class="chosen">
 <option value = "default">--Choose a Language--</option>
 {% for lang in langs %}
-        <option value = "{{lang.langName}}">{{lang.langName}}</option>
+        <option value = "{{lang}}">{{lang}}</option>
 {% endfor %}
 </select>
 <script src="{% static "wa/arctic-sunset-css/js/jquery.chosen.min.js"%}"></script>

@@ -24,7 +24,7 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wa.paragraphChunks import getChunkID
-
+import wa.dbOps as dbOps
 #from wa.splitBook import splitBookIntoPages
 # Create your views here.
 
@@ -89,8 +89,10 @@ def digiSelection(request):
     if request.user.is_authenticated():
         #return render_to_response('wa/AudioDigi/Digitize.html')
         request.session['action'] = "digitize";
-        langs = Language.objects.all()
-        context = RequestContext(request, {'langs': langs, } )
+        #langs = Language.objects.all()
+	user_id = request.user.id
+	user_langs = CustomUser.objects.get(pk = user_id).languages_known.split(',')
+        context = RequestContext(request, {'langs': user_langs, } )
         return render(request, 'wa/chooseLanguage.html', context)
     else :
         return HttpResponseRedirect('/wa')
@@ -104,26 +106,29 @@ def audioSelection(request):
         #return render(request, 'wa/audio.html', context)
         #return HttpResponse("You're looking at the results of poll ")
         request.session['action'] = "record";
-        langs = Language.objects.all()
+        #langs = Language.objects.all()
         #context = {'langs': langs}
-        context = RequestContext(request, {'langs': langs, } )
+	user_id = request.user.id
+	user_langs = CustomUser.objects.get(pk = user_id).languages_known.split(',')
+        context = RequestContext(request, {'langs': user_langs, } )
         return render(request, 'wa/chooseLanguage.html', context)
     else :
         return HttpResponseRedirect('/wa')
+
 def getImage(request, book_id):
-    response = HttpResponse(mimetype = "image/jpg");
-    path = os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + book_id + "/" + "frontcover.jpg"
-    #print(path);
-    if(os.path.exists(path)):
-       image = Image.open(path)
-    else:
-       image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + "default/" + "frontcover.jpg")
-    image.save(response, 'png');
-    return response; 
+    response = HttpResponse(mimetype = "image/jpg")
+    path_to_save = str(book_id) +"/bookThumbnail.png"
+    a = default_storage.open(path_to_save)
+    local_fs = FileSystemStorage(location='/tmp/pdf')
+    local_fs.save(a.name,a)
+    image = Image.open("/tmp/pdf/"+a.name)
+    image.save(response, 'png')
+    local_fs.delete(a.name)
+    return response
 
 def digitize(request, book_id):
     if request.user.is_authenticated():
-        #print("user_id:" + str(request.user.id))
+        print("user_id:" + str(request.user.id))
         para_id = getChunkID(request.user.id,book_id,0)
         print("para_id: " + str(para_id))
         return render_to_response('wa/AudioDigi/Digitize.html', {'book_id': book_id, 'para_id': para_id} )
@@ -195,13 +200,14 @@ def audioUploadForm(request, book_id, para_id):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             newdoc = Document(docfile = request.FILES['docfile'])
-            newdoc.save()
+            #newdoc.save()
             
             #The Above call is just temoraray 
             #Use this if the name of the file is to be changed and saved with a path
-            #newdoc.docfile.save('Ashu.wav',request.FILES['docfile'])
+            file_name = str(book_id)+"_"+str(para_id)+"_"+"sound.wav"
+            newdoc.docfile.save(file_name,request.FILES['docfile'])
             #soundProcessWithAuphonic('documents/Ashu.wav')
-            #soundProcessingWithAuphonicTask.delay('../documents/ashu.mp3')
+            soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
         
                 
@@ -294,6 +300,7 @@ def uploadDigi(request, book_id, para_id):
 	#delete file - todo
         #concatenateDigi(request)
         #pdfGen(request)
+	#dbOps.uploadDigi(para_id)
         x = request.POST['unicode_data']
         return HttpResponse(x)
     

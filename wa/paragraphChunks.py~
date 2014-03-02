@@ -48,8 +48,6 @@ def assignWindow(window_size,bookID,userID):
 				c.save()
 				i=i+1
 			except:
-				break
-        else:
-            break            
+				break           
 
 

@@ -84,6 +84,7 @@
         <div id="blocker">
             
         </div>
+        <div class="row"><button id="uploadDigi">Upload</button></div>
         <br /></br>
         
         <script language="javascript" type="text/javascript">
@@ -133,6 +134,7 @@
             });
             $("#uploadDigi").click(function(){
                 //console.log(typingarea.text);
+                alert("coming");
                 var postdata = {
                     csrfmiddlewaretoken : csrftoken, 
                     'unicode_data':$('#typingarea').val(),
@@ -160,7 +162,7 @@
             
         </script>
         </div>
-        <div class="row"><button id="uploadDigi">Upload</button></div>
+        
         
 	</div>	
 

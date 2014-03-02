@@ -143,13 +143,22 @@ class Paragraph(models.Model):
 
 #@receiver(pre_save, sender=Book)
 #check for completion pre_save of Paragraph
-def checkForCompletion(sender, **kwargs): 
+def checkForCompletion(sender, instance, **kwargs): 
     log = logging.getLogger("wa")
     log.setLevel(10)
     log.info("In checkForCompletion")
-    #log.debug("In checkForCompletion")
-    print("In check for completion")
-pre_save.connect(checkForCompletion, sender=Book)
+    log.info("right i am still coming")
+    log.info(sender)
+    '''
+    book_id = instance.book
+    log.info("book_id: " + book_id)
+    chunks = Book.objects.get(pk = book_id).numberOfChunks
+    if(Book.objects.get(pk = book_id).percentageCompleteAudio == chunks):
+        print("Calling Audio concat")
+    elif(Book.objects.get(pk = book_id).percentageCompleteDigi == chunks):
+        print("Calling pdfGen")
+    '''
+pre_save.connect(checkForCompletion, sender=Paragraph)
 
 class UserHistory(models.Model):
     user = models.ForeignKey(CustomUser)

@@ -3,8 +3,11 @@
 	be given for recording or digitization 
 '''
 from wa.models import Paragraph,CustomUser,Book
+import logging
 def getChunkID(userID,bookID,type):
-    try:       
+    try:   
+	log = logging.getLogger("wa")
+	log.info("Coming into try block")
         cu = CustomUser.objects.get(pk=userID)
         book_instance = Book.objects.get(pk=bookID)
         if type is 0:
