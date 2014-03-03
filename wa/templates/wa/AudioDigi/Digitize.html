@@ -20,7 +20,7 @@
         <img border="1px" src="/wa/getParagraph/{{ book_id }}/{{ para_id }}/"  />    
     </div>
     <div class="col-sm-5 col-sm-offset-1">
-	
+	{% csrf_token %}
      <table cellpadding="3" cellspacing="0" border="1" class="editor">
             <tr class="editortoolbar">
                 <td>
@@ -84,16 +84,15 @@
         <div id="blocker">
             
         </div>
-        <div class="row"><button id="uploadDigi">Upload</button></div>
+        
         <br /></br>
         
         <script language="javascript" type="text/javascript">
             pramukhIME.addLanguage(PramukhIndic);
-
             pramukhIME.enable();
             pramukhIME.onLanguageChange(scriptChangeCallback);
-            var lang = (getCookie('pramukhime_language',':english')).split(':');
-            pramukhIME.setLanguage(lang[1], lang[0]);
+            //var lang = (getCookie('pramukhime_language',':english')).split(':');
+            //pramukhIME.setLanguage(lang[1], lang[0]);
             document.getElementById('typingarea').focus();
 
             // set width and height of dialog
@@ -104,20 +103,29 @@
             function getCookie(name) {
                 var cookieValue = null;
                 if (document.cookie && document.cookie != '') {
+                    console.log("all cookies:"+document.cookie);
                     var cookies = document.cookie.split(';');
+                    console.log("Length:"+cookies.length);
                     for (var i = 0; i < cookies.length; i++) {
+
                         var cookie = jQuery.trim(cookies[i]);
+                        console.log("for loop : "+cookie)
+                        console.log(cookie.substring(0, name.length + 1));
+                        console.log(name + '=');
                         // Does this cookie string begin with the name we want?
                         if (cookie.substring(0, name.length + 1) == (name + '=')) {
                             cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            console.log("Cookie val:"+cookieValue);
                             break;
                         }
                     }
                 }
+                console.log("Token: "+cookieValue);
                 return cookieValue;
             }
-            csrftoken = getCookie('csrftoken');
-            console.log(csrftoken);
+            //srftoken = getCookie('csrftoken');
+            csrftoken = getCookie("csrftoken");
+           
 
             //Ajax call
             function csrfSafeMethod(method) {
@@ -127,25 +135,30 @@
             $.ajaxSetup({
                 crossDomain: false, // obviates need for sameOrigin test
                 beforeSend: function(xhr, settings) {
+                    console.log("Hello World")
                     if (!csrfSafeMethod(settings.type)) {
+                         console.log(csrftoken)
                         xhr.setRequestHeader("X-CSRFToken", csrftoken);
                     }
                 }
             });
-            $("#uploadDigi").click(function(){
+
+            function uploadDigiClick(){
                 //console.log(typingarea.text);
-                alert("coming");
+                //alert("coming");
                 var postdata = {
                     csrfmiddlewaretoken : csrftoken, 
                     'unicode_data':$('#typingarea').val(),
                     
                 }
-                console.log(postdata);
+                //console.log(postdata);
                 $.ajax({
                         url : "/wa/uploadDigi/{{ book_id }}/{{ para_id }}/",
                         type: "POST",
-                        data : {
-                                'unicode_data':$('#typingarea').val()},
+                        data : postdata
+                        /*{
+                                'unicode_data':$('#typingarea').val()
+                            }*/,
                         dataType : "json",
                         success: function( data ){
                             console.log("Hello:" +data);
@@ -157,13 +170,10 @@
                         
                     });
 
-            });
-            
-            
+            }
         </script>
+        <button id="uploadDigi" onclick="uploadDigiClick()">Upload</button>
         </div>
-        
-        
 	</div>	
 
 
