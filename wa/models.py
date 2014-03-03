@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.models import BaseUserManager
-from django.db.models.signals import pre_save#, post_save, pre_delete, post_delete, request_started, request_finished
+from django.db.models.signals import post_save#, post_save, pre_delete, post_delete, request_started, request_finished
 from django.dispatch import receiver
 import logging
 
@@ -143,22 +143,23 @@ class Paragraph(models.Model):
 
 #@receiver(pre_save, sender=Book)
 #check for completion pre_save of Paragraph
-def checkForCompletion(sender, instance, **kwargs): 
+def checkForCompletion(sender, **kwargs): 
     log = logging.getLogger("wa")
     log.setLevel(10)
     log.info("In checkForCompletion")
-    log.info("right i am still coming")
-    log.info(sender)
-    '''
-    book_id = instance.book
-    log.info("book_id: " + book_id)
-    chunks = Book.objects.get(pk = book_id).numberOfChunks
-    if(Book.objects.get(pk = book_id).percentageCompleteAudio == chunks):
+    book = kwargs['instance']
+    log.info("Coming after ndu")
+    #log.info("right i am still coming")
+    #log.info(sender)
+    log.info("book_id: " + str(book.id))
+    chunks = book.numberOfChunks
+    log.info("chunks: " + str(chunks) + "percentageCompleteAudio: " + str(book.percentageCompleteAudio))
+    if((chunks != 0) and (book.percentageCompleteAudio == chunks)):
         print("Calling Audio concat")
-    elif(Book.objects.get(pk = book_id).percentageCompleteDigi == chunks):
+    if((chunks!= 0) and (book.percentageCompleteDigi == chunks)):
         print("Calling pdfGen")
-    '''
-pre_save.connect(checkForCompletion, sender=Paragraph)
+
+post_save.connect(checkForCompletion, sender=Book)
 
 class UserHistory(models.Model):
     user = models.ForeignKey(CustomUser)

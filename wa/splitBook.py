@@ -55,7 +55,7 @@ def splitBookIntoPages(f_arg, book_id):
 					if i==0:
 						path_to_save= str(book_id)+"/bookThumbnail.png"
 					else:
-						para = Paragraph(book = Book.objects.get(pk = book_id))
+						para = Paragraph(book = Book.objects.get(pk = book_id), status = 're')
 						para.save()
 						path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"						
 						print "para ID: " + str(para.id)
@@ -64,6 +64,12 @@ def splitBookIntoPages(f_arg, book_id):
 				i=i+1
 			except:
 				break
+		print "-------------------"
+		print i
+		#update book table to add number of chunks
+		book = Book.objects.get(pk = book_id)
+		book.numberOfChunks = i-1
+		book.save()
 		os.remove(mod_path)
 		
 	else:

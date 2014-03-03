@@ -24,7 +24,7 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wa.paragraphChunks import getChunkID
-import wa.dbOps as dbOps
+from wa.dbOps import uploadDigiDb, uploadAudioDb
 #from wa.splitBook import splitBookIntoPages
 # Create your views here.
 
@@ -207,7 +207,8 @@ def audioUploadForm(request, book_id, para_id):
             file_name = str(book_id)+"_"+str(para_id)+"_"+"sound.wav"
             newdoc.docfile.save(file_name,request.FILES['docfile'])
             #soundProcessWithAuphonic('documents/Ashu.wav')
-            soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id)
+            user_id = request.user.id
+            soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id,user_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
         
                 
@@ -300,7 +301,8 @@ def uploadDigi(request, book_id, para_id):
 	#delete file - todo
         #concatenateDigi(request)
         #pdfGen(request)
-	#dbOps.uploadDigi(para_id)
+        user_id = request.user.id
+        uploadDigiDb(para_id, user_id)
         x = request.POST['unicode_data']
         return HttpResponse(x)
     

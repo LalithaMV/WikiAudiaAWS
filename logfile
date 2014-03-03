@@ -513,3 +513,152 @@
 [01/Mar/2014 11:35:49] INFO [wa:151] <class 'wa.models.Paragraph'>
 [01/Mar/2014 11:36:21] INFO [wa:103] in audio Selection
 [01/Mar/2014 11:36:48] INFO [wa:10] Coming into try block
+[02/Mar/2014 20:58:23] INFO [wa:10] Coming into try block
+[02/Mar/2014 21:03:24] INFO [wa:149] In checkForCompletion
+[02/Mar/2014 21:03:24] INFO [wa:151] Coming after instance fetching
+[02/Mar/2014 21:48:48] INFO [wa:149] In checkForCompletion
+[02/Mar/2014 21:48:48] INFO [wa:151] Coming after instance fetching
+[02/Mar/2014 21:49:38] INFO [wa:149] In checkForCompletion
+[02/Mar/2014 21:49:38] INFO [wa:151] Coming after instance fetching
+[02/Mar/2014 21:50:25] INFO [wa:149] In checkForCompletion
+[02/Mar/2014 21:50:25] INFO [wa:151] Coming after instance fetching
+[02/Mar/2014 21:55:02] INFO [wa:149] In checkForCompletion
+[02/Mar/2014 21:55:02] INFO [wa:151] Coming after instance fetching
+[02/Mar/2014 21:59:53] INFO [wa:154] Coming after ndu
+[02/Mar/2014 22:01:13] INFO [wa:149] Hello world
+[02/Mar/2014 22:01:13] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:01:13] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:01:53] INFO [wa:149] Hello world
+[02/Mar/2014 22:01:53] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:01:53] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:02:51] INFO [wa:149] Hello world
+[02/Mar/2014 22:02:51] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:02:51] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:03:07] INFO [wa:149] Hello world
+[02/Mar/2014 22:03:07] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:03:07] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:03:21] INFO [wa:149] Hello world
+[02/Mar/2014 22:03:21] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:03:21] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:03:21] INFO [wa:156] book_id: 32
+[02/Mar/2014 22:06:09] INFO [wa:149] Hello world
+[02/Mar/2014 22:06:09] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:06:09] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:06:09] INFO [wa:156] book_id: 33
+[02/Mar/2014 22:28:30] INFO [wa:149] Hello world
+[02/Mar/2014 22:28:30] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:28:30] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:28:30] INFO [wa:156] book_id: 32
+[02/Mar/2014 22:30:55] INFO [wa:149] Hello world
+[02/Mar/2014 22:30:55] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:30:55] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:30:55] INFO [wa:156] book_id: 32
+[02/Mar/2014 22:32:16] INFO [wa:149] Hello world
+[02/Mar/2014 22:32:16] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:32:16] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:32:16] INFO [wa:156] book_id: 32
+[02/Mar/2014 22:33:30] INFO [wa:10] Coming into try block
+[02/Mar/2014 22:33:30] INFO [wa:149] Hello world
+[02/Mar/2014 22:33:30] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:33:30] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:33:30] INFO [wa:156] book_id: 33
+[02/Mar/2014 22:33:30] INFO [wa:149] Hello world
+[02/Mar/2014 22:33:30] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:33:30] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:33:30] INFO [wa:156] book_id: 33
+[02/Mar/2014 22:33:30] INFO [wa:149] Hello world
+[02/Mar/2014 22:33:30] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:33:30] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:33:30] INFO [wa:156] book_id: 33
+[02/Mar/2014 22:36:46] INFO [wa:10] Coming into try block
+[02/Mar/2014 22:40:04] INFO [wa:10] Coming into try block
+[02/Mar/2014 22:50:18] INFO [wa:247] Upload Book :
+[02/Mar/2014 22:50:18] INFO [wa:248] Bengali
+[02/Mar/2014 22:50:18] INFO [wa:149] Hello world
+[02/Mar/2014 22:50:18] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:50:18] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:52:11] INFO [wa:247] Upload Book :
+[02/Mar/2014 22:52:11] INFO [wa:248] Bengali
+[02/Mar/2014 22:52:11] INFO [wa:149] Hello world
+[02/Mar/2014 22:52:11] INFO [wa:150] In checkForCompletion
+[02/Mar/2014 22:52:11] INFO [wa:152] Coming after ndu
+[02/Mar/2014 22:52:11] INFO [wa:155] book_id: None
+[02/Mar/2014 22:52:12] INFO [wa:262] documents/34
+[02/Mar/2014 22:52:12] INFO [wa:20] 34/original/originalBook.pdf
+[02/Mar/2014 22:52:12] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:10:18] INFO [wa:247] Upload Book :
+[03/Mar/2014 00:10:18] INFO [wa:248] Telgu
+[03/Mar/2014 00:10:18] INFO [wa:149] Hello world
+[03/Mar/2014 00:10:18] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:10:18] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:10:18] INFO [wa:155] book_id: None
+[03/Mar/2014 00:10:18] INFO [wa:262] documents/35
+[03/Mar/2014 00:10:18] INFO [wa:20] 35/original/originalBook.pdf
+[03/Mar/2014 00:10:18] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:15:04] INFO [wa:247] Upload Book :
+[03/Mar/2014 00:15:04] INFO [wa:248] Telgu
+[03/Mar/2014 00:15:04] INFO [wa:149] Hello world
+[03/Mar/2014 00:15:04] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:15:04] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:15:04] INFO [wa:155] book_id: None
+[03/Mar/2014 00:15:04] INFO [wa:262] documents/36
+[03/Mar/2014 00:15:04] INFO [wa:20] 36/original/originalBook.pdf
+[03/Mar/2014 00:15:04] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:20:22] INFO [wa:149] Hello world
+[03/Mar/2014 00:20:22] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:20:22] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:20:22] INFO [wa:155] book_id: 36
+[03/Mar/2014 00:22:38] INFO [wa:247] Upload Book :
+[03/Mar/2014 00:22:38] INFO [wa:248] Hindi
+[03/Mar/2014 00:22:38] INFO [wa:149] Hello world
+[03/Mar/2014 00:22:38] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:22:38] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:22:38] INFO [wa:155] book_id: None
+[03/Mar/2014 00:22:39] INFO [wa:262] documents/37
+[03/Mar/2014 00:22:39] INFO [wa:20] 37/original/originalBook.pdf
+[03/Mar/2014 00:22:39] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:22:51] INFO [wa:149] Hello world
+[03/Mar/2014 00:22:51] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:22:51] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:22:51] INFO [wa:155] book_id: 37
+[03/Mar/2014 00:25:38] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:28:40] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:28:44] INFO [wa:10] Coming into try block
+[03/Mar/2014 00:29:15] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:35:00] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:35:04] INFO [wa:10] Coming into try block
+[03/Mar/2014 00:36:28] INFO [wa:103] in audio Selection
+[03/Mar/2014 00:38:27] INFO [wa:149] Hello world
+[03/Mar/2014 00:38:27] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 00:38:27] INFO [wa:152] Coming after ndu
+[03/Mar/2014 00:38:27] INFO [wa:155] book_id: 33
+[03/Mar/2014 16:14:32] INFO [wa:103] in audio Selection
+[03/Mar/2014 16:16:06] INFO [wa:103] in audio Selection
+[03/Mar/2014 16:16:11] INFO [wa:10] Coming into try block
+[03/Mar/2014 16:16:55] INFO [wa:103] in audio Selection
+[03/Mar/2014 16:18:09] INFO [wa:149] Hello world
+[03/Mar/2014 16:18:09] INFO [wa:150] In checkForCompletion
+[03/Mar/2014 16:18:09] INFO [wa:152] Coming after ndu
+[03/Mar/2014 16:18:09] INFO [wa:155] book_id: 36
+[03/Mar/2014 16:22:48] INFO [wa:10] Coming into try block
+[03/Mar/2014 16:24:13] INFO [wa:10] Coming into try block
+[03/Mar/2014 17:09:33] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:09:38] INFO [wa:10] Coming into try block
+[03/Mar/2014 17:34:33] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:34:44] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:34:47] INFO [wa:10] Coming into try block
+[03/Mar/2014 17:35:20] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:36:44] INFO [wa:25] Coming into uploadAudioDb
+[03/Mar/2014 17:36:44] INFO [wa:149] In checkForCompletion
+[03/Mar/2014 17:36:44] INFO [wa:151] Coming after ndu
+[03/Mar/2014 17:36:44] INFO [wa:154] book_id: 36
+[03/Mar/2014 17:36:44] INFO [wa:156] chunks: 8percentageCompleteAudio: 2.0
+[03/Mar/2014 17:37:27] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:37:30] INFO [wa:10] Coming into try block
+[03/Mar/2014 17:37:43] INFO [wa:103] in audio Selection
+[03/Mar/2014 17:40:43] INFO [wa:25] Coming into uploadAudioDb
+[03/Mar/2014 17:40:43] INFO [wa:149] In checkForCompletion
+[03/Mar/2014 17:40:43] INFO [wa:151] Coming after ndu
+[03/Mar/2014 17:40:43] INFO [wa:154] book_id: 36
+[03/Mar/2014 17:40:43] INFO [wa:156] chunks: 8percentageCompleteAudio: 3.0
+[03/Mar/2014 18:57:22] INFO [wa:10] Coming into try block
