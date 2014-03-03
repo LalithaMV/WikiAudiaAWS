@@ -258,7 +258,7 @@ def uploadBook(request):
                 local_fs = FileSystemStorage(location='/tmp/pdf')
                 local_fs.save(a.name,a)
                 #b = default_storage.save(str(b.id) + "/original/originalBook.pdf",a)
-                
+                default_storage.close("documents/"+str(b.id))
                 log.info((a.name))
                 mod_path = "/tmp/pdf/"+a.name
                 f = open(mod_path, 'r')
