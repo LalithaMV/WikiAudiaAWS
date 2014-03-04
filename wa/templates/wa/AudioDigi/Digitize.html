@@ -3,177 +3,185 @@
 {% block content %}
 
 {% load staticfiles %}
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>WikiAudia</title>
-		<script type="text/javascript" src="/static/wa/js/pramukhime.js"></script>
-        <script type="text/javascript" src="/static/wa/js/jquery-2.1.0.min.js"></script>
-        <script type='text/javascript' src='/static/wa/js/pramukhindic.js' ></script>
-		<script type="text/javascript" src="/static/wa/js/pramukhime-common.js"></script>
-        <script type="text/javascript">
-            
-        </script>
-        <link type="text/css" href="/static/wa/css/pramukhtypepad.css" rel="Stylesheet" />
-	
-	<!--<img border="0" src="/static/wa/img/hindi.jpg" width="650" height="400" />-->
-    <div class="row">
-    <div class="col-sm-6">
-        <img border="1px" src="/wa/getParagraph/{{ book_id }}/{{ para_id }}/"  />    
-    </div>
-    <div class="col-sm-5 col-sm-offset-1">
-	{% csrf_token %}
-     <table cellpadding="3" cellspacing="0" border="1" class="editor">
-            <tr class="editortoolbar">
-                <td>
-                    <div class="iconflex"> 
-                        <select id="drpLanguage"
-						onchange="javascript:changeLanguage(this.options[this.selectedIndex].value);" 
-						name="drpLanguage" title="Choose Language" class="big">
-                            <option value='pramukhindic:assamese'>Assamese</option>
-                            <option value='pramukhindic:bengali'>Bengali</option>
-                            <option value='pramukhindic:bodo'>Bodo</option>
-                            <option value='pramukhindic:dogri'>Dogri</option>
-                            <option value='pramukhindic:gujarati'>Gujarati</option>
-                            <option value='pramukhindic:hindi'>Hindi</option>
-                            <option value='pramukhindic:kannada'>Kannada</option>
-                            <option value='pramukhindic:konkani'>Konkani</option>
-                            <option value='pramukhindic:maithili'>Maithili</option>
-                            <option value='pramukhindic:malayalam'>Malayalam</option>
-                            <option value='pramukhindic:manipuri'>Manipuri</option>
-                            <option value='pramukhindic:marathi'>Marathi</option>
-                            <option value='pramukhindic:nepali'>Nepali</option>
-                            <option value='pramukhindic:oriya'>Oriya</option>
-                            <option value='pramukhindic:punjabi'>Punjabi</option>
-                            <option value='pramukhindic:sanskrit'>Sanskrit</option>
-                            <option value='pramukhindic:santali'>Santali</option>
-                            <option value='pramukhindic:sindhi'>Sindhi</option>
-                            <option value='pramukhindic:tamil'>Tamil</option>
-                            <option value='pramukhindic:telugu'>Telugu</option>
-                            <option value=":english" selected="selected">English (F9)</option>
-				        </select>
-                    </div>
-                    <ul id="toolbar">
-                        <li>
-                            <a href="javascript:;" onclick="showHelp(this);" id="cmdhelp" title="Typing help"></a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <textarea id="typingarea" name="typingarea" rows="5" cols="50" class="bigger" spellcheck="false"></textarea>
-                </td>
-            </tr>
-        </table>
-                <div id="dialog">
-                <div id="dialogheader"></div>
-                <div id="pramukhimehelp">
-                    <div style="text-align:center;" id="pramukhimehelptypetitle"><input type="radio" name="helptype" value="quick" checked="checked" onclick="selectHelpType();"/> Quick Help <input type="radio" name="helptype" value="detailed" onclick="selectHelpType();"/> Detailed Help<br /></div>
-                    
-                    <div id="pramukhimehelpquick">
-                        WikiAudia Type Pad is used for typing easily into Indian languages. It follows 'The way you speak, the way you type' rule. 
-                        Following image shows which character will be shown by pressing which corresponding English letter. 
-                        Example for various combination of letters are given only for one character but it is true for each alphabet.<br />
-                        <div style="text-align:center;">
-                            <img src="/static/wa/img/pramukhime-english.png" alt="character map" id="pramukhimecharmap" />
-                        </div>
-                    </div>
-                    <iframe src="" id="pramukhimehelpdetailed"></iframe>
-                </div>
-                <div id="dialogfooter"><input type="button" value="Cancel" onclick="closeDialog();" /></div>
-            </div>
-        <div id="blocker">
-            
-        </div>
-        
-        <br /></br>
-        
-        <script language="javascript" type="text/javascript">
-            pramukhIME.addLanguage(PramukhIndic);
-            pramukhIME.enable();
-            pramukhIME.onLanguageChange(scriptChangeCallback);
-            //var lang = (getCookie('pramukhime_language',':english')).split(':');
-            //pramukhIME.setLanguage(lang[1], lang[0]);
-            document.getElementById('typingarea').focus();
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>WikiAudia</title>
+	<script type="text/javascript" src="/static/wa/js/pramukhime.js"></script>
+	<script type="text/javascript" src="/static/wa/js/jquery-2.1.0.min.js"></script>
+	<script type='text/javascript' src='/static/wa/js/pramukhindic.js' ></script>
+	<script type="text/javascript" src="/static/wa/js/pramukhime-common.js"></script>
 
-            // set width and height of dialog
-            var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0], x = w.innerWidth || e.clientWidth || g.clientWidth, y = w.innerHeight || e.clientHeight || g.clientHeight;
-            var elem = document.getElementById('dialog');
-            elem.style.top = ((y - 550) / 2) + 'px';
-            elem.style.left = ((x - 700) / 2) + 'px';
-            function getCookie(name) {
-                var cookieValue = null;
-                if (document.cookie && document.cookie != '') {
-                    console.log("all cookies:"+document.cookie);
-                    var cookies = document.cookie.split(';');
-                    console.log("Length:"+cookies.length);
-                    for (var i = 0; i < cookies.length; i++) {
+	<link type="text/css" href="/static/wa/css/pramukhtypepad.css" rel="Stylesheet" />
 
-                        var cookie = jQuery.trim(cookies[i]);
-                        console.log("for loop : "+cookie)
-                        console.log(cookie.substring(0, name.length + 1));
-                        console.log(name + '=');
-                        // Does this cookie string begin with the name we want?
-                        if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                            console.log("Cookie val:"+cookieValue);
-                            break;
-                        }
-                    }
-                }
-                console.log("Token: "+cookieValue);
-                return cookieValue;
-            }
-            //srftoken = getCookie('csrftoken');
-            csrftoken = getCookie("csrftoken");
-           
+	<div class="row">
+		<div class="col-sm-6">
+			<img style="border:2px solid black" src="/wa/getParagraph/{{ book_id }}/{{ para_id }}/"  />    
+		</div>
+		<div class="col-sm-5 col-sm-offset-1">
+		{% csrf_token %}
+	 		<table cellpadding="3" cellspacing="0" border="1" class="editor">
+				<tr class="editortoolbar">
+					<td>
+						<div class="iconflex"> 
+							<select id="drpLanguage"
+							onchange="javascript:changeLanguage(this.options[this.selectedIndex].value);" 
+							name="drpLanguage" title="Choose Language" class="big">
+								<option value='pramukhindic:assamese'>Assamese</option>
+								<option value='pramukhindic:bengali'>Bengali</option>
+								<option value='pramukhindic:bodo'>Bodo</option>
+								<option value='pramukhindic:dogri'>Dogri</option>
+								<option value='pramukhindic:gujarati'>Gujarati</option>
+								<option value='pramukhindic:hindi'>Hindi</option>
+								<option value='pramukhindic:kannada'>Kannada</option>
+								<option value='pramukhindic:konkani'>Konkani</option>
+								<option value='pramukhindic:maithili'>Maithili</option>
+								<option value='pramukhindic:malayalam'>Malayalam</option>
+								<option value='pramukhindic:manipuri'>Manipuri</option>
+								<option value='pramukhindic:marathi'>Marathi</option>
+								<option value='pramukhindic:nepali'>Nepali</option>
+								<option value='pramukhindic:oriya'>Oriya</option>
+								<option value='pramukhindic:punjabi'>Punjabi</option>
+								<option value='pramukhindic:sanskrit'>Sanskrit</option>
+								<option value='pramukhindic:santali'>Santali</option>
+								<option value='pramukhindic:sindhi'>Sindhi</option>
+								<option value='pramukhindic:tamil'>Tamil</option>
+								<option value='pramukhindic:telugu'>Telugu</option>
+								<option value=":english" selected="selected">English (F9)</option>
+							</select>
+						</div>
+						<ul id="toolbar">
+							<li>
+								<a href="javascript:;" onclick="showHelp(this);" id="cmdhelp" title="Typing help"></a>
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea id="typingarea" name="typingarea" rows="100" cols="100" class="bigger" spellcheck="false"></textarea>
+					</td>
+				</tr>
+			</table>
+			<div id="dialog">
+				<div id="dialogheader"></div>
+				<div id="pramukhimehelp">
+					<div style="text-align:center;" id="pramukhimehelptypetitle"><input type="radio" name="helptype" value="quick" checked="checked" onclick="selectHelpType();"/> Quick Help <input type="radio" name="helptype" value="detailed" onclick="selectHelpType();"/> Detailed Help<br /></div>
+					
+					<div id="pramukhimehelpquick">
+						WikiAudia Type Pad is used for typing easily into Indian languages. It follows 'The way you speak, the way you type' rule. 
+						Following image shows which character will be shown by pressing which corresponding English letter. 
+						Example for various combination of letters are given only for one character but it is true for each alphabet.<br />
+						<div style="text-align:center;">
+							<img src="/static/wa/img/pramukhime-english.png" alt="character map" id="pramukhimecharmap" />
+						</div>
+					</div>
+					<iframe src="" id="pramukhimehelpdetailed"></iframe>
+				</div>
+				
+				<div id="dialogfooter"><input type="button" value="Cancel" onclick="closeDialog();" /></div>
+			</div>
+			<div id="blocker">
+				
+			</div>
+		
+			<br /></br>
+		
+			<script language="javascript" type="text/javascript">
+				pramukhIME.addLanguage(PramukhIndic);
+				pramukhIME.enable();
+				pramukhIME.onLanguageChange(scriptChangeCallback);
+				//var lang = (getCookie('pramukhime_language',':english')).split(':');
+				//pramukhIME.setLanguage(lang[1], lang[0]);
+				document.getElementById('typingarea').focus();
 
-            //Ajax call
-            function csrfSafeMethod(method) {
-            // these HTTP methods do not require CSRF protection
-            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-            }
-            $.ajaxSetup({
-                crossDomain: false, // obviates need for sameOrigin test
-                beforeSend: function(xhr, settings) {
-                    console.log("Hello World")
-                    if (!csrfSafeMethod(settings.type)) {
-                         console.log(csrftoken)
-                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                    }
-                }
-            });
+				// set width and height of dialog
+				var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0], x = w.innerWidth || e.clientWidth || g.clientWidth, y = w.innerHeight || e.clientHeight || g.clientHeight;
+				var elem = document.getElementById('dialog');
+				elem.style.top = ((y - 550) / 2) + 'px';
+				elem.style.left = ((x - 700) / 2) + 'px';
+				function getCookie(name) {
+					var cookieValue = null;
+					if (document.cookie && document.cookie != '') {
+						console.log("all cookies:"+document.cookie);
+						var cookies = document.cookie.split(';');
+						console.log("Length:"+cookies.length);
+						for (var i = 0; i < cookies.length; i++) {
 
-            function uploadDigiClick(){
-                //console.log(typingarea.text);
-                //alert("coming");
-                var postdata = {
-                    csrfmiddlewaretoken : csrftoken, 
-                    'unicode_data':$('#typingarea').val(),
-                    
-                }
-                //console.log(postdata);
-                $.ajax({
-                        url : "/wa/uploadDigi/{{ book_id }}/{{ para_id }}/",
-                        type: "POST",
-                        data : postdata
-                        /*{
-                                'unicode_data':$('#typingarea').val()
-                            }*/,
-                        dataType : "json",
-                        success: function( data ){
-                            console.log("Hello:" +data);
-                        },
+							var cookie = jQuery.trim(cookies[i]);
+							console.log("for loop : "+cookie)
+							console.log(cookie.substring(0, name.length + 1));
+							console.log(name + '=');
+							// Does this cookie string begin with the name we want?
+							if (cookie.substring(0, name.length + 1) == (name + '=')) {
+								cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								console.log("Cookie val:"+cookieValue);
+								break;
+							}
+						}
+					}
+					console.log("Token: "+cookieValue);
+					return cookieValue;
+				}
+				//srftoken = getCookie('csrftoken');
+				csrftoken = getCookie("csrftoken");
+			   
 
-                        error : function(xhr,errmsg,err) {
-                        alert(xhr.status + ": " + xhr.responseText);
-                        }
-                        
-                    });
+				//Ajax call
+				function csrfSafeMethod(method) {
+				// these HTTP methods do not require CSRF protection
+				return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+				}
+				$.ajaxSetup({
+					crossDomain: false, // obviates need for sameOrigin test
+					beforeSend: function(xhr, settings) {
+						console.log("Hello World")
+						if (!csrfSafeMethod(settings.type)) {
+							 console.log(csrftoken)
+							xhr.setRequestHeader("X-CSRFToken", csrftoken);
+						}
+					}
+				});
 
-            }
-        </script>
-        <button id="uploadDigi" onclick="uploadDigiClick()">Upload</button>
-        </div>
+				function uploadDigiClick(){
+					//console.log(typingarea.text);
+					isChap = $("#chapterrady").is(':checked');
+					var postdata = {
+						csrfmiddlewaretoken : csrftoken, 
+						'unicode_data':$('#typingarea').val(),
+						isChapter: isChap,
+					}
+					//console.log(postdata);
+					$.ajax({
+							url : "/wa/uploadDigi/{{ book_id }}/{{ para_id }}/",
+							type: "POST",
+							data : postdata
+							/*{
+									'unicode_data':$('#typingarea').val()
+								}*/,
+							dataType : "json",
+							success: function( data ){
+								console.log("Hello:" +data);
+							},
+
+							error : function(xhr,errmsg,err) {
+							alert(xhr.status + ": " + xhr.responseText);
+							}
+							
+						});
+
+				}
+			</script>	
+			<br/><br/><br/>		
+		</div>
+		
+		<label for="chapterrad">Chunk a chapter beginning?</label><br/><br/>
+		<input type="radio" name="chapterrad" id = "chapterrady" value="yes">Yes</input>
+		<input type="radio" name="chapterrad" id = "chapterradn" value="no">No</input>
+		<br/><br/>
+		<button id="uploadDigi" onclick="uploadDigiClick()">Upload</button>
+		<br/>
+		</div>
+		<div>
+		
 	</div>	
 
 

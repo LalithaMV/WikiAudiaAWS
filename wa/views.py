@@ -299,7 +299,17 @@ def uploadBook(request):
         return render_to_response('/wa')
 
 def uploadDigi(request, book_id, para_id):
-    if request.POST.has_key('unicode_data'):
+    
+    '''
+    #TODOJO
+    #IsChapter from digitization. Not able to execute this. If the value of isChapter
+    #id retrieved properly go ahead and set it as the attribute of the paragraph
+    if request.POST.has_key('idChapter'):
+        isChapter = request.POST['isChapter']
+        log = logging.getLogger("wa")
+        log.info("Upload Book :"+isChapter)
+    '''
+    if request.POST.has_key('unicode_data'):        
         file = open("DigiFiles/KannadaInput.txt", "w")
         file.write((request.POST['unicode_data']).encode('utf8'))
         file.close()
@@ -312,6 +322,7 @@ def uploadDigi(request, book_id, para_id):
         #concatenateDigi(request)
         #pdfGen(request)
 	#dbOps.uploadDigi(para_id)
+        
         x = request.POST['unicode_data']
         return HttpResponse(x)
     
