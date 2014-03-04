@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from wa.models import CustomUser
+from wa.models import CustomUser,Language
 
 #class LanguageForm(forms.Form):
 
@@ -17,7 +17,14 @@ class CustomUserCreationForm(UserCreationForm):
     A form that creates a user, with no privileges, from the given email and
     password.
     """
-    OPTIONS = (("ENG","English"),("KAN","Kannada"),("TEL","Telgu"),("TAM","Tamil"))
+    langs = Language.objects.all()
+    c= ()
+    for i in langs:
+        #print i.langName
+        b = (str(i.langName[0:3]),str(i.langName))
+        c = c + (b,)
+    #OPTIONS = (("ENG","English"),("KAN","Kannada"),("TEL","Telgu"),("TAM","Tamil"))
+    OPTIONS = c
     def __init__(self, *args, **kargs):
         super(CustomUserCreationForm, self).__init__(*args, **kargs)
         del self.fields['username']

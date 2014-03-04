@@ -13,14 +13,20 @@
 
 		<div class="row">
 		
-		<div class = "col-sm-10">
-		<img src = "/wa/getParagraph/{{ book_id }}/{{ para_id }}/">
+		<div class = "col-sm-10 col col-sm-offset-1">
+		<img src = "/wa/getParagraph/{{ book_id }}/{{ para_id }}/" style="border:2px solid black">
+		<br/><br/><br/>
 		<div>
             <a onclick ="toggleRecording(this)" href="#" class="btn btn-round"><span>Record Audio</span></a>
             <a onclick="saveAudio()" href="#" class="btn btn-round"><span>Save Audio</span></a>
         </div>
-        <p>Sounds ok? Upload the Audio File!</p>
+        <br/><br/><br/>
 		<form action="/wa/audioUploadForm/{{ book_id }}/{{ para_id }}/" method="post" enctype="multipart/form-data">
+			<label for="chapterrad">Chunk a chapter beginning?</label><br/><br/>
+			<input type="radio" name="chapterrad" id = "chapterrady" value="yes">Yes</input>
+			<input type="radio" name="chapterrad" id = "chapterradn" value="no">No</input>
+			<br/><br/>
+			<p>Sounds ok? Upload the Audio File!</p>
 			{% csrf_token %}
 			<p>{{ form.non_field_errors }}</p>
 			<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>

@@ -150,6 +150,8 @@ def audioUpload(request, book_id):
             if form.is_valid():
                 newdoc = Document(docfile = request.FILES['docfile'])
                 newdoc.docfile.save('Ashu.wav',request.FILES['docfile'])
+                log = logging.getLogger("wa")
+                log.info(request.POST['yes'])
                 #soundProcessWithAuphonic('documents/Ashu.wav')
                 #soundProcessingWithAuphonicTask.delay('../documents/ashu.mp3')
                 return HttpResponseRedirect(reverse('wa.views.audioSelection'))
@@ -207,6 +209,15 @@ def audioUploadForm(request, book_id, para_id):
             #Use this if the name of the file is to be changed and saved with a path
             file_name = str(book_id)+"_"+str(para_id)+"_"+"sound.wav"
             newdoc.docfile.save(file_name,request.FILES['docfile'])
+            log = logging.getLogger("wa")
+            log.info(request.POST['chapterrad'])
+            isChapter = request.POST['chapterrad']
+            para = Paragraph.objects.get(pk = para_id)
+            if isChapter=='yes':
+                para.isChapter = True
+            else:
+                para.isChapter = False
+            para.save()
             #soundProcessWithAuphonic('documents/Ashu.wav')
             user_id = request.user.id
             soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id,user_id)
@@ -292,15 +303,25 @@ def uploadBook(request):
         return render_to_response('/wa')
 
 def uploadDigi(request, book_id, para_id):
-    if request.POST.has_key('unicode_data'):
-        '''
-        file = open("KannadaInput.txt", "w")
+    print("coming to upload digi")
+    
+    #TODOJO
+    #IsChapter from digitization. Not able to execute this. If the value of isChapter
+    #id retrieved properly go ahead and set it as the attribute of the paragraph
+    if request.POST.has_key('isChapter'):
+        isChapter = request.POST['isChapter']
+        log = logging.getLogger("wa")
+        log.info("Upload Digi:"+isChapter)
+        para = Paragraph.objects.get(pk = para_id)
+        para.isChapter = isChapter
+        para.save()
+        #print("isChapter: " + str(isChapter))
+    if request.POST.has_key('unicode_data'):        
+        file_name = "/tmp/Digi" + str(para_id) + ".txt"
+        file = open(file_name, "w")
         file.write((request.POST['unicode_data']).encode('utf8'))
         file.close()
-        '''
-        local_fs = FileSystemStorage(location='/tmp/digi')
-
-        f = open("DigiFiles/KannadaInput.txt", "r")
+        f = open(file_name, "r")
         #get latest version and then save
         path_to_save = str(book_id) + "/chunks/" + str(para_id) + "/DigiFiles/1.txt"
         default_storage.save(path_to_save, File(f))
@@ -343,7 +364,3 @@ def pdfGen(request):
     pdf.write(8,linestring)
     pdf.ln(20)
     pdf.output("DigiFiles/KannadaOutput.pdf", 'F')
-            
-            
-
-    
