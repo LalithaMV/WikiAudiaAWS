@@ -25,6 +25,7 @@ from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wa.paragraphChunks import getChunkID
 from wa.dbOps import uploadDigiDb, uploadAudioDb
+from django.db.models import F
 #from wa.splitBook import splitBookIntoPages
 # Create your views here.
 
@@ -220,14 +221,16 @@ def chooseAction(request, book_id):
     return resp;
 
 def langBooks(request):
-    #print(os.path.dirname(settings.BASE_DIR))
-    #outside = os.path.dirname(settings.BASE_DIR)
-    #if(os.path.exists())
+    #returns a JSON object with all books of a language which haven't been completed depending on the action
     language = request.GET['language']
-    #print(language);
     language = Language.objects.get(langName = language)
-    #print(language)
-    languageBooks = language.book_set.all()
+    #Only send those books which aren't finished yet
+    #languageBooks = language.book_set.all()
+    languageBooks = Book.objects.filter(lang = language)
+    if(request.session['action'] == "digitize"):
+        languageBooks = languageBooks.exclude(percentageCompleteDigi = F('numberOfChunks'))
+    elif(request.session['action'] == "record"):
+        languageBooks = languageBooks.exclude(percentageCompleteAudio = F('numberOfChunks'))
     ret = serializers.serialize("json", languageBooks)
     #resp = HttpResponse(content_type = "application/json");
     #json.dump(languageBooks, resp)
@@ -259,7 +262,7 @@ def uploadBook(request):
                 local_fs = FileSystemStorage(location='/tmp/pdf')
                 local_fs.save(a.name,a)
                 #b = default_storage.save(str(b.id) + "/original/originalBook.pdf",a)
-                
+                #default_storage.close("documents/"+str(b.id))
                 log.info((a.name))
                 mod_path = "/tmp/pdf/"+a.name
                 f = open(mod_path, 'r')
@@ -290,15 +293,19 @@ def uploadBook(request):
 
 def uploadDigi(request, book_id, para_id):
     if request.POST.has_key('unicode_data'):
-        file = open("DigiFiles/KannadaInput.txt", "w")
+        '''
+        file = open("KannadaInput.txt", "w")
         file.write((request.POST['unicode_data']).encode('utf8'))
         file.close()
+        '''
+        local_fs = FileSystemStorage(location='/tmp/digi')
+
         f = open("DigiFiles/KannadaInput.txt", "r")
-    #get latest version and then save
+        #get latest version and then save
         path_to_save = str(book_id) + "/chunks/" + str(para_id) + "/DigiFiles/1.txt"
         default_storage.save(path_to_save, File(f))
         f.close()  
-	#delete file - todo
+	    #delete file - todo
         #concatenateDigi(request)
         #pdfGen(request)
         user_id = request.user.id
@@ -321,6 +328,7 @@ def concatenateDigi(request):
     with open('DigiFiles/final.txt', 'w') as fout:
         for line in fileinput.input(filenames):
             fout.write(line)
+
 def pdfGen(request):
     pdf = FPDF()
     pdf.add_page()

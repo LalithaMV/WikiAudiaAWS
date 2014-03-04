@@ -28,7 +28,7 @@ def splitBookIntoPages(f_arg, book_id):
 		local_fs.save(a.name,a)
 		mod_path = "/tmp/pdf/"+ f_arg
 		print mod_path
-		
+		#default_storage.close(f_arg)
 		data = file(mod_path,"rb").read()
 		#log.info(file(mod_path,"rb").size())
 		no_pages = len(rxcountpages.findall(data))
@@ -68,7 +68,7 @@ def splitBookIntoPages(f_arg, book_id):
 		print i
 		#update book table to add number of chunks
 		book = Book.objects.get(pk = book_id)
-		book.numberOfChunks = i-1
+		book.numberOfChunks = i-2
 		book.save()
 		os.remove(mod_path)
 		
