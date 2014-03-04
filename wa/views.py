@@ -149,6 +149,8 @@ def audioUpload(request, book_id):
             if form.is_valid():
                 newdoc = Document(docfile = request.FILES['docfile'])
                 newdoc.docfile.save('Ashu.wav',request.FILES['docfile'])
+                log = logging.getLogger("wa")
+                log.info(request.POST['yes'])
                 #soundProcessWithAuphonic('documents/Ashu.wav')
                 #soundProcessingWithAuphonicTask.delay('../documents/ashu.mp3')
                 return HttpResponseRedirect(reverse('wa.views.audioSelection'))
@@ -206,8 +208,17 @@ def audioUploadForm(request, book_id, para_id):
             #Use this if the name of the file is to be changed and saved with a path
             file_name = str(book_id)+"_"+str(para_id)+"_"+"sound.wav"
             newdoc.docfile.save(file_name,request.FILES['docfile'])
+            log = logging.getLogger("wa")
+            log.info(request.POST['chapterrad'])
+            isChapter = request.POST['chapterrad']
+            para = Paragraph.objects.get(pk = para_id)
+            if isChapter=='yes':
+                para.isChapter = True
+            else:
+                para.isChapter = False
+            para.save()
             #soundProcessWithAuphonic('documents/Ashu.wav')
-            soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id)
+            #soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
         
                 
@@ -333,7 +344,3 @@ def pdfGen(request):
     pdf.write(8,linestring)
     pdf.ln(20)
     pdf.output("DigiFiles/KannadaOutput.pdf", 'F')
-            
-            
-
-    
