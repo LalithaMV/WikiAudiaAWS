@@ -218,7 +218,7 @@ def audioUploadForm(request, book_id, para_id):
                 para.isChapter = False
             para.save()
             #soundProcessWithAuphonic('documents/Ashu.wav')
-            #soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id)
+            soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
         
                 
