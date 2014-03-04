@@ -19,6 +19,7 @@ def uploadDigiDb(para_id, user_id):
 	#book.status = 'va'
 
 	para.digiBy = CustomUser.objects.get(pk = user_id)
+	para.save()
 
 def uploadAudioDb(para_id, user_id):
 	log = logging.getLogger("wa")

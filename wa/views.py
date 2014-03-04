@@ -130,9 +130,12 @@ def getImage(request, book_id):
 def digitize(request, book_id):
     if request.user.is_authenticated():
         print("user_id:" + str(request.user.id))
-        para_id = getChunkID(request.user.id,book_id,0)
+        para_id = getChunkID(request.user.id,book_id,1)
         print("para_id: " + str(para_id))
-        return render_to_response('wa/AudioDigi/Digitize.html', {'book_id': book_id, 'para_id': para_id} )
+        if(para_id != 0):
+            return render_to_response('wa/AudioDigi/Digitize.html', {'book_id': book_id, 'para_id': para_id} )
+        else:
+            return render_to_response('wa/error.html')
     else :
         return render_to_response('wa/AudioDigi/Digitize.html')
 
@@ -162,12 +165,14 @@ def audioUpload(request, book_id):
         documents = Document.objects.all()
         para_id = getChunkID(request.user.id, book_id, 0)
         # Render list page with the documents and the form
-        return render_to_response(
-            'wa/audioUpload.html',
-            {'documents': documents, 'form': form, 'book_id': book_id, 'para_id': para_id },
-           
-            context_instance=RequestContext(request)
-        )
+        if(para_id != 0):
+            return render_to_response(
+                'wa/audioUpload.html',
+                {'documents': documents, 'form': form, 'book_id': book_id, 'para_id': para_id },
+                context_instance=RequestContext(request)
+            )
+        else:
+            return render_to_response('wa/error.html')
     else :
         return render_to_response('/wa')
 
@@ -327,6 +332,7 @@ def uploadDigi(request, book_id, para_id):
         default_storage.save(path_to_save, File(f))
         f.close()  
 	    #delete file - todo
+        os.remove(file_name)
         #concatenateDigi(request)
         #pdfGen(request)
         user_id = request.user.id
