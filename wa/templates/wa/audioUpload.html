@@ -24,7 +24,7 @@
 		<form action="/wa/audioUploadForm/{{ book_id }}/{{ para_id }}/" method="post" enctype="multipart/form-data">
 			<label for="chapterrad">Chunk a chapter beginning?</label><br/><br/>
 			<input type="radio" name="chapterrad" id = "chapterrady" value="yes">Yes</input>
-			<input type="radio" name="chapterrad" id = "chapterradn" value="no">No</input>
+			<input type="radio" name="chapterrad" id = "chapterradn" value="no" checked>No</input>
 			<br/><br/>
 			<p>Sounds ok? Upload the Audio File!</p>
 			{% csrf_token %}
