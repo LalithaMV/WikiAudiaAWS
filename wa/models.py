@@ -149,12 +149,13 @@ def checkForCompletion(sender, instance, **kwargs):
     log.info("In checkForCompletion")
     log.info("right i am still coming")
     log.info(sender)
-    '''
+    
     book_id = instance.book
     log.info("book_id: " + book_id)
     chunks = Book.objects.get(pk = book_id).numberOfChunks
     if(Book.objects.get(pk = book_id).percentageCompleteAudio == chunks):
         print("Calling Audio concat")
+    '''
     elif(Book.objects.get(pk = book_id).percentageCompleteDigi == chunks):
         print("Calling pdfGen")
     '''
