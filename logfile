@@ -5,3 +5,13 @@
 [04/Mar/2014 23:06:32] INFO [wa:154] book_id: 39
 [04/Mar/2014 23:06:32] INFO [wa:156] chunks: 118percentageCompleteAudio: 0.0
 [04/Mar/2014 23:08:53] INFO [wa:10] Coming into try block
+[05/Mar/2014 22:15:58] INFO [wa:104] in audio Selection
+[05/Mar/2014 22:16:02] INFO [wa:10] Coming into try block
+[05/Mar/2014 22:19:12] INFO [wa:10] Coming into try block
+[05/Mar/2014 22:19:27] INFO [wa:218] no
+[05/Mar/2014 22:19:27] INFO [wa:104] in audio Selection
+[05/Mar/2014 22:21:31] INFO [wa:26] Coming into uploadAudioDb
+[05/Mar/2014 22:21:32] INFO [wa:149] In checkForCompletion
+[05/Mar/2014 22:21:32] INFO [wa:151] Coming after ndu
+[05/Mar/2014 22:21:32] INFO [wa:154] book_id: 39
+[05/Mar/2014 22:21:32] INFO [wa:156] chunks: 118percentageCompleteAudio: 1.0
