@@ -1,0 +1,50 @@
+{% extends "wa/base_login.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+<script src="{% static "wa/js/jquery.js" %}"></script>
+<!--<script src="{% static "wa/js/validatePool.js" %}"></script>-->
+<script type="text/javascript">
+book={{book_id}}
+
+jQuery(document).ready(function(){
+	$.get('/wa/audio/bookParas/', {book_id :book}, addParasToPage);
+});
+
+function addParasToPage(data)
+{
+	dispDiv = document.getElementById('dispParas');
+	var json = JSON.parse(data);
+	for(i =0, len = json.length; i < len; ++i)
+	{
+		//alert(json[i].pk);
+		para= json[i];
+		
+		link = document.createElement('a');
+		link.id = "waLink_" + para.pk;
+		link.name = "waLink_" + para.pk;
+		
+		fig = document.createElement('figure');
+		fig.id = "fig_" + para.pk ;
+		//link.href = "/wa/audio/" + book.pk + "/";
+		link.href = "/wa/audio/" + book + "/" +para.pk+"/";
+		image = document.createElement('img');
+		image.id = "figimg_" + para.pk;
+		image.src = "/wa/getParagraph/" + book + "/"+para.pk+"/";
+		image.height = 130;
+		image.width = 150;
+		fig.appendChild(image);
+		link.appendChild(fig);
+        dispDiv.appendChild(link);
+	}
+	this.oldvalue = this.value;
+//	this.oldvalue = this.value;
+}
+
+</script>
+<!--<h2>{{book_id}}</h2>-->
+<div id = 'dispParas'>
+</div>
+{% endblock %}

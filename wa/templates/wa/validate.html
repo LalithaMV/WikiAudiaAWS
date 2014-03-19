@@ -1,0 +1,35 @@
+{% extends "wa/base_login.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+<script src="http://cwilso.github.io/AudioContext-MonkeyPatch/AudioContextMonkeyPatch.js"></script>
+<script src="{% static "wa/js/jquery.js" %}"></script>
+
+<script type="text/javascript">
+
+function upVote()
+{
+	$.get('/wa/upVoted/{{ book_id }}/{{ para_id }}/');
+}
+function downVote()
+{
+	$.get('/wa/downVoted/{{ book_id }}/{{ para_id }}/');
+}
+</script>
+
+
+<img border="1px" src="/wa/getParagraph/{{ book_id }}/{{ para_id }}/" />
+</br></br></br></br>
+
+<audio controls>
+  <source src="/wa/getAudio/{{ book_id }}/{{ para_id }}/" type="audio/wav">
+  <embed height="50" width="100" src="/wa/getAudio/{{ book_id }}/{{ para_id }}/">
+</audio>
+</br></br></br></br>
+
+<button id="up" id="good" class="btn btn-round" onclick="upVote()"><span>Good</span></button>
+<button id="down" class="btn btn-round" onclick="downVote()"><span>Bad</span></button>
+
+
+{% endblock %}
