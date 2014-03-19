@@ -27,6 +27,8 @@ from wa.paragraphChunks import getChunkID
 from wa.dbOps import uploadDigiDb, uploadAudioDb
 from django.db.models import F
 import wave
+import BeautifulSoup
+from validate_email import validate_email
 #from wa.splitBook import splitBookIntoPages
 # Create your views here.
 
@@ -70,16 +72,44 @@ def home(request):
         return HttpResponseRedirect('/wa')
 
 def register_user(request):
+    emailValue="" 	
+    nameValue=""
+    phNo=""	
     if request.method == 'POST':
         form=CustomUserCreationForm(request.POST)
-        if form.is_valid():
+        #print("printing from register_user")	
+        formStr=str(form)	
+        #print(formStr)		
+        	
+        soup = BeautifulSoup.BeautifulSoup(formStr)
+        val=soup.find(id="id_email")
+        #print(val['value'])	
+        emailValue=val['value']	
+        try:		
+            is_valid = validate_email(val['value'],verify=True)
+        except Exception, e:
+            is_valid=False		
+        val=soup.find(id="id_phoneNo")
+        phNo=val['value']
+        val=soup.find(id="id_first_name")
+        nameValue=val['value']		
+        #print("is_valid")
+        #print(is_valid)				
+        #print(form.Meta.model.USERNAME_FIELD)		
+        #print(formStr)		
+        	
+        if (form.is_valid() & is_valid):
             form.save()
             #languages_known_v = form.Languages
             log = logging.getLogger("wa")
             #log.info(languages_known_v)
             return HttpResponseRedirect('/wa/register_success')
+        else:
+            form=CustomUserCreationForm(request.POST)
+            #print(form.id_email)			
     else:
         form= CustomUserCreationForm()
+        		
     return render(request,  'wa/session/register.html', {
         'form': form,
     })
@@ -442,7 +472,8 @@ def uploadDigi(request, book_id, para_id):
         para.isChapter = isChapter
         para.save()
         #print("isChapter: " + str(isChapter))
-    if request.POST.has_key('unicode_data'):        
+    if request.POST.has_key('unicode_data'):
+        
         file_name = "/tmp/Digi" + str(para_id) + ".txt"
         file = open(file_name, "w")
         file.write((request.POST['unicode_data']).encode('utf8'))

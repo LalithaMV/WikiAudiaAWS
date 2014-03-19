@@ -217,9 +217,13 @@ def splitBookIntoPages(f_arg, book_id):
 					if i==0:
 						path_to_save= str(book_id)+"/bookThumbnail.png"
 						default_storage.save(path_to_save, myfile)
+					'''	
 					else:
 						myfile.close()
 						Split_to_para("temp[%d].png"%i,book_id)
+					'''	
+					myfile.close()
+					Split_to_para("temp[%d].png"%i,book_id)
 					os.remove("temp[%d].png"%i)
 				i=i+1
 			except Exception, e:

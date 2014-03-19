@@ -18,8 +18,41 @@
 			<div class="add-comment styled boxed" id="addcomments">				
                 <div class="comment-form">
 					<form action="/wa/register/" method="post" class="ajax_form">{% csrf_token %}
+						<div class="form-inner">
+							{% for field in form %}
+						        <div class="field_text">
+									{% if field.label_tag != "Languages known" %}
+						            {{ field.errors }}
+						            {{ field.label_tag }} {{ field }}
+						            {% endif %}
+						        </div>
+						    {% endfor %}
+						</div>
+						<script type="text/javascript">
+							console.log($("label"));
+							$("label").each(function(index){
+								if($(this).attr('for') == 'id_languages_known')
+								{
+									$(this).hide();
+								}
+							});
+							
+							//attr('for')=='id_languages_known')
 
-						<div class="form-inner">						
+							$("#id_languages_known").hide();
+                            $("#id_Languages").change(function(){
+	                            var foo = []; 
+								$('#id_Languages :selected').each(function(i, selected){ 
+	  								foo[i] = $(selected).text(); 
+								});
+								$("#id_languages_known").val(foo.join(","))
+									console.log($("#id_languages_known").val());
+	                        });
+							jQuery(document).ready(function() {
+						        jQuery('#id_Languages').chosen({ width: "100%" });
+							});
+						</script>
+						<!--<div class="form-inner">						
 							<div class="field_text">
 								<label for="email">Email</label>
 								<input type="email" name="email" id="email" value="" />
@@ -44,7 +77,7 @@
 							<div class="field_select">
 								
                                 <label for="languages_known" class="label_title">Languages</label>
-                                {{ form.Languages }}
+                                {{ form.Languages }}-->
                                 <!--    <select name="lang" id="lang" multiple data-placeholder="Your Selection">
                                         <option value='english'>English</option>
                                         <option value='hindi'>Hindi</option>
@@ -52,25 +85,12 @@
                                         <option value='telgu'>Telgu</option>
                                         <option value='tamil'>Tamil</option>
                                     </select>-->
-                                <script type="text/javascript">
-                                	$("#id_Languages").change(function(){
-                                		var foo = []; 
-										$('#id_Languages :selected').each(function(i, selected){ 
-  										foo[i] = $(selected).text(); 
-										});
-										$("#languages_known").val(foo.join(","))
-										
-										console.log($("#languages_known").val());
-                                	});
-								    jQuery(document).ready(function() {
-								        jQuery('#id_Languages').chosen({ width: "100%" });
-								    });
-								</script>
-                            </div>
+                                
+                            <!--</div>
 							<div class="field_text">
 								<label for="phoneNo">Phone Number</label>
 							    <input type="text" name="phoneNo" id="phoneNo" value="" />
-							</div>				
+							</div>				-->
 							<!--table>
 								<tr>
 
@@ -98,17 +118,17 @@
 							</table>-->
 							</br></br>
 							<div class="rowSubmit">
-							<span class="btn btn-red"><input type="submit" value="REGISTER" /></span>
-							<div class="rowSubmit">
-						</div>
+								<span class="btn btn-red"><input type="submit" value="REGISTER" /></span>
+							</div>
 								
 					</form>
+					<!--
 					{% if form.errors %}
 	    				{% for field in form %}
 	        				{% for error in field.errors %}
 					            <div class="alert alert-error">
 									<strong>{{ field.label}} :</strong>
-									<!--<strong>{{field.error_messages}}<strong>-->
+									<strong>{{field.error_messages}}<strong>
 									<strong>{{ error|escape }}</strong>
 					            </div>
 	        				{% endfor %}
@@ -118,7 +138,7 @@
 					            <strong>{{ error|escape }}</strong>
 					        </div>
 					    {% endfor %}
-					{% endif %}
+					{% endif %} -->
 				</div>
 			</div>
 		<!--</div>-->
