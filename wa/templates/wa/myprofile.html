@@ -1,0 +1,33 @@
+{% extends "wa/base_login.html" %}
+
+{% block content %}
+
+<div id = "points" style = "position: relative; float: right; font-size: large; font-weight: bold; ">
+	<span style = "color: blue;">Points: </span>
+	<span style = "color: red;">{{points}}</span>
+</div>
+{% if digiNum > 0 %}
+	{% if digiNum == 1%}
+		<p>You have successfully digitized {{digiNum}} part</p>
+	{% else %}
+		<p>You have successfully digitized {{digiNum}} parts</p>
+	{% endif %}
+{% endif %}
+
+{% if recNum > 0 %}
+	{% if recNum == 1%}
+		<p>You have successfully recorded {{recNum}} part</p>
+	{% else %}
+		<p>You have successfully recorded {{recNum}} parts</p>
+	{% endif %}
+{% endif %}
+
+{% if uploadNum > 0 %}
+	{% if uploadNum == 1%}
+		<p>You have successfully uploaded {{uploadNum}} part</p>
+	{% else %}
+		<p>You have successfully uploaded {{uploadNum}} parts</p>
+	{% endif %}
+{% endif %}
+
+{% endblock %}

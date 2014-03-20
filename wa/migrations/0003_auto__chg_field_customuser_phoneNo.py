@@ -8,129 +8,14 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'CustomUser'
-        db.create_table(u'wa_customuser', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('password', self.gf('django.db.models.fields.CharField')(max_length=128)),
-            ('last_login', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
-            ('is_superuser', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('email', self.gf('django.db.models.fields.EmailField')(unique=True, max_length=254)),
-            ('first_name', self.gf('django.db.models.fields.CharField')(max_length=30, blank=True)),
-            ('last_name', self.gf('django.db.models.fields.CharField')(max_length=30, blank=True)),
-            ('is_staff', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('is_active', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('date_joined', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
-            ('languages_known', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('phoneNo', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
-            ('loginTimes', self.gf('django.db.models.fields.IntegerField')(default=0)),
-            ('points', self.gf('django.db.models.fields.IntegerField')(default=0)),
-        ))
-        db.send_create_signal(u'wa', ['CustomUser'])
 
-        # Adding M2M table for field groups on 'CustomUser'
-        m2m_table_name = db.shorten_name(u'wa_customuser_groups')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('customuser', models.ForeignKey(orm[u'wa.customuser'], null=False)),
-            ('group', models.ForeignKey(orm[u'auth.group'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['customuser_id', 'group_id'])
-
-        # Adding M2M table for field user_permissions on 'CustomUser'
-        m2m_table_name = db.shorten_name(u'wa_customuser_user_permissions')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('customuser', models.ForeignKey(orm[u'wa.customuser'], null=False)),
-            ('permission', models.ForeignKey(orm[u'auth.permission'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['customuser_id', 'permission_id'])
-
-        # Adding model 'Language'
-        db.create_table(u'wa_language', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('langName', self.gf('django.db.models.fields.CharField')(max_length=30)),
-        ))
-        db.send_create_signal(u'wa', ['Language'])
-
-        # Adding model 'Book'
-        db.create_table(u'wa_book', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('lang', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wa.Language'])),
-            ('author', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('bookName', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('percentageCompleteAudio', self.gf('django.db.models.fields.FloatField')(default=0)),
-            ('percentageCompleteDigi', self.gf('django.db.models.fields.FloatField')(default=0)),
-            ('percentageAudioInvalid', self.gf('django.db.models.fields.FloatField')(default=0)),
-            ('dBookDownloads', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
-            ('aBookDownloads', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
-            ('numberOfChunks', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
-        ))
-        db.send_create_signal(u'wa', ['Book'])
-
-        # Adding model 'Paragraph'
-        db.create_table(u'wa_paragraph', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('book', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wa.Book'])),
-            ('audioAssignedTo', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='audioAssignedTo', null=True, blank=True, to=orm['wa.CustomUser'])),
-            ('audioReadBy', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='audioReadBy', null=True, blank=True, to=orm['wa.CustomUser'])),
-            ('isRecording', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('digiAssignedTo', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='digiAssignedTo', null=True, blank=True, to=orm['wa.CustomUser'])),
-            ('digiBy', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='digiBy', null=True, blank=True, to=orm['wa.CustomUser'])),
-            ('isDigitizing', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('isChapter', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('validAudioVersionNumber', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
-            ('upVotes', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
-            ('downVotes', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
-            ('status', self.gf('django.db.models.fields.CharField')(max_length=2)),
-        ))
-        db.send_create_signal(u'wa', ['Paragraph'])
-
-        # Adding model 'UserHistory'
-        db.create_table(u'wa_userhistory', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wa.CustomUser'])),
-            ('loginTime', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('logoutTime', self.gf('django.db.models.fields.DateTimeField')()),
-            ('action', self.gf('django.db.models.fields.CharField')(max_length=2)),
-            ('paragraph', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wa.Paragraph'])),
-            ('vote', self.gf('django.db.models.fields.CharField')(default=None, max_length=2)),
-            ('audioVersion', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
-        ))
-        db.send_create_signal(u'wa', ['UserHistory'])
-
-        # Adding model 'Document'
-        db.create_table(u'wa_document', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('docfile', self.gf('django.db.models.fields.files.FileField')(max_length=100)),
-        ))
-        db.send_create_signal(u'wa', ['Document'])
-
+        # Changing field 'CustomUser.phoneNo'
+        db.alter_column(u'wa_customuser', 'phoneNo', self.gf('django.db.models.fields.IntegerField')(max_length=12))
 
     def backwards(self, orm):
-        # Deleting model 'CustomUser'
-        db.delete_table(u'wa_customuser')
 
-        # Removing M2M table for field groups on 'CustomUser'
-        db.delete_table(db.shorten_name(u'wa_customuser_groups'))
-
-        # Removing M2M table for field user_permissions on 'CustomUser'
-        db.delete_table(db.shorten_name(u'wa_customuser_user_permissions'))
-
-        # Deleting model 'Language'
-        db.delete_table(u'wa_language')
-
-        # Deleting model 'Book'
-        db.delete_table(u'wa_book')
-
-        # Deleting model 'Paragraph'
-        db.delete_table(u'wa_paragraph')
-
-        # Deleting model 'UserHistory'
-        db.delete_table(u'wa_userhistory')
-
-        # Deleting model 'Document'
-        db.delete_table(u'wa_document')
-
+        # Changing field 'CustomUser.phoneNo'
+        db.alter_column(u'wa_customuser', 'phoneNo', self.gf('django.db.models.fields.PositiveIntegerField')(max_length=12))
 
     models = {
         u'auth.group': {
@@ -181,7 +66,7 @@ class Migration(SchemaMigration):
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'loginTimes': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
-            'phoneNo': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
+            'phoneNo': ('django.db.models.fields.IntegerField', [], {'max_length': '12'}),
             'points': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
         },

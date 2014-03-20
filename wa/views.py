@@ -77,13 +77,13 @@ def register_user(request):
     phNo=""	
     if request.method == 'POST':
         form=CustomUserCreationForm(request.POST)
-        #print("printing from register_user")	
+        print("printing from register_user")	
         formStr=str(form)	
         #print(formStr)		
         	
         soup = BeautifulSoup.BeautifulSoup(formStr)
         val=soup.find(id="id_email")
-        #print(val['value'])	
+        print(val['value'])	
         emailValue=val['value']	
         try:		
             is_valid = validate_email(val['value'],verify=True)
@@ -93,8 +93,8 @@ def register_user(request):
         phNo=val['value']
         val=soup.find(id="id_first_name")
         nameValue=val['value']		
-        #print("is_valid")
-        #print(is_valid)				
+        print("is_valid")
+        print(is_valid)				
         #print(form.Meta.model.USERNAME_FIELD)		
         #print(formStr)		
         	
@@ -145,6 +145,22 @@ def audioSelection(request):
         context = RequestContext(request, {'langs': user_langs, } )
         return render(request, 'wa/chooseLanguage.html', context)
     else :
+        return HttpResponseRedirect('/wa')
+
+def myprofile(request):
+    if request.user.is_authenticated():
+        user_id = request.user.id
+        points = CustomUser.objects.get(pk = user_id).points
+        userActions = UserHistory.objects.filter(user = CustomUser.objects.get(pk = user_id))
+        digi = userActions.filter(action = 'di')
+        rec = userActions.filter(action = 're')
+        upl = userActions.filter(action = 'up')
+        digiN = digi.count()
+        recN = rec.count()
+        uplN = upl.count()
+        context = RequestContext(request, {'digiNum': digiN,'recNum' : recN, 'uploadNum' : uplN, 'points' : points} )
+        return render(request, 'wa/myprofile.html', context)
+    else:
         return HttpResponseRedirect('/wa')
 
 def getImage(request, book_id):
@@ -421,8 +437,9 @@ def uploadBook(request):
                 log.info(request.POST['language'])
                 b = Book(lang = Language.objects.get(langName = request.POST.get("language", "")), author = request.POST.get("author", ""), bookName = request.POST.get("bookName", ""))
                 b.save()
-                
-                
+                user_id = request.user.id
+                uh = UserHistory(user = CustomUser.objects.get(pk = user_id), action = 'up', uploadedBook = b)
+                uh.save()
                 newdoc = Document(docfile = request.FILES['docfile'])
 
                 #newdoc.docfile.save(str(b.id) + "/original/originalBook.pdf", request.FILES['docfile'], save=False)

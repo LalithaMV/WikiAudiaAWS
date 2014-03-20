@@ -10,7 +10,7 @@ from django.contrib.auth.models import BaseUserManager
 from django.db.models.signals import post_save#, post_save, pre_delete, post_delete, request_started, request_finished
 from django.dispatch import receiver
 import logging
-
+from datetime import datetime
 
 # Create your models here.
 # Have used camel case for all var names
@@ -165,13 +165,14 @@ def checkForCompletion(sender, **kwargs):
 post_save.connect(checkForCompletion, sender=Book)
 
 class UserHistory(models.Model):
-    user = models.ForeignKey(CustomUser)
+    user = models.ForeignKey(CustomUser, null = False)
     loginTime = models.DateTimeField(auto_now_add = True)
-    logoutTime = models.DateTimeField()
+    logoutTime = models.DateTimeField(default = datetime.now())
     action = models.CharField(max_length = 2, choices = (('re','Recorded'),('di', 'Digitized'),('va', 'validateAudio'),('vd', 'validateDigi'),('up', 'uploadBook')))   
-    paragraph = models.ForeignKey(Paragraph)
-    vote = models.CharField(max_length = 2, choices = (('up', 'UpVote'), ('do', 'DownVote')), default = None)
+    paragraph = models.ForeignKey(Paragraph, default= None, blank = True, null = True)
+    vote = models.CharField(max_length = 2, choices = (('up', 'UpVote'), ('do', 'DownVote')), default = None, blank = True, null = True)
     audioVersion = models.PositiveIntegerField(default = 0)
+    uploadedBook = models.ForeignKey(Book, default= None, blank = True, null = True)
 #autoincr??
 
 class Document(models.Model):

@@ -16,6 +16,7 @@ urlpatterns = patterns('',
 	url(r'audio/langBooks/', views.langBooks, name='langBooks'),
 	url(r'audio/', views.audioSelection, name = 'audioSelection'),
 	url(r'getParagraph/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.getParagraph, name = 'getParagraph'),
+	url(r'myprofile/', views.myprofile, name = 'myprofile'),
                                                                          
     #url(r'^(?P<poll_id>\d+)/results/$', views.results, name='results'),
 	url(r'^$', views.front, name='front'),
