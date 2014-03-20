@@ -1,0 +1,639 @@
+[10/Mar/2014 19:40:32] INFO [wa:104] in audio Selection
+[10/Mar/2014 19:40:37] INFO [wa:104] in audio Selection
+[10/Mar/2014 20:33:25] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:05:38] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:05:49] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:06:20] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:06:42] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:10:21] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:10:23] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:10:31] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:10:53] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:12:12] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:12:13] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:17:16] INFO [wa:104] in audio Selection
+[10/Mar/2014 22:23:18] INFO [wa:104] in audio Selection
+[11/Mar/2014 09:50:09] INFO [wa:104] in audio Selection
+[11/Mar/2014 09:50:11] INFO [wa:243] langBooks : 
+[11/Mar/2014 09:50:11] INFO [wa:244] English
+[11/Mar/2014 09:50:13] INFO [wa:243] langBooks : 
+[11/Mar/2014 09:50:13] INFO [wa:244] Kannada
+[11/Mar/2014 09:50:14] INFO [wa:243] langBooks : 
+[11/Mar/2014 09:50:14] INFO [wa:244] English
+[11/Mar/2014 09:51:10] INFO [wa:243] langBooks : 
+[11/Mar/2014 09:51:10] INFO [wa:244] Kannada
+[11/Mar/2014 09:51:10] INFO [wa:249] 0
+[11/Mar/2014 10:34:57] INFO [wa:104] in audio Selection
+[11/Mar/2014 10:34:59] INFO [wa:243] langBooks : 
+[11/Mar/2014 10:34:59] INFO [wa:244] English
+[11/Mar/2014 10:34:59] INFO [wa:249] 6
+[11/Mar/2014 10:35:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 10:35:02] INFO [wa:244] Kannada
+[11/Mar/2014 10:35:02] INFO [wa:249] 0
+[11/Mar/2014 10:35:14] INFO [wa:243] langBooks : 
+[11/Mar/2014 10:35:14] INFO [wa:244] English
+[11/Mar/2014 10:35:14] INFO [wa:249] 6
+[11/Mar/2014 10:36:45] INFO [wa:104] in audio Selection
+[11/Mar/2014 10:36:52] INFO [wa:243] langBooks : 
+[11/Mar/2014 10:36:52] INFO [wa:244] English
+[11/Mar/2014 10:36:52] INFO [wa:249] 6
+[11/Mar/2014 10:36:52] INFO [wa:257] []
+[11/Mar/2014 10:38:01] INFO [wa:104] in audio Selection
+[11/Mar/2014 10:38:03] INFO [wa:243] langBooks : 
+[11/Mar/2014 10:38:03] INFO [wa:244] English
+[11/Mar/2014 10:38:03] INFO [wa:249] 6
+[11/Mar/2014 10:38:03] INFO [wa:256] Record
+[11/Mar/2014 10:38:03] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>]
+[11/Mar/2014 10:38:03] INFO [wa:259] []
+[11/Mar/2014 10:38:03] INFO [wa:263] []
+[11/Mar/2014 11:02:02] INFO [wa:278] Upload Book :
+[11/Mar/2014 11:02:02] INFO [wa:279] English
+[11/Mar/2014 11:02:02] INFO [wa:149] In checkForCompletion
+[11/Mar/2014 11:02:02] INFO [wa:151] Coming after ndu
+[11/Mar/2014 11:02:02] INFO [wa:154] book_id: 12
+[11/Mar/2014 11:02:02] INFO [wa:156] chunks: 0percentageCompleteAudio: 0
+[11/Mar/2014 11:02:04] INFO [wa:293] documents/12
+[11/Mar/2014 11:02:04] INFO [wa:20] 12/original/originalBook.pdf
+[11/Mar/2014 11:02:04] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:03:53] INFO [wa:149] In checkForCompletion
+[11/Mar/2014 11:03:53] INFO [wa:151] Coming after ndu
+[11/Mar/2014 11:03:53] INFO [wa:154] book_id: 12
+[11/Mar/2014 11:03:53] INFO [wa:156] chunks: 117percentageCompleteAudio: 0.0
+[11/Mar/2014 11:04:33] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:04:33] INFO [wa:244] English
+[11/Mar/2014 11:04:33] INFO [wa:249] 7
+[11/Mar/2014 11:04:33] INFO [wa:256] Record
+[11/Mar/2014 11:04:33] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:04:33] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:04:33] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:05:40] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:05:44] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:05:44] INFO [wa:244] English
+[11/Mar/2014 11:05:44] INFO [wa:249] 7
+[11/Mar/2014 11:05:44] INFO [wa:256] Record
+[11/Mar/2014 11:05:44] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:05:44] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:05:44] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:19:57] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:20:03] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:20:03] INFO [wa:244] English
+[11/Mar/2014 11:20:03] INFO [wa:249] 7
+[11/Mar/2014 11:20:03] INFO [wa:256] Record
+[11/Mar/2014 11:20:03] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:20:03] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:20:03] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:22:12] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:22:40] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:23:05] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:24:31] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:25:02] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:25:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:25:02] INFO [wa:244] English
+[11/Mar/2014 11:25:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:25:02] INFO [wa:244] Kannada
+[11/Mar/2014 11:25:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:25:02] INFO [wa:244] Telgu
+[11/Mar/2014 11:25:02] INFO [wa:249] 7
+[11/Mar/2014 11:25:02] INFO [wa:256] Record
+[11/Mar/2014 11:25:02] INFO [wa:249] 0
+[11/Mar/2014 11:25:02] INFO [wa:256] Record
+[11/Mar/2014 11:25:02] INFO [wa:257] []
+[11/Mar/2014 11:25:02] INFO [wa:249] 0
+[11/Mar/2014 11:25:02] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:25:02] INFO [wa:259] []
+[11/Mar/2014 11:25:02] INFO [wa:256] Record
+[11/Mar/2014 11:25:02] INFO [wa:257] []
+[11/Mar/2014 11:25:02] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:25:02] INFO [wa:259] []
+[11/Mar/2014 11:25:02] INFO [wa:263] []
+[11/Mar/2014 11:25:02] INFO [wa:263] []
+[11/Mar/2014 11:25:02] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:25:21] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:25:21] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:25:21] INFO [wa:244] English
+[11/Mar/2014 11:25:21] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:25:21] INFO [wa:244] Kannada
+[11/Mar/2014 11:25:21] INFO [wa:249] 7
+[11/Mar/2014 11:25:21] INFO [wa:256] Record
+[11/Mar/2014 11:25:21] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:25:21] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:25:21] INFO [wa:249] 0
+[11/Mar/2014 11:25:21] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:25:21] INFO [wa:244] Telgu
+[11/Mar/2014 11:25:21] INFO [wa:256] Record
+[11/Mar/2014 11:25:21] INFO [wa:257] []
+[11/Mar/2014 11:25:21] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:25:21] INFO [wa:259] []
+[11/Mar/2014 11:25:21] INFO [wa:249] 0
+[11/Mar/2014 11:25:21] INFO [wa:263] []
+[11/Mar/2014 11:25:21] INFO [wa:256] Record
+[11/Mar/2014 11:25:21] INFO [wa:257] []
+[11/Mar/2014 11:25:21] INFO [wa:259] []
+[11/Mar/2014 11:25:21] INFO [wa:263] []
+[11/Mar/2014 11:48:51] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:48:52] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:48:52] INFO [wa:244] English
+[11/Mar/2014 11:48:52] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:48:52] INFO [wa:244] Kannada
+[11/Mar/2014 11:48:52] INFO [wa:249] 7
+[11/Mar/2014 11:48:52] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:48:52] INFO [wa:249] 0
+[11/Mar/2014 11:48:52] INFO [wa:256] Record
+[11/Mar/2014 11:48:52] INFO [wa:244] Telgu
+[11/Mar/2014 11:48:52] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:48:52] INFO [wa:256] Record
+[11/Mar/2014 11:48:52] INFO [wa:249] 0
+[11/Mar/2014 11:48:52] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:48:52] INFO [wa:257] []
+[11/Mar/2014 11:48:52] INFO [wa:256] Record
+[11/Mar/2014 11:48:52] INFO [wa:259] []
+[11/Mar/2014 11:48:52] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:48:52] INFO [wa:257] []
+[11/Mar/2014 11:48:52] INFO [wa:259] []
+[11/Mar/2014 11:48:52] INFO [wa:263] []
+[11/Mar/2014 11:48:52] INFO [wa:263] []
+[11/Mar/2014 11:51:01] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:51:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:51:02] INFO [wa:244] English
+[11/Mar/2014 11:51:02] INFO [wa:249] 7
+[11/Mar/2014 11:51:02] INFO [wa:256] Record
+[11/Mar/2014 11:51:02] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:51:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:51:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:51:02] INFO [wa:244] Telgu
+[11/Mar/2014 11:51:02] INFO [wa:244] Kannada
+[11/Mar/2014 11:51:02] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:51:02] INFO [wa:249] 0
+[11/Mar/2014 11:51:02] INFO [wa:249] 0
+[11/Mar/2014 11:51:02] INFO [wa:256] Record
+[11/Mar/2014 11:51:02] INFO [wa:257] []
+[11/Mar/2014 11:51:02] INFO [wa:256] Record
+[11/Mar/2014 11:51:02] INFO [wa:257] []
+[11/Mar/2014 11:51:02] INFO [wa:259] []
+[11/Mar/2014 11:51:02] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:51:02] INFO [wa:259] []
+[11/Mar/2014 11:51:02] INFO [wa:263] []
+[11/Mar/2014 11:51:02] INFO [wa:263] []
+[11/Mar/2014 11:53:14] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:53:15] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:53:15] INFO [wa:244] English
+[11/Mar/2014 11:53:15] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:53:15] INFO [wa:244] Kannada
+[11/Mar/2014 11:53:15] INFO [wa:249] 7
+[11/Mar/2014 11:53:15] INFO [wa:256] Record
+[11/Mar/2014 11:53:15] INFO [wa:249] 0
+[11/Mar/2014 11:53:15] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:53:15] INFO [wa:256] Record
+[11/Mar/2014 11:53:15] INFO [wa:257] []
+[11/Mar/2014 11:53:15] INFO [wa:259] []
+[11/Mar/2014 11:53:15] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:53:15] INFO [wa:244] Telgu
+[11/Mar/2014 11:53:15] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:53:15] INFO [wa:249] 0
+[11/Mar/2014 11:53:15] INFO [wa:263] []
+[11/Mar/2014 11:53:15] INFO [wa:256] Record
+[11/Mar/2014 11:53:15] INFO [wa:257] []
+[11/Mar/2014 11:53:15] INFO [wa:259] []
+[11/Mar/2014 11:53:15] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:53:15] INFO [wa:263] []
+[11/Mar/2014 11:54:05] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:54:06] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:54:06] INFO [wa:244] English
+[11/Mar/2014 11:54:06] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:54:06] INFO [wa:244] Kannada
+[11/Mar/2014 11:54:06] INFO [wa:249] 7
+[11/Mar/2014 11:54:06] INFO [wa:256] Record
+[11/Mar/2014 11:54:06] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:54:06] INFO [wa:249] 0
+[11/Mar/2014 11:54:06] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:54:06] INFO [wa:256] Record
+[11/Mar/2014 11:54:06] INFO [wa:257] []
+[11/Mar/2014 11:54:06] INFO [wa:244] Telgu
+[11/Mar/2014 11:54:06] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:54:06] INFO [wa:259] []
+[11/Mar/2014 11:54:06] INFO [wa:249] 0
+[11/Mar/2014 11:54:06] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:54:06] INFO [wa:256] Record
+[11/Mar/2014 11:54:06] INFO [wa:257] []
+[11/Mar/2014 11:54:06] INFO [wa:259] []
+[11/Mar/2014 11:54:06] INFO [wa:263] []
+[11/Mar/2014 11:54:06] INFO [wa:263] []
+[11/Mar/2014 11:54:25] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:54:26] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:54:26] INFO [wa:244] English
+[11/Mar/2014 11:54:26] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:54:26] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:54:26] INFO [wa:249] 7
+[11/Mar/2014 11:54:26] INFO [wa:244] Kannada
+[11/Mar/2014 11:54:26] INFO [wa:244] Telgu
+[11/Mar/2014 11:54:26] INFO [wa:256] Record
+[11/Mar/2014 11:54:26] INFO [wa:249] 0
+[11/Mar/2014 11:54:26] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:54:26] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:54:26] INFO [wa:256] Record
+[11/Mar/2014 11:54:26] INFO [wa:249] 0
+[11/Mar/2014 11:54:26] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:54:26] INFO [wa:257] []
+[11/Mar/2014 11:54:26] INFO [wa:256] Record
+[11/Mar/2014 11:54:26] INFO [wa:259] []
+[11/Mar/2014 11:54:26] INFO [wa:257] []
+[11/Mar/2014 11:54:26] INFO [wa:259] []
+[11/Mar/2014 11:54:26] INFO [wa:263] []
+[11/Mar/2014 11:54:26] INFO [wa:263] []
+[11/Mar/2014 11:55:02] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:55:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:55:02] INFO [wa:244] English
+[11/Mar/2014 11:55:02] INFO [wa:249] 7
+[11/Mar/2014 11:55:02] INFO [wa:256] Record
+[11/Mar/2014 11:55:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:55:02] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:55:02] INFO [wa:244] Kannada
+[11/Mar/2014 11:55:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:55:02] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:55:02] INFO [wa:249] 0
+[11/Mar/2014 11:55:02] INFO [wa:244] Telgu
+[11/Mar/2014 11:55:02] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:55:02] INFO [wa:256] Record
+[11/Mar/2014 11:55:02] INFO [wa:249] 0
+[11/Mar/2014 11:55:02] INFO [wa:257] []
+[11/Mar/2014 11:55:02] INFO [wa:256] Record
+[11/Mar/2014 11:55:02] INFO [wa:259] []
+[11/Mar/2014 11:55:03] INFO [wa:257] []
+[11/Mar/2014 11:55:03] INFO [wa:263] []
+[11/Mar/2014 11:55:03] INFO [wa:259] []
+[11/Mar/2014 11:55:03] INFO [wa:263] []
+[11/Mar/2014 11:56:27] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:56:28] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:56:28] INFO [wa:244] English
+[11/Mar/2014 11:56:28] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:56:28] INFO [wa:244] Kannada
+[11/Mar/2014 11:56:28] INFO [wa:249] 7
+[11/Mar/2014 11:56:28] INFO [wa:256] Record
+[11/Mar/2014 11:56:28] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:56:28] INFO [wa:249] 0
+[11/Mar/2014 11:56:28] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:56:28] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:56:28] INFO [wa:244] Telgu
+[11/Mar/2014 11:56:28] INFO [wa:256] Record
+[11/Mar/2014 11:56:28] INFO [wa:257] []
+[11/Mar/2014 11:56:28] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:56:28] INFO [wa:249] 0
+[11/Mar/2014 11:56:28] INFO [wa:256] Record
+[11/Mar/2014 11:56:28] INFO [wa:257] []
+[11/Mar/2014 11:56:28] INFO [wa:259] []
+[11/Mar/2014 11:56:28] INFO [wa:259] []
+[11/Mar/2014 11:56:28] INFO [wa:263] []
+[11/Mar/2014 11:56:28] INFO [wa:263] []
+[11/Mar/2014 11:58:00] INFO [wa:104] in audio Selection
+[11/Mar/2014 11:58:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:58:02] INFO [wa:244] English
+[11/Mar/2014 11:58:02] INFO [wa:249] 7
+[11/Mar/2014 11:58:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:58:02] INFO [wa:244] Kannada
+[11/Mar/2014 11:58:02] INFO [wa:243] langBooks : 
+[11/Mar/2014 11:58:02] INFO [wa:244] Telgu
+[11/Mar/2014 11:58:02] INFO [wa:256] Record
+[11/Mar/2014 11:58:02] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 11:58:02] INFO [wa:249] 0
+[11/Mar/2014 11:58:02] INFO [wa:249] 0
+[11/Mar/2014 11:58:02] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 11:58:02] INFO [wa:256] Record
+[11/Mar/2014 11:58:02] INFO [wa:256] Record
+[11/Mar/2014 11:58:02] INFO [wa:257] []
+[11/Mar/2014 11:58:02] INFO [wa:257] []
+[11/Mar/2014 11:58:02] INFO [wa:259] []
+[11/Mar/2014 11:58:02] INFO [wa:259] []
+[11/Mar/2014 11:58:02] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 11:58:02] INFO [wa:263] []
+[11/Mar/2014 11:58:02] INFO [wa:263] []
+[11/Mar/2014 17:08:30] INFO [wa:104] in audio Selection
+[11/Mar/2014 17:08:30] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:08:30] INFO [wa:244] English
+[11/Mar/2014 17:08:30] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:08:30] INFO [wa:244] Kannada
+[11/Mar/2014 17:08:30] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:08:30] INFO [wa:249] 7
+[11/Mar/2014 17:08:30] INFO [wa:244] Telgu
+[11/Mar/2014 17:08:30] INFO [wa:256] Record
+[11/Mar/2014 17:08:30] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:08:30] INFO [wa:249] 0
+[11/Mar/2014 17:08:30] INFO [wa:249] 0
+[11/Mar/2014 17:08:30] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:08:30] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:08:30] INFO [wa:256] Record
+[11/Mar/2014 17:08:30] INFO [wa:256] Record
+[11/Mar/2014 17:08:30] INFO [wa:257] []
+[11/Mar/2014 17:08:30] INFO [wa:257] []
+[11/Mar/2014 17:08:30] INFO [wa:259] []
+[11/Mar/2014 17:08:30] INFO [wa:259] []
+[11/Mar/2014 17:08:30] INFO [wa:263] []
+[11/Mar/2014 17:08:31] INFO [wa:263] []
+[11/Mar/2014 17:09:21] INFO [wa:104] in audio Selection
+[11/Mar/2014 17:09:21] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:09:21] INFO [wa:244] English
+[11/Mar/2014 17:09:21] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:09:21] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:09:21] INFO [wa:244] Telgu
+[11/Mar/2014 17:09:21] INFO [wa:244] Kannada
+[11/Mar/2014 17:09:21] INFO [wa:249] 7
+[11/Mar/2014 17:09:21] INFO [wa:256] Record
+[11/Mar/2014 17:09:21] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:09:21] INFO [wa:249] 0
+[11/Mar/2014 17:09:21] INFO [wa:249] 0
+[11/Mar/2014 17:09:21] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:09:21] INFO [wa:256] Record
+[11/Mar/2014 17:09:21] INFO [wa:257] []
+[11/Mar/2014 17:09:21] INFO [wa:256] Record
+[11/Mar/2014 17:09:21] INFO [wa:259] []
+[11/Mar/2014 17:09:21] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:09:21] INFO [wa:257] []
+[11/Mar/2014 17:09:21] INFO [wa:259] []
+[11/Mar/2014 17:09:21] INFO [wa:263] []
+[11/Mar/2014 17:09:21] INFO [wa:263] []
+[11/Mar/2014 17:10:11] INFO [wa:104] in audio Selection
+[11/Mar/2014 17:10:11] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:10:11] INFO [wa:244] English
+[11/Mar/2014 17:10:11] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:10:11] INFO [wa:244] Kannada
+[11/Mar/2014 17:10:11] INFO [wa:249] 7
+[11/Mar/2014 17:10:11] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:10:11] INFO [wa:244] Telgu
+[11/Mar/2014 17:10:11] INFO [wa:256] Record
+[11/Mar/2014 17:10:11] INFO [wa:249] 0
+[11/Mar/2014 17:10:11] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:10:11] INFO [wa:256] Record
+[11/Mar/2014 17:10:11] INFO [wa:249] 0
+[11/Mar/2014 17:10:11] INFO [wa:257] []
+[11/Mar/2014 17:10:11] INFO [wa:259] []
+[11/Mar/2014 17:10:11] INFO [wa:256] Record
+[11/Mar/2014 17:10:11] INFO [wa:257] []
+[11/Mar/2014 17:10:11] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:10:11] INFO [wa:259] []
+[11/Mar/2014 17:10:11] INFO [wa:263] []
+[11/Mar/2014 17:10:11] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:10:11] INFO [wa:263] []
+[11/Mar/2014 17:11:00] INFO [wa:104] in audio Selection
+[11/Mar/2014 17:11:00] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:11:00] INFO [wa:244] English
+[11/Mar/2014 17:11:00] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:11:00] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:11:00] INFO [wa:244] Kannada
+[11/Mar/2014 17:11:00] INFO [wa:249] 7
+[11/Mar/2014 17:11:00] INFO [wa:244] Telgu
+[11/Mar/2014 17:11:00] INFO [wa:256] Record
+[11/Mar/2014 17:11:00] INFO [wa:249] 0
+[11/Mar/2014 17:11:00] INFO [wa:249] 0
+[11/Mar/2014 17:11:00] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:11:00] INFO [wa:256] Record
+[11/Mar/2014 17:11:00] INFO [wa:256] Record
+[11/Mar/2014 17:11:00] INFO [wa:257] []
+[11/Mar/2014 17:11:00] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:11:00] INFO [wa:257] []
+[11/Mar/2014 17:11:00] INFO [wa:259] []
+[11/Mar/2014 17:11:00] INFO [wa:259] []
+[11/Mar/2014 17:11:00] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:11:00] INFO [wa:263] []
+[11/Mar/2014 17:11:00] INFO [wa:263] []
+[11/Mar/2014 17:15:29] INFO [wa:104] in audio Selection
+[11/Mar/2014 17:15:29] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:15:29] INFO [wa:244] English
+[11/Mar/2014 17:15:29] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:15:29] INFO [wa:244] Kannada
+[11/Mar/2014 17:15:29] INFO [wa:249] 7
+[11/Mar/2014 17:15:29] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:15:29] INFO [wa:244] Telgu
+[11/Mar/2014 17:15:29] INFO [wa:256] Record
+[11/Mar/2014 17:15:29] INFO [wa:249] 0
+[11/Mar/2014 17:15:29] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:15:29] INFO [wa:249] 0
+[11/Mar/2014 17:15:29] INFO [wa:256] Record
+[11/Mar/2014 17:15:29] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:15:29] INFO [wa:257] []
+[11/Mar/2014 17:15:29] INFO [wa:256] Record
+[11/Mar/2014 17:15:29] INFO [wa:259] []
+[11/Mar/2014 17:15:29] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:15:29] INFO [wa:263] []
+[11/Mar/2014 17:15:29] INFO [wa:257] []
+[11/Mar/2014 17:15:29] INFO [wa:259] []
+[11/Mar/2014 17:15:29] INFO [wa:263] []
+[11/Mar/2014 17:17:13] INFO [wa:104] in audio Selection
+[11/Mar/2014 17:17:13] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:17:13] INFO [wa:244] English
+[11/Mar/2014 17:17:13] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:17:13] INFO [wa:244] Kannada
+[11/Mar/2014 17:17:13] INFO [wa:249] 7
+[11/Mar/2014 17:17:13] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:17:13] INFO [wa:249] 0
+[11/Mar/2014 17:17:13] INFO [wa:244] Telgu
+[11/Mar/2014 17:17:13] INFO [wa:256] Record
+[11/Mar/2014 17:17:13] INFO [wa:256] Record
+[11/Mar/2014 17:17:13] INFO [wa:257] []
+[11/Mar/2014 17:17:13] INFO [wa:259] []
+[11/Mar/2014 17:17:13] INFO [wa:249] 0
+[11/Mar/2014 17:17:13] INFO [wa:263] []
+[11/Mar/2014 17:17:13] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:17:13] INFO [wa:256] Record
+[11/Mar/2014 17:17:13] INFO [wa:257] []
+[11/Mar/2014 17:17:13] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:17:13] INFO [wa:259] []
+[11/Mar/2014 17:17:13] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:17:13] INFO [wa:263] []
+[11/Mar/2014 17:18:24] INFO [wa:104] in audio Selection
+[11/Mar/2014 17:18:24] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:18:24] INFO [wa:244] English
+[11/Mar/2014 17:18:24] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:18:24] INFO [wa:244] Kannada
+[11/Mar/2014 17:18:24] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:18:24] INFO [wa:244] Telgu
+[11/Mar/2014 17:18:24] INFO [wa:249] 0
+[11/Mar/2014 17:18:24] INFO [wa:256] Record
+[11/Mar/2014 17:18:24] INFO [wa:249] 0
+[11/Mar/2014 17:18:24] INFO [wa:257] []
+[11/Mar/2014 17:18:24] INFO [wa:256] Record
+[11/Mar/2014 17:18:24] INFO [wa:259] []
+[11/Mar/2014 17:18:24] INFO [wa:257] []
+[11/Mar/2014 17:18:24] INFO [wa:259] []
+[11/Mar/2014 17:18:24] INFO [wa:263] []
+[11/Mar/2014 17:18:24] INFO [wa:263] []
+[11/Mar/2014 17:18:24] INFO [wa:249] 7
+[11/Mar/2014 17:18:24] INFO [wa:256] Record
+[11/Mar/2014 17:18:24] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:18:24] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:18:24] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:18:30] INFO [wa:104] in audio Selection
+[11/Mar/2014 17:18:31] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:18:31] INFO [wa:244] English
+[11/Mar/2014 17:18:31] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:18:31] INFO [wa:244] Kannada
+[11/Mar/2014 17:18:31] INFO [wa:249] 7
+[11/Mar/2014 17:18:31] INFO [wa:249] 0
+[11/Mar/2014 17:18:31] INFO [wa:256] Record
+[11/Mar/2014 17:18:31] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:18:31] INFO [wa:256] Record
+[11/Mar/2014 17:18:31] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:18:31] INFO [wa:259] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:18:31] INFO [wa:257] []
+[11/Mar/2014 17:18:31] INFO [wa:244] Telgu
+[11/Mar/2014 17:18:31] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:18:31] INFO [wa:249] 0
+[11/Mar/2014 17:18:31] INFO [wa:259] []
+[11/Mar/2014 17:18:31] INFO [wa:256] Record
+[11/Mar/2014 17:18:31] INFO [wa:257] []
+[11/Mar/2014 17:18:31] INFO [wa:259] []
+[11/Mar/2014 17:18:31] INFO [wa:263] []
+[11/Mar/2014 17:18:31] INFO [wa:263] []
+[11/Mar/2014 17:18:33] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:18:33] INFO [wa:244] English
+[11/Mar/2014 17:18:33] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:18:33] INFO [wa:244] Kannada
+[11/Mar/2014 17:18:33] INFO [wa:249] 7
+[11/Mar/2014 17:18:33] INFO [wa:249] 0
+[11/Mar/2014 17:18:33] INFO [wa:251] Digi
+[11/Mar/2014 17:18:33] INFO [wa:252] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:18:33] INFO [wa:251] Digi
+[11/Mar/2014 17:18:33] INFO [wa:252] []
+[11/Mar/2014 17:18:33] INFO [wa:254] []
+[11/Mar/2014 17:18:33] INFO [wa:254] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:18:33] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:18:33] INFO [wa:263] []
+[11/Mar/2014 17:18:33] INFO [wa:244] Telgu
+[11/Mar/2014 17:18:33] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:18:33] INFO [wa:249] 0
+[11/Mar/2014 17:18:33] INFO [wa:251] Digi
+[11/Mar/2014 17:18:33] INFO [wa:252] []
+[11/Mar/2014 17:18:33] INFO [wa:254] []
+[11/Mar/2014 17:18:33] INFO [wa:263] []
+[11/Mar/2014 17:19:44] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:19:44] INFO [wa:244] English
+[11/Mar/2014 17:19:44] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:19:44] INFO [wa:244] Kannada
+[11/Mar/2014 17:19:44] INFO [wa:249] 7
+[11/Mar/2014 17:19:44] INFO [wa:251] Digi
+[11/Mar/2014 17:19:44] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:19:44] INFO [wa:252] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:19:44] INFO [wa:254] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:19:44] INFO [wa:244] Telgu
+[11/Mar/2014 17:19:44] INFO [wa:249] 0
+[11/Mar/2014 17:19:44] INFO [wa:249] 0
+[11/Mar/2014 17:19:44] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:19:44] INFO [wa:251] Digi
+[11/Mar/2014 17:19:44] INFO [wa:252] []
+[11/Mar/2014 17:19:44] INFO [wa:251] Digi
+[11/Mar/2014 17:19:44] INFO [wa:252] []
+[11/Mar/2014 17:19:44] INFO [wa:254] []
+[11/Mar/2014 17:19:44] INFO [wa:254] []
+[11/Mar/2014 17:19:44] INFO [wa:263] []
+[11/Mar/2014 17:19:44] INFO [wa:263] []
+[11/Mar/2014 17:20:24] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:20:24] INFO [wa:244] English
+[11/Mar/2014 17:20:24] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:20:24] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:20:24] INFO [wa:244] Telgu
+[11/Mar/2014 17:20:24] INFO [wa:244] Kannada
+[11/Mar/2014 17:20:24] INFO [wa:249] 7
+[11/Mar/2014 17:20:24] INFO [wa:249] 0
+[11/Mar/2014 17:20:24] INFO [wa:251] Digi
+[11/Mar/2014 17:20:24] INFO [wa:252] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:20:24] INFO [wa:251] Digi
+[11/Mar/2014 17:20:24] INFO [wa:249] 0
+[11/Mar/2014 17:20:24] INFO [wa:254] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:20:24] INFO [wa:252] []
+[11/Mar/2014 17:20:24] INFO [wa:251] Digi
+[11/Mar/2014 17:20:24] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:20:24] INFO [wa:252] []
+[11/Mar/2014 17:20:24] INFO [wa:254] []
+[11/Mar/2014 17:20:24] INFO [wa:254] []
+[11/Mar/2014 17:20:24] INFO [wa:263] []
+[11/Mar/2014 17:20:24] INFO [wa:263] []
+[11/Mar/2014 17:21:20] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:21:20] INFO [wa:244] English
+[11/Mar/2014 17:21:20] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:21:20] INFO [wa:244] Kannada
+[11/Mar/2014 17:21:20] INFO [wa:249] 7
+[11/Mar/2014 17:21:20] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:21:20] INFO [wa:244] Telgu
+[11/Mar/2014 17:21:20] INFO [wa:251] Digi
+[11/Mar/2014 17:21:20] INFO [wa:252] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:21:20] INFO [wa:254] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:21:20] INFO [wa:249] 0
+[11/Mar/2014 17:21:20] INFO [wa:249] 0
+[11/Mar/2014 17:21:20] INFO [wa:251] Digi
+[11/Mar/2014 17:21:20] INFO [wa:252] []
+[11/Mar/2014 17:21:20] INFO [wa:254] []
+[11/Mar/2014 17:21:20] INFO [wa:251] Digi
+[11/Mar/2014 17:21:20] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:21:20] INFO [wa:263] []
+[11/Mar/2014 17:21:20] INFO [wa:252] []
+[11/Mar/2014 17:21:20] INFO [wa:254] []
+[11/Mar/2014 17:21:20] INFO [wa:263] []
+[11/Mar/2014 17:21:27] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:21:27] INFO [wa:244] English
+[11/Mar/2014 17:21:27] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:21:27] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:21:27] INFO [wa:249] 7
+[11/Mar/2014 17:21:27] INFO [wa:244] Kannada
+[11/Mar/2014 17:21:27] INFO [wa:244] Telgu
+[11/Mar/2014 17:21:27] INFO [wa:249] 0
+[11/Mar/2014 17:21:27] INFO [wa:251] Digi
+[11/Mar/2014 17:21:27] INFO [wa:252] []
+[11/Mar/2014 17:21:27] INFO [wa:251] Digi
+[11/Mar/2014 17:21:27] INFO [wa:254] []
+[11/Mar/2014 17:21:27] INFO [wa:252] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:21:27] INFO [wa:249] 0
+[11/Mar/2014 17:21:27] INFO [wa:263] []
+[11/Mar/2014 17:21:27] INFO [wa:251] Digi
+[11/Mar/2014 17:21:27] INFO [wa:252] []
+[11/Mar/2014 17:21:27] INFO [wa:254] []
+[11/Mar/2014 17:21:27] INFO [wa:254] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:21:27] INFO [wa:263] []
+[11/Mar/2014 17:21:27] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:21:34] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:21:34] INFO [wa:244] English
+[11/Mar/2014 17:21:34] INFO [wa:249] 7
+[11/Mar/2014 17:21:34] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:21:34] INFO [wa:244] Kannada
+[11/Mar/2014 17:21:34] INFO [wa:251] Digi
+[11/Mar/2014 17:21:34] INFO [wa:243] langBooks : 
+[11/Mar/2014 17:21:34] INFO [wa:244] Telgu
+[11/Mar/2014 17:21:34] INFO [wa:252] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[11/Mar/2014 17:21:34] INFO [wa:249] 0
+[11/Mar/2014 17:21:34] INFO [wa:251] Digi
+[11/Mar/2014 17:21:34] INFO [wa:252] []
+[11/Mar/2014 17:21:34] INFO [wa:249] 0
+[11/Mar/2014 17:21:34] INFO [wa:254] [<Book: ABC,English Text,English>]
+[11/Mar/2014 17:21:34] INFO [wa:254] []
+[11/Mar/2014 17:21:34] INFO [wa:251] Digi
+[11/Mar/2014 17:21:34] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[11/Mar/2014 17:21:34] INFO [wa:252] []
+[11/Mar/2014 17:21:34] INFO [wa:263] []
+[11/Mar/2014 17:21:34] INFO [wa:254] []
+[11/Mar/2014 17:21:34] INFO [wa:263] []
+[18/Mar/2014 15:37:36] INFO [wa:19] []
+[18/Mar/2014 15:43:06] INFO [wa:104] in audio Selection
+[18/Mar/2014 15:43:07] INFO [wa:243] langBooks : 
+[18/Mar/2014 15:43:07] INFO [wa:244] english
+[18/Mar/2014 15:43:07] INFO [wa:249] 7
+[18/Mar/2014 15:43:07] INFO [wa:256] Record
+[18/Mar/2014 15:43:07] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[18/Mar/2014 15:43:07] INFO [wa:259] [<Book: ABC,English Text,English>]
+[18/Mar/2014 15:43:07] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[18/Mar/2014 15:43:20] INFO [wa:10] Coming into try block
+[18/Mar/2014 15:45:54] INFO [wa:218] yes
+[18/Mar/2014 15:48:14] INFO [wa:218] yes
+[18/Mar/2014 15:48:14] INFO [wa:104] in audio Selection
+[18/Mar/2014 15:48:14] INFO [wa:243] langBooks : 
+[18/Mar/2014 15:48:14] INFO [wa:244] english
+[18/Mar/2014 15:48:14] INFO [wa:249] 7
+[18/Mar/2014 15:48:14] INFO [wa:256] Record
+[18/Mar/2014 15:48:14] INFO [wa:257] [<Book: Linus,A byte of Python,English>, <Book: Ashu,Byte of py,English>, <Book: ashu,12th grade card,English>, <Book: ashu,12th,English>, <Book: as,12th,English>, <Book: ashu,passport,English>, <Book: ABC,English Text,English>]
+[18/Mar/2014 15:48:14] INFO [wa:259] [<Book: ABC,English Text,English>]
+[18/Mar/2014 15:48:14] INFO [wa:263] [{"pk": 12, "model": "wa.book", "fields": {"lang": 1, "numberOfChunks": 117, "percentageCompleteAudio": 0.0, "author": "ABC", "bookName": "English Text", "percentageAudioInvalid": 0.0, "dBookDownloads": 0, "percentageCompleteDigi": 0.0, "aBookDownloads": 0}}]
+[18/Mar/2014 15:48:17] INFO [wa:10] Coming into try block
+[18/Mar/2014 15:48:55] INFO [wa:19] []
+[18/Mar/2014 15:51:30] INFO [wa:26] Coming into uploadAudioDb
+[18/Mar/2014 15:51:30] INFO [wa:149] In checkForCompletion
+[18/Mar/2014 15:51:30] INFO [wa:151] Coming after ndu
+[18/Mar/2014 15:51:30] INFO [wa:154] book_id: 12
+[18/Mar/2014 15:51:30] INFO [wa:156] chunks: 117percentageCompleteAudio: 1.0
+[18/Mar/2014 16:18:27] INFO [wa:21] [[]]
+[18/Mar/2014 16:19:45] INFO [wa:21] [[], ['12/chunks/292/AudioFiles/1.wav', '12/chunks/293/AudioFiles/1.wav', '12/chunks/294/AudioFiles/1.wav', '12/chunks/295/AudioFiles/1.wav', '12/chunks/296/AudioFiles/1.wav', '12/chunks/297/AudioFiles/1.wav', '12/chunks/298/AudioFiles/1.wav', '12/chunks/299/AudioFiles/1.wav', '12/chunks/300/AudioFiles/1.wav', '12/chunks/301/AudioFiles/1.wav', '12/chunks/302/AudioFiles/1.wav', '12/chunks/303/AudioFiles/1.wav', '12/chunks/304/AudioFiles/1.wav', '12/chunks/305/AudioFiles/1.wav', '12/chunks/306/AudioFiles/1.wav', '12/chunks/307/AudioFiles/1.wav', '12/chunks/308/AudioFiles/1.wav', '12/chunks/309/AudioFiles/1.wav', '12/chunks/310/AudioFiles/1.wav', '12/chunks/311/AudioFiles/1.wav', '12/chunks/312/AudioFiles/1.wav', '12/chunks/313/AudioFiles/1.wav', '12/chunks/314/AudioFiles/1.wav', '12/chunks/315/AudioFiles/1.wav', '12/chunks/316/AudioFiles/1.wav', '12/chunks/317/AudioFiles/1.wav', '12/chunks/318/AudioFiles/1.wav', '12/chunks/319/AudioFiles/1.wav', '12/chunks/320/AudioFiles/1.wav', '12/chunks/321/AudioFiles/1.wav', '12/chunks/322/AudioFiles/1.wav', '12/chunks/323/AudioFiles/1.wav', '12/chunks/324/AudioFiles/1.wav', '12/chunks/325/AudioFiles/1.wav', '12/chunks/326/AudioFiles/1.wav', '12/chunks/327/AudioFiles/1.wav', '12/chunks/328/AudioFiles/1.wav', '12/chunks/329/AudioFiles/1.wav', '12/chunks/330/AudioFiles/1.wav', '12/chunks/331/AudioFiles/1.wav', '12/chunks/332/AudioFiles/1.wav', '12/chunks/333/AudioFiles/1.wav', '12/chunks/334/AudioFiles/1.wav', '12/chunks/335/AudioFiles/1.wav', '12/chunks/336/AudioFiles/1.wav', '12/chunks/337/AudioFiles/1.wav', '12/chunks/338/AudioFiles/1.wav', '12/chunks/339/AudioFiles/1.wav', '12/chunks/340/AudioFiles/1.wav', '12/chunks/341/AudioFiles/1.wav', '12/chunks/342/AudioFiles/1.wav', '12/chunks/343/AudioFiles/1.wav', '12/chunks/344/AudioFiles/1.wav', '12/chunks/345/AudioFiles/1.wav', '12/chunks/346/AudioFiles/1.wav', '12/chunks/347/AudioFiles/1.wav', '12/chunks/348/AudioFiles/1.wav', '12/chunks/349/AudioFiles/1.wav', '12/chunks/350/AudioFiles/1.wav', '12/chunks/351/AudioFiles/1.wav', '12/chunks/352/AudioFiles/1.wav', '12/chunks/353/AudioFiles/1.wav', '12/chunks/354/AudioFiles/1.wav', '12/chunks/355/AudioFiles/1.wav', '12/chunks/356/AudioFiles/1.wav', '12/chunks/357/AudioFiles/1.wav', '12/chunks/358/AudioFiles/1.wav', '12/chunks/359/AudioFiles/1.wav', '12/chunks/360/AudioFiles/1.wav', '12/chunks/361/AudioFiles/1.wav', '12/chunks/362/AudioFiles/1.wav', '12/chunks/363/AudioFiles/1.wav', '12/chunks/364/AudioFiles/1.wav', '12/chunks/365/AudioFiles/1.wav', '12/chunks/366/AudioFiles/1.wav', '12/chunks/367/AudioFiles/1.wav', '12/chunks/368/AudioFiles/1.wav', '12/chunks/369/AudioFiles/1.wav', '12/chunks/370/AudioFiles/1.wav', '12/chunks/371/AudioFiles/1.wav', '12/chunks/372/AudioFiles/1.wav', '12/chunks/373/AudioFiles/1.wav', '12/chunks/374/AudioFiles/1.wav', '12/chunks/375/AudioFiles/1.wav', '12/chunks/376/AudioFiles/1.wav', '12/chunks/377/AudioFiles/1.wav', '12/chunks/378/AudioFiles/1.wav', '12/chunks/379/AudioFiles/1.wav', '12/chunks/380/AudioFiles/1.wav', '12/chunks/381/AudioFiles/1.wav', '12/chunks/382/AudioFiles/1.wav', '12/chunks/383/AudioFiles/1.wav', '12/chunks/384/AudioFiles/1.wav', '12/chunks/385/AudioFiles/1.wav', '12/chunks/386/AudioFiles/1.wav', '12/chunks/387/AudioFiles/1.wav', '12/chunks/388/AudioFiles/1.wav', '12/chunks/389/AudioFiles/1.wav', '12/chunks/390/AudioFiles/1.wav', '12/chunks/391/AudioFiles/1.wav', '12/chunks/392/AudioFiles/1.wav', '12/chunks/393/AudioFiles/1.wav', '12/chunks/394/AudioFiles/1.wav', '12/chunks/395/AudioFiles/1.wav', '12/chunks/396/AudioFiles/1.wav', '12/chunks/397/AudioFiles/1.wav', '12/chunks/398/AudioFiles/1.wav', '12/chunks/399/AudioFiles/1.wav', '12/chunks/400/AudioFiles/1.wav', '12/chunks/401/AudioFiles/1.wav', '12/chunks/402/AudioFiles/1.wav', '12/chunks/403/AudioFiles/1.wav', '12/chunks/404/AudioFiles/1.wav', '12/chunks/405/AudioFiles/1.wav', '12/chunks/406/AudioFiles/1.wav', '12/chunks/407/AudioFiles/1.wav', '12/chunks/408/AudioFiles/1.wav']]

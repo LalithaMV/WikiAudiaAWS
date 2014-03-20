@@ -24,7 +24,10 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wa.paragraphChunks import getChunkID
-import wa.dbOps as dbOps
+from wa.dbOps import uploadDigiDb, uploadAudioDb
+from django.db.models import F
+import BeautifulSoup
+from validate_email import validate_email
 #from wa.splitBook import splitBookIntoPages
 # Create your views here.
 
@@ -66,7 +69,7 @@ def home(request):
     #return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
     else:
         return HttpResponseRedirect('/wa')
-
+'''
 def register_user(request):
     if request.method == 'POST':
         form=CustomUserCreationForm(request.POST)
@@ -78,6 +81,42 @@ def register_user(request):
             return HttpResponseRedirect('/wa/register_success')
     else:
         form= CustomUserCreationForm()
+    return render(request,  'wa/session/register.html', {
+        'form': form,
+    })
+'''
+def register_user(request):
+    if request.method == 'POST':
+        form=CustomUserCreationForm(request.POST)
+        print("printing from register_user")    
+        formStr=str(form)   
+        print(formStr)      
+            
+        soup = BeautifulSoup.BeautifulSoup(formStr)
+        val=soup.find(id="id_email")
+        print(val['value'])     
+        try:        
+            is_valid = validate_email(val['value'],verify=True)
+
+        except Exception, e:
+            is_valid=False      
+        print("is_valid")
+        print(is_valid)             
+        #print(form.Meta.model.USERNAME_FIELD)      
+        #print(formStr)     
+            
+        if (form.is_valid() & is_valid):
+            form.save()
+            #languages_known_v = form.Languages
+            log = logging.getLogger("wa")
+            #log.info(languages_known_v)
+            return HttpResponseRedirect('/wa/register_success')
+        else:
+            form=CustomUserCreationForm(request.POST)
+            #print(form.id_email)           
+    else:
+        form= CustomUserCreationForm()
+                
     return render(request,  'wa/session/register.html', {
         'form': form,
     })
@@ -129,9 +168,12 @@ def getImage(request, book_id):
 def digitize(request, book_id):
     if request.user.is_authenticated():
         print("user_id:" + str(request.user.id))
-        para_id = getChunkID(request.user.id,book_id,0)
+        para_id = getChunkID(request.user.id,book_id,1)
         print("para_id: " + str(para_id))
-        return render_to_response('wa/AudioDigi/Digitize.html', {'book_id': book_id, 'para_id': para_id} )
+        if(para_id != 0):
+            return render_to_response('wa/AudioDigi/Digitize.html', {'book_id': book_id, 'para_id': para_id} )
+        else:
+            return render_to_response('wa/error.html')
     else :
         return render_to_response('wa/AudioDigi/Digitize.html')
 
@@ -161,12 +203,14 @@ def audioUpload(request, book_id):
         documents = Document.objects.all()
         para_id = getChunkID(request.user.id, book_id, 0)
         # Render list page with the documents and the form
-        return render_to_response(
-            'wa/audioUpload.html',
-            {'documents': documents, 'form': form, 'book_id': book_id, 'para_id': para_id },
-           
-            context_instance=RequestContext(request)
-        )
+        if(para_id != 0):
+            return render_to_response(
+                'wa/audioUpload.html',
+                {'documents': documents, 'form': form, 'book_id': book_id, 'para_id': para_id },
+                context_instance=RequestContext(request)
+            )
+        else:
+            return render_to_response('wa/error.html')
     else :
         return render_to_response('/wa')
 
@@ -218,7 +262,8 @@ def audioUploadForm(request, book_id, para_id):
                 para.isChapter = False
             para.save()
             #soundProcessWithAuphonic('documents/Ashu.wav')
-            soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id)
+            user_id = request.user.id
+            soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id,user_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
         
                 
@@ -230,17 +275,30 @@ def chooseAction(request, book_id):
     return resp;
 
 def langBooks(request):
-    #print(os.path.dirname(settings.BASE_DIR))
-    #outside = os.path.dirname(settings.BASE_DIR)
-    #if(os.path.exists())
+    #returns a JSON object with all books of a language which haven't been completed depending on the action
     language = request.GET['language']
-    #print(language);
+    log = logging.getLogger("wa")
+    log.info("langBooks : ")
+    log.info(language)
     language = Language.objects.get(langName = language)
-    #print(language)
-    languageBooks = language.book_set.all()
+    #Only send those books which aren't finished yet
+    #languageBooks = language.book_set.all()
+    languageBooks = Book.objects.filter(lang = language)
+    log.info(len(languageBooks))
+    if(request.session['action'] == "digitize"):
+        log.info("Digi")
+        log.info(languageBooks)
+        languageBooks = languageBooks.exclude(percentageCompleteDigi = F('numberOfChunks'))
+        log.info(languageBooks)
+    elif(request.session['action'] == "record"):
+        log.info("Record")
+        log.info(languageBooks)
+        languageBooks = languageBooks.exclude(percentageCompleteAudio = F('numberOfChunks'))
+        log.info(languageBooks)
     ret = serializers.serialize("json", languageBooks)
     #resp = HttpResponse(content_type = "application/json");
     #json.dump(languageBooks, resp)
+    log.info(ret)
     return HttpResponse(ret)
 
 
@@ -299,30 +357,35 @@ def uploadBook(request):
         return render_to_response('/wa')
 
 def uploadDigi(request, book_id, para_id):
+    print("coming to upload digi")
     
-    '''
     #TODOJO
     #IsChapter from digitization. Not able to execute this. If the value of isChapter
     #id retrieved properly go ahead and set it as the attribute of the paragraph
-    if request.POST.has_key('idChapter'):
+    if request.POST.has_key('isChapter'):
         isChapter = request.POST['isChapter']
         log = logging.getLogger("wa")
-        log.info("Upload Book :"+isChapter)
-    '''
+        log.info("Upload Digi:"+isChapter)
+        para = Paragraph.objects.get(pk = para_id)
+        para.isChapter = isChapter
+        para.save()
+        #print("isChapter: " + str(isChapter))
     if request.POST.has_key('unicode_data'):        
-        file = open("DigiFiles/KannadaInput.txt", "w")
+        file_name = "/tmp/Digi" + str(para_id) + ".txt"
+        file = open(file_name, "w")
         file.write((request.POST['unicode_data']).encode('utf8'))
         file.close()
-        f = open("DigiFiles/KannadaInput.txt", "r")
-    #get latest version and then save
+        f = open(file_name, "r")
+        #get latest version and then save
         path_to_save = str(book_id) + "/chunks/" + str(para_id) + "/DigiFiles/1.txt"
         default_storage.save(path_to_save, File(f))
         f.close()  
-	#delete file - todo
+	    #delete file - todo
+        os.remove(file_name)
         #concatenateDigi(request)
         #pdfGen(request)
-	#dbOps.uploadDigi(para_id)
-        
+        user_id = request.user.id
+        uploadDigiDb(para_id, user_id)
         x = request.POST['unicode_data']
         return HttpResponse(x)
     
@@ -341,6 +404,7 @@ def concatenateDigi(request):
     with open('DigiFiles/final.txt', 'w') as fout:
         for line in fileinput.input(filenames):
             fout.write(line)
+
 def pdfGen(request):
     pdf = FPDF()
     pdf.add_page()

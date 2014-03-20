@@ -11,6 +11,7 @@ from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from django.core.files.base import ContentFile
 from wand.image import Image
+from wa.dbOps import uploadAudioDb
 #from wa.dbOps import addParagraph
 #from wa.models import Language,Book, Paragraph, UserHistory, Document
 #import wikiaudia.settings
@@ -26,7 +27,7 @@ app = Celery('tasks', broker='redis://localhost')
 #def add(x, y):
 #    return x + y
 @app.task(name='wa.tasks.soundProcessingWithAuphonicTask')
-def soundProcessingWithAuphonicTask(f,book_id,para_id):
+def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 	username = 'ashuven63@gmail.com'
 	password = 'ashu177'
 	preset = 'aPZCk3SVNZGPUfPGEgA76Q'
@@ -61,6 +62,7 @@ def soundProcessingWithAuphonicTask(f,book_id,para_id):
 	trialFile = ContentFile(out.content)
 	#Warning : hardcoded value
 	default_storage.save(str(book_id) + "/chunks/" + str(para_id) + "/AudioFiles/1.wav",trialFile)
+	uploadAudioDb(para_id, user_id)
 	default_storage.delete(f)
 	#trialFile.close()
 
