@@ -1,0 +1,96 @@
+Traceback (most recent call last):
+  File "/home/jo/djangomongo/bin/celery", line 9, in <module>
+    load_entry_point('celery==3.1.9', 'console_scripts', 'celery')()
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/__main__.py", line 30, in main
+    main()
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/celery.py", line 80, in main
+    cmd.execute_from_commandline(argv)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/celery.py", line 768, in execute_from_commandline
+    super(CeleryCommand, self).execute_from_commandline(argv)))
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 306, in execute_from_commandline
+    argv = self.setup_app_from_commandline(argv)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 466, in setup_app_from_commandline
+    self.app = self.find_app(app)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 486, in find_app
+    return find_app(app, symbol_by_name=self.symbol_by_name)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/app/utils.py", line 241, in find_app
+    symbol_by_name=symbol_by_name, imp=imp,
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/app/utils.py", line 225, in find_app
+    sym = imp(app)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/utils/imports.py", line 101, in import_from_cwd
+    return imp(module, package=package)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named celery
+Traceback (most recent call last):
+  File "/home/jo/djangomongo/bin/celery", line 9, in <module>
+    load_entry_point('celery==3.1.9', 'console_scripts', 'celery')()
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/__main__.py", line 30, in main
+    main()
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/celery.py", line 80, in main
+    cmd.execute_from_commandline(argv)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/celery.py", line 768, in execute_from_commandline
+    super(CeleryCommand, self).execute_from_commandline(argv)))
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 306, in execute_from_commandline
+    argv = self.setup_app_from_commandline(argv)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 466, in setup_app_from_commandline
+    self.app = self.find_app(app)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 486, in find_app
+    return find_app(app, symbol_by_name=self.symbol_by_name)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/app/utils.py", line 241, in find_app
+    symbol_by_name=symbol_by_name, imp=imp,
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/app/utils.py", line 225, in find_app
+    sym = imp(app)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/utils/imports.py", line 101, in import_from_cwd
+    return imp(module, package=package)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named celery
+Traceback (most recent call last):
+  File "/home/jo/djangomongo/bin/celery", line 9, in <module>
+    load_entry_point('celery==3.1.9', 'console_scripts', 'celery')()
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/__main__.py", line 30, in main
+    main()
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/celery.py", line 80, in main
+    cmd.execute_from_commandline(argv)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/celery.py", line 768, in execute_from_commandline
+    super(CeleryCommand, self).execute_from_commandline(argv)))
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 306, in execute_from_commandline
+    argv = self.setup_app_from_commandline(argv)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 466, in setup_app_from_commandline
+    self.app = self.find_app(app)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 486, in find_app
+    return find_app(app, symbol_by_name=self.symbol_by_name)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/app/utils.py", line 241, in find_app
+    symbol_by_name=symbol_by_name, imp=imp,
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/app/utils.py", line 225, in find_app
+    sym = imp(app)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/utils/imports.py", line 101, in import_from_cwd
+    return imp(module, package=package)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named celery
+Traceback (most recent call last):
+  File "/home/jo/djangomongo/bin/celery", line 9, in <module>
+    load_entry_point('celery==3.1.9', 'console_scripts', 'celery')()
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/__main__.py", line 30, in main
+    main()
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/celery.py", line 80, in main
+    cmd.execute_from_commandline(argv)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/celery.py", line 768, in execute_from_commandline
+    super(CeleryCommand, self).execute_from_commandline(argv)))
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 306, in execute_from_commandline
+    argv = self.setup_app_from_commandline(argv)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 466, in setup_app_from_commandline
+    self.app = self.find_app(app)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/bin/base.py", line 486, in find_app
+    return find_app(app, symbol_by_name=self.symbol_by_name)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/app/utils.py", line 241, in find_app
+    symbol_by_name=symbol_by_name, imp=imp,
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/app/utils.py", line 225, in find_app
+    sym = imp(app)
+  File "/home/jo/djangomongo/local/lib/python2.7/site-packages/celery/utils/imports.py", line 101, in import_from_cwd
+    return imp(module, package=package)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named celery

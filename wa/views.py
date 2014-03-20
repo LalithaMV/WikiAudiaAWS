@@ -289,12 +289,14 @@ def chooseParaAction(request, book_id,para_id):
 	elif(request.session['action'] == "validate"):
 		resp = validatePara(request, book_id,para_id)
 	return resp;
+
 def valSelection(request):
 	if request.user.is_authenticated():
 		#return render_to_response('wa/AudioDigi/Digitize.html')
 		request.session['action'] = "validate";
-		langs = Language.objects.all()
-		context = RequestContext(request, {'langs': langs, } )
+        	user_id = request.user.id
+        	user_langs = CustomUser.objects.get(pk = user_id).languages_known.split(',')
+		context = RequestContext(request, {'langs': user_langs, } )
 		return render(request, 'wa/chooseLanguage.html', context)
 	else :
 		return HttpResponseRedirect('/wa')

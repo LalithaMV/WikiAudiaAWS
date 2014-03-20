@@ -631,3 +631,33 @@
 [06/Mar/2014 21:32:15] INFO [wa:343] yes
 [06/Mar/2014 21:32:15] INFO [wa:105] in audio Selection
 [06/Mar/2014 21:34:18] INFO [wa:10] Coming into try block
+[19/Mar/2014 12:23:59] INFO [wa:388] Upload Book :
+[19/Mar/2014 12:23:59] INFO [wa:389] Telgu
+[19/Mar/2014 12:23:59] INFO [wa:149] In checkForCompletion
+[19/Mar/2014 12:23:59] INFO [wa:151] Coming after ndu
+[19/Mar/2014 12:23:59] INFO [wa:154] book_id: 44
+[19/Mar/2014 12:23:59] INFO [wa:156] chunks: 0percentageCompleteAudio: 0
+[19/Mar/2014 12:39:57] INFO [wa:10] Coming into try block
+[19/Mar/2014 12:40:20] INFO [wa:105] in audio Selection
+[20/Mar/2014 08:28:07] INFO [wa:10] Coming into try block
+[20/Mar/2014 09:27:22] INFO [wa:390] Upload Book :
+[20/Mar/2014 09:27:22] INFO [wa:391] Telgu
+[20/Mar/2014 09:27:22] INFO [wa:149] In checkForCompletion
+[20/Mar/2014 09:27:22] INFO [wa:151] Coming after ndu
+[20/Mar/2014 09:27:22] INFO [wa:154] book_id: 45
+[20/Mar/2014 09:27:22] INFO [wa:156] chunks: 0percentageCompleteAudio: 0
+[20/Mar/2014 09:27:22] INFO [wa:405] documents/45
+[20/Mar/2014 09:27:22] INFO [wa:182] 45/original/originalBook.pdf
+[20/Mar/2014 09:27:23] INFO [wa:105] in audio Selection
+[20/Mar/2014 09:27:35] INFO [wa:149] In checkForCompletion
+[20/Mar/2014 09:27:35] INFO [wa:151] Coming after ndu
+[20/Mar/2014 09:27:35] INFO [wa:154] book_id: 45
+[20/Mar/2014 09:27:35] INFO [wa:156] chunks: 7percentageCompleteAudio: 0.0
+[20/Mar/2014 09:29:21] INFO [wa:10] Coming into try block
+[20/Mar/2014 09:30:19] INFO [wa:442] Upload Digi:false
+[20/Mar/2014 09:30:19] INFO [wa:12] Coming into uploadDigiDb
+[20/Mar/2014 09:30:19] INFO [wa:149] In checkForCompletion
+[20/Mar/2014 09:30:19] INFO [wa:151] Coming after ndu
+[20/Mar/2014 09:30:19] INFO [wa:154] book_id: 45
+[20/Mar/2014 09:30:19] INFO [wa:156] chunks: 7percentageCompleteAudio: 0.0
+[20/Mar/2014 09:40:47] INFO [wa:10] Coming into try block
