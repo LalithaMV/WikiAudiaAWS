@@ -9,9 +9,200 @@
 	<script type="text/javascript" src="/static/wa/js/jquery-2.1.0.min.js"></script>
 	<script type='text/javascript' src='/static/wa/js/pramukhindic.js' ></script>
 	<script type="text/javascript" src="/static/wa/js/pramukhime-common.js"></script>
+{% if request.session.language == 'Assamese' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:assamese');
+	javascript:changeLanguage('pramukhindic:assamese');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Bengali' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:bengali');
+	javascript:changeLanguage('pramukhindic:bengali');
+	});
+	</script>
+{% endif %}
+
+{% if request.session.language == 'Bodo' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:bodo');
+	javascript:changeLanguage('pramukhindic:bodo');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Dogo' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:dogo');
+	javascript:changeLanguage('pramukhindic:dogo');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Gujarati' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:gujarati');
+	javascript:changeLanguage('pramukhindic:gujarati');
+	});
+	</script>
+{% endif %}
+	
+{% if request.session.language == 'Kannada' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:kannada');
+	javascript:changeLanguage('pramukhindic:kannada');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Hindi' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:hindi');
+	javascript:changeLanguage('pramukhindic:hindi');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Konkani' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:konkani');
+	javascript:changeLanguage('pramukhindic:konkani');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Maithili' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:maithili');
+	javascript:changeLanguage('pramukhindic:maithili');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Malayalam' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:malayalam');
+	javascript:changeLanguage('pramukhindic:malayalam');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Manipuri' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:manipuri');
+	javascript:changeLanguage('pramukhindic:manipuri');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Marathi' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:marathi');
+	javascript:changeLanguage('pramukhindic:marathi');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Nepali' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:nepali');
+	javascript:changeLanguage('pramukhindic:nepali');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Oriya' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:oriya');
+	javascript:changeLanguage('pramukhindic:oriya');
+	});
+	</script>
+
+{% endif %}
+{% if request.session.language == 'Punjabi' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:punjabi');
+	javascript:changeLanguage('pramukhindic:punjabi');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Sanskrit' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:sanskrit');
+	javascript:changeLanguage('pramukhindic:sanskrit');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Santali' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:santali');
+	javascript:changeLanguage('pramukhindic:sanatali');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Sindhi' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:sindhi');
+	javascript:changeLanguage('pramukhindic:sindhi');
+	});
+	</script>
+{% endif %}
+
+{% if request.session.language == 'Tamil' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:tamil');
+	javascript:changeLanguage('pramukhindic:tamil');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'Telugu' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val('pramukhindic:telugu');
+	javascript:changeLanguage('pramukhindic:telugu');
+	});
+	</script>
+{% endif %}
+{% if request.session.language == 'English' %}
+	<script>
+	$(document).ready(function(){
+	$('#drpLanguage').val(':english');
+	javascript:changeLanguage(':english');
+	});
+	</script>
+{% endif %}
+
+
+
+
+<!--<script type="text/javascript">
+var lang=${{request.session.language}}
+jQuery(document).ready(function(){
+	if( lang==' def')
+			{
+			$('#drpLanguage').val('pramukhindic:dogri');
+			}
+			else
+			{
+				$('#drpLanguage').val('pramukhindic:marathi');
+			}
+});
+</script>-->
 
 	<link type="text/css" href="/static/wa/css/pramukhtypepad.css" rel="Stylesheet" />
-
+	
+	
+	
 	<div class="row">
 		<div class="col-sm-6">
 			<img style="border:2px solid black" src="/wa/getParagraph/{{ book_id }}/{{ para_id }}/"  />    
@@ -183,6 +374,6 @@
 		<div>
 		
 	</div>	
-
+	
 
 {% endblock %}

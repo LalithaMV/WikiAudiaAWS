@@ -26,6 +26,7 @@ from django.core.files import File
 from wa.paragraphChunks import getChunkID
 from wa.dbOps import uploadDigiDb, uploadAudioDb
 from django.db.models import F
+import wave
 import BeautifulSoup
 from validate_email import validate_email
 #from wa.splitBook import splitBookIntoPages
@@ -71,16 +72,44 @@ def home(request):
         return HttpResponseRedirect('/wa')
 '''
 def register_user(request):
+    emailValue="" 	
+    nameValue=""
+    phNo=""	
     if request.method == 'POST':
         form=CustomUserCreationForm(request.POST)
-        if form.is_valid():
+        #print("printing from register_user")	
+        formStr=str(form)	
+        #print(formStr)		
+        	
+        soup = BeautifulSoup.BeautifulSoup(formStr)
+        val=soup.find(id="id_email")
+        #print(val['value'])	
+        emailValue=val['value']	
+        try:		
+            is_valid = validate_email(val['value'],verify=True)
+        except Exception, e:
+            is_valid=False		
+        val=soup.find(id="id_phoneNo")
+        phNo=val['value']
+        val=soup.find(id="id_first_name")
+        nameValue=val['value']		
+        #print("is_valid")
+        #print(is_valid)				
+        #print(form.Meta.model.USERNAME_FIELD)		
+        #print(formStr)		
+        	
+        if (form.is_valid() & is_valid):
             form.save()
             #languages_known_v = form.Languages
             log = logging.getLogger("wa")
             #log.info(languages_known_v)
             return HttpResponseRedirect('/wa/register_success')
+        else:
+            form=CustomUserCreationForm(request.POST)
+            #print(form.id_email)			
     else:
         form= CustomUserCreationForm()
+        		
     return render(request,  'wa/session/register.html', {
         'form': form,
     })
@@ -171,11 +200,12 @@ def digitize(request, book_id):
         para_id = getChunkID(request.user.id,book_id,1)
         print("para_id: " + str(para_id))
         if(para_id != 0):
-            return render_to_response('wa/AudioDigi/Digitize.html', {'book_id': book_id, 'para_id': para_id} )
+            #request.session['language']='abc'        		
+            return render(request,'wa/AudioDigi/Digitize.html', {'book_id': book_id, 'para_id': para_id} )
         else:
             return render_to_response('wa/error.html')
     else :
-        return render_to_response('wa/AudioDigi/Digitize.html')
+        return HttpResponseRedirect('/wa')
 
 def audioUpload(request, book_id):
     if request.user.is_authenticated():
@@ -213,12 +243,137 @@ def audioUpload(request, book_id):
             return render_to_response('wa/error.html')
     else :
         return render_to_response('/wa')
+def getAudio(request, book_id, para_id): 
+    #Should be served by nginx-gridfs
+    #response = HttpResponse(mimetype = "audio/x-wav")
+    '''
+    image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/hindi.jpg") 
+    image.save(response, 'png')
+    #image = Image.open(settings.BASE_DIR) 
+    '''
+    #response=HttpResponse()	
+    path_to_save = "documents/"+str(book_id) + "_" + str(para_id) + "_sound.wav"
+    print(path_to_save)	
+    a = default_storage.open(path_to_save)
+    local_fs = FileSystemStorage(location='/tmp/audio')
+    local_fs.save(a.name,a)
+    file = open("/tmp/audio/documents/"+str(book_id) + "_" + str(para_id) + "_sound.wav", "rb").read() 
+    #response['Content-Disposition'] = 'attachment; filename=filename.mp3' 
+    
 
+    #audio = wave.open("/tmp/audio/"+a.name,'r')
+    #--audio.save(response, 'wav')
+    #data=audio.readframes(audio.getnframes())	
+    #print len(data)
+    #print type(data)
+    #print data[9000:9002]	
+    #--response.write(data)
+    #response = HttpResponse(content=data, mimetype="audio/x-wav")
+    #print response.content[9000:9002]	
+    #audio.close()
+    
+    local_fs.delete(a.name)
+    
+    #return HttpResponse("hello")
+    return HttpResponse(file, mimetype="audio/wav") 
+def upVoted(request, book_id, para_id):
+	paraToUpVote=Paragraph.objects.get(pk=para_id)
+	print paraToUpVote
+	#paraToUpVote.update(upVotes=1)
+	#paraToUpVote.upVotes=paraToUpVote.upVotes+1
+	paraToUpVote.upVotes = F('upVotes') + 1
+	paraToUpVote.save()
+	return HttpResponseRedirect('/wa')
+	
+def downVoted(request, book_id, para_id):
+	paraToDownVote=Paragraph.objects.get(pk=para_id)
+	#paraToUpVote.update()
+	paraToDownVote.downVotes = F('downVotes') + 1
+	paraToDownVote.save()
+	return HttpResponseRedirect('/wa')
+	
+def bookParas(request):
+    print("Into bookParas")
+    #print(os.path.dirname(settings.BASE_DIR))
+    #outside = os.path.dirname(settings.BASE_DIR)
+    #if(os.path.exists())
+    
+    book = request.GET['book_id']
+    print("book")
+    print book
+    #print(language);
+    bookTemp=book
+    book = Book.objects.get(id = book)
+    print(book)
+    #print(language)
+    
+    
+    #bookParagraphs = book.paragraph_set.all()[:10]
+    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='re')[:5]
+	
+    #bookParagraphs = book.paragraph_set.filter(status_id='re')[:4]
+    #bookParagraphs = book.paragraph_set.all.filter(status='re')[:5]
+	
+	#print(bookParagraphs)
+    
+    ret = serializers.serialize("json", bookParagraphs)
+    
+	
+	#resp = HttpResponse(content_type = "application/json");
+    #json.dump(languageBooks, resp)
+    
+    #return HttpResponse(ret)
+	
+    return HttpResponse(ret)
+def validatePool(request,book_id):
+	if request.user.is_authenticated():
+		return render_to_response('wa/validatePool.html', {'book_id': book_id})
+	else :
+		return render_to_response('/wa')
+		
+def validatePara(request,book_id,para_id):
+	if request.user.is_authenticated():
+		return render_to_response('wa/validate.html', {'book_id': book_id,'para_id': para_id})
+	else :
+		return render_to_response('/wa')
+		
+def getParaImage(request,book_id,para_id):
+    response = HttpResponse(mimetype = "image/jpg");
+    path = os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + book_id + "/" + "frontcover.jpg"
+    #print(path);
+    if(os.path.exists(path)):
+       image = Image.open(path)
+    else:
+       image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/" + "default/" + "frontcover.jpg")
+    image.save(response, 'png');
+    return response; 
+def chooseParaAction(request, book_id,para_id):
+	if(request.session['action'] == "digitize"):
+		resp = digitize(request, book_id)
+	elif(request.session['action'] == "record"):
+		resp = audioUpload(request, book_id)
+	elif(request.session['action'] == "validate"):
+		resp = validatePara(request, book_id,para_id)
+	return resp;
+
+def valSelection(request):
+	if request.user.is_authenticated():
+		#return render_to_response('wa/AudioDigi/Digitize.html')
+		request.session['action'] = "validate";
+        	user_id = request.user.id
+        	user_langs = CustomUser.objects.get(pk = user_id).languages_known.split(',')
+		context = RequestContext(request, {'langs': user_langs, } )
+		return render(request, 'wa/chooseLanguage.html', context)
+	else :
+		return HttpResponseRedirect('/wa')
+		
 def chooseAction(request, book_id):
     if(request.session['action'] == "digitize"):
         resp = digitize(request, book_id)
     elif(request.session['action'] == "record"):
         resp = audioUpload(request, book_id)
+    elif(request.session['action'] == "validate"):
+        resp = validatePool(request, book_id)
     return resp;
 
 def getParagraph(request, book_id, para_id): 
@@ -266,20 +421,18 @@ def audioUploadForm(request, book_id, para_id):
             soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id,user_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
         
-                
-def chooseAction(request, book_id):
-    if(request.session['action'] == "digitize"):
-        resp = digitize(request, book_id)
-    elif(request.session['action'] == "record"):
-        resp = audioUpload(request, book_id)
-    return resp;
 
 def langBooks(request):
     #returns a JSON object with all books of a language which haven't been completed depending on the action
+    
     language = request.GET['language']
+<<<<<<< HEAD
     log = logging.getLogger("wa")
     log.info("langBooks : ")
     log.info(language)
+=======
+    request.session['language']=language	
+>>>>>>> 2d9d52935453c292d619e580aea442131f619a31
     language = Language.objects.get(langName = language)
     #Only send those books which aren't finished yet
     #languageBooks = language.book_set.all()
@@ -303,6 +456,7 @@ def langBooks(request):
 
 
 #def audioUpload(request):
+    
     
     
 def uploadBook(request):
@@ -330,7 +484,7 @@ def uploadBook(request):
                 #default_storage.close("documents/"+str(b.id))
                 log.info((a.name))
                 mod_path = "/tmp/pdf/"+a.name
-                f = open(mod_path, 'r')
+                f = open(mod_path, 'rb')
                 myfile = File(f)
                 new_name =str(b.id) + "/original/originalBook.pdf"
                 default_storage.save(new_name,myfile)
@@ -370,7 +524,8 @@ def uploadDigi(request, book_id, para_id):
         para.isChapter = isChapter
         para.save()
         #print("isChapter: " + str(isChapter))
-    if request.POST.has_key('unicode_data'):        
+    if request.POST.has_key('unicode_data'):
+        
         file_name = "/tmp/Digi" + str(para_id) + ".txt"
         file = open(file_name, "w")
         file.write((request.POST['unicode_data']).encode('utf8'))

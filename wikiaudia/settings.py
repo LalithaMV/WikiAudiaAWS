@@ -66,7 +66,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
+	"django.core.context_processors.request",
 )
+
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases

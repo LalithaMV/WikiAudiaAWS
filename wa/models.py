@@ -11,6 +11,7 @@ from django.db.models.signals import post_save#, post_save, pre_delete, post_del
 from django.dispatch import receiver
 import logging
 
+
 # Create your models here.
 # Have used camel case for all var names
 class CustomUserManager(BaseUserManager):
@@ -23,6 +24,8 @@ class CustomUserManager(BaseUserManager):
         now = timezone.now()
         if not email:
             raise ValueError('The given email must be set')
+        			
+              
         email = self.normalize_email(email)
         user = self.model(email=email,
                           is_staff=is_staff, is_active=True,

@@ -3,6 +3,14 @@ from wa import views;
 
 urlpatterns = patterns('',
 	url(r'^$', views.front, name='front'),
+	
+	url(r'audio/bookParas/', views.bookParas, name='bookParas'),
+	url(r'audio/getParaImage/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.getParaImage, name = 'getParaImage'),
+	url(r'audio/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.chooseParaAction, name = 'chooseParaAction'),
+	url(r'getAudio/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.getAudio, name = 'getAudio'),
+	url(r'upVoted/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.upVoted, name = 'upVoted'),
+	url(r'downVoted/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.downVoted, name = 'downVoted'),
+	
 	url(r'audio/getimage/(?P<book_id>\d+)/', views.getImage, name = 'getImage'),
 	url(r'audio/(?P<book_id>\d+)/', views.chooseAction, name = 'chooseAction'),
 	url(r'audio/langBooks/', views.langBooks, name='langBooks'),
@@ -24,4 +32,5 @@ urlpatterns = patterns('',
 	url(r'^ajaxexample_json/$', views.ajax, name='ajax'),
 	url(r'^concatenate_digi/$', views.concatenateDigi, name='concatenateDigi'),
 	url(r'^uploadBook/$', views.uploadBook, name='uploadBook'),
+	url(r'^valSelection/$', views.valSelection, name='valSelection'),
 )
