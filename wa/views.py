@@ -29,6 +29,7 @@ from django.db.models import F
 import wave
 import BeautifulSoup
 from validate_email import validate_email
+#import concatDigi
 #from wa.splitBook import splitBookIntoPages
 # Create your views here.
 
@@ -410,6 +411,7 @@ def langBooks(request):
 def uploadBook(request):
     # Handle file upload
     if request.user.is_authenticated():
+        #concatDigi.digiConcatenation(3)		
         if request.method == 'POST':
 
             form = DocumentForm(request.POST, request.FILES)
@@ -473,7 +475,6 @@ def uploadDigi(request, book_id, para_id):
         para.save()
         #print("isChapter: " + str(isChapter))
     if request.POST.has_key('unicode_data'):
-        
         file_name = "/tmp/Digi" + str(para_id) + ".txt"
         file = open(file_name, "w")
         file.write((request.POST['unicode_data']).encode('utf8'))
