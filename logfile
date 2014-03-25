@@ -382,3 +382,69 @@
 [25/Mar/2014 18:10:38] INFO [wa:170] category up
 [25/Mar/2014 18:10:38] INFO [wa:174] count: 1
 [25/Mar/2014 18:10:38] INFO [wa:204] [{'count': 1, 'language': u'Hindi'}]
+[19/Mar/2014 11:33:52] INFO [wa:10] Coming into try block
+[19/Mar/2014 11:34:03] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 11:34:03] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 11:34:03] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 11:34:03] INFO [wa:154] Coming after ndu
+[19/Mar/2014 11:34:03] INFO [wa:157] book_id: 2
+[19/Mar/2014 11:34:03] INFO [wa:159] chunks: 5percentageCompleteAudio: 0.0
+[19/Mar/2014 11:38:14] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 11:38:14] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 11:38:14] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 11:38:14] INFO [wa:154] Coming after ndu
+[19/Mar/2014 11:38:14] INFO [wa:157] book_id: 2
+[19/Mar/2014 11:38:14] INFO [wa:159] chunks: 5percentageCompleteAudio: 0.0
+[19/Mar/2014 11:39:26] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 11:39:26] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 11:39:26] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 11:39:26] INFO [wa:154] Coming after ndu
+[19/Mar/2014 11:39:26] INFO [wa:157] book_id: 2
+[19/Mar/2014 11:39:26] INFO [wa:159] chunks: 5percentageCompleteAudio: 0.0
+[19/Mar/2014 11:49:05] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 11:49:05] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 11:49:05] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 11:49:05] INFO [wa:154] Coming after ndu
+[19/Mar/2014 11:49:05] INFO [wa:157] book_id: 2
+[19/Mar/2014 11:49:05] INFO [wa:159] chunks: 5percentageCompleteAudio: 0.0
+[19/Mar/2014 11:51:17] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 11:51:17] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 11:51:17] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 11:51:17] INFO [wa:154] Coming after ndu
+[19/Mar/2014 11:51:17] INFO [wa:157] book_id: 2
+[19/Mar/2014 11:51:17] INFO [wa:159] chunks: 5percentageCompleteAudio: 0.0
+[19/Mar/2014 11:52:42] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 11:52:42] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 11:52:42] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 11:52:42] INFO [wa:154] Coming after ndu
+[19/Mar/2014 11:52:42] INFO [wa:157] book_id: 2
+[19/Mar/2014 11:52:42] INFO [wa:159] chunks: 5percentageCompleteAudio: 0.0
+[19/Mar/2014 11:57:55] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 11:57:55] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 11:57:55] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 11:57:55] INFO [wa:154] Coming after ndu
+[19/Mar/2014 11:57:55] INFO [wa:157] book_id: 2
+[19/Mar/2014 11:57:55] INFO [wa:159] chunks: 5percentageCompleteAudio: 0.0
+[19/Mar/2014 12:01:29] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 12:01:29] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 12:01:29] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 12:01:29] INFO [wa:154] Coming after ndu
+[19/Mar/2014 12:01:29] INFO [wa:157] book_id: 2
+[19/Mar/2014 12:01:29] INFO [wa:159] chunks: 5percentageCompleteAudio: 0.0
+[19/Mar/2014 13:56:46] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 13:56:46] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 13:56:46] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 13:56:46] INFO [wa:154] Coming after ndu
+[19/Mar/2014 13:56:46] INFO [wa:157] book_id: 2
+[19/Mar/2014 13:56:46] INFO [wa:159] chunks: 5percentageCompleteAudio: 0.0
+[19/Mar/2014 13:56:50] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 13:56:50] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 13:56:50] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 13:56:50] INFO [wa:154] Coming after ndu
+[19/Mar/2014 13:56:50] INFO [wa:157] book_id: 2
+[19/Mar/2014 13:56:50] INFO [wa:159] chunks: 5percentageCompleteAudio: 0.0
+[19/Mar/2014 13:57:50] INFO [wa:470] Upload Digi:false
+[19/Mar/2014 13:57:50] INFO [wa:12] Coming into uploadDigiDb
+[19/Mar/2014 13:57:50] INFO [wa:152] In checkForCompletion
+[19/Mar/2014 13:57:50] INFO [wa:154] Coming after ndu
+[19/Mar/2014 13:57:50] INFO [wa:157] book_id: 2

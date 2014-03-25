@@ -17,7 +17,11 @@ from django.contrib.auth.models import BaseUserManager
 from django.db.models.signals import post_save#, post_save, pre_delete, post_delete, request_started, request_finished
 from django.dispatch import receiver
 import logging
+<<<<<<< HEAD
 from datetime import datetime
+=======
+#import concatDigi
+>>>>>>> 732e0fc4ac1317500719df3ae04927a6964a22e7
 
 # Create your models here.
 # Have used camel case for all var names

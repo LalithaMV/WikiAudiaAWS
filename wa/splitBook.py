@@ -13,6 +13,7 @@ from wa.models import Language,Book, Paragraph, UserHistory, Document
 import re,os,sys
 import logging
 
+
 def halve_page(image_path, out_name, outdir, slice,book_id):
     print ("Inside Halve_page")
     print(image_path)	
@@ -99,6 +100,7 @@ def long_slice(image_path, out_name, outdir, slice_list,book_id):
             count +=1
         
 def Split_to_para(image_path,book_id):
+    noChunks=0
     img = cv2.imread(image_path)
     cnt = 0
     height, width, depth = img.shape;
@@ -164,15 +166,19 @@ def Split_to_para(image_path,book_id):
                 final_cutline.pop(i+1)
             i=i+1
         temp=len(final_cutline)
+        noChunks=temp+1		
+        print("no_chunks form split+para")
+        print(noChunks)		
         if temp != 1:
             long_slice(image_path,"slices", os.getcwd(), final_cutline,book_id)
         else:
             halve_page(image_path,"slices", os.getcwd(), final_cutline[0],book_id)
+    return noChunks			
 	
 def splitBookIntoPages(f_arg, book_id):
 	#print 'splitbook'
 	rxcountpages = re.compile(r"$\s*/Type\s*/Page[/\s]", re.MULTILINE|re.DOTALL)
-
+	noChunks=0;
 	#--TODOJO--Change this depending on your system path
 	sys.path.append('/home/jo/wikiaudia/')
 	#sys.path.append('/home/jo/wikiaudia/wa/')
@@ -223,7 +229,9 @@ def splitBookIntoPages(f_arg, book_id):
 						Split_to_para("temp[%d].png"%i,book_id)
 					'''	
 					myfile.close()
-					Split_to_para("temp[%d].png"%i,book_id)
+					noChunks=noChunks+Split_to_para("temp[%d].png"%i,book_id)
+					print("no_chunks form book +split")
+					print(noChunks)		
 					os.remove("temp[%d].png"%i)
 				i=i+1
 			except Exception, e:
@@ -234,7 +242,7 @@ def splitBookIntoPages(f_arg, book_id):
 		print i
 		#update book table to add number of chunks
 		book = Book.objects.get(pk = book_id)
-		book.numberOfChunks = i-2
+		book.numberOfChunks = noChunks
 		book.save()
 		os.remove(mod_path)
 		

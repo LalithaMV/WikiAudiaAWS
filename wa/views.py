@@ -30,6 +30,7 @@ from django.db.models import F
 import wave
 import BeautifulSoup
 from validate_email import validate_email
+
 #from wa.splitBook import splitBookIntoPages
 # Create your views here.
 
@@ -471,6 +472,7 @@ def langBooks(request):
 def uploadBook(request):
     # Handle file upload
     if request.user.is_authenticated():
+        	
         if request.method == 'POST':
 
             form = DocumentForm(request.POST, request.FILES)
@@ -542,7 +544,6 @@ def uploadDigi(request, book_id, para_id):
         para.save()
         print("para.isChapter: " + str(para.isChapter))
     if request.POST.has_key('unicode_data'):
-        
         file_name = "/tmp/Digi" + str(para_id) + ".txt"
         file = open(file_name, "w")
         file.write((request.POST['unicode_data']).encode('utf8'))
@@ -570,24 +571,4 @@ def ajax(request):
         return HttpResponse('Success')
     else:
         return render_to_response('WikiApp/AudioDigi/trial.html', context_instance=RequestContext(request))     
-        
-def concatenateDigi(request):
-    filenames = ['DigiFiles/one.txt','DigiFiles/two.txt']
-    with open('DigiFiles/final.txt', 'w') as fout:
-        for line in fileinput.input(filenames):
-            fout.write(line)
 
-def pdfGen(request):
-    pdf = FPDF()
-    pdf.add_page()
-    #pdf.add_font('gargi', '', 'gargi.ttf', uni=True) 
-    #pdf.set_font('gargi', '', 14)
-    #pdf.write(8, u'Hindi: एक अमरीकि')
-    pdf.add_font('Kedage-b', '', 'Kedage-b.ttf', uni=True) 
-    pdf.set_font('Kedage-b', '', 14)
-    #pdf.add_font('TSCu_SaiIndira', '', 'TSCu_SaiIndira.ttf', uni=True) 
-    #pdf.set_font('TSCu_SaiIndira', '', 14)
-    linestring = open('DigiFiles/KannadaInput.txt', 'r').read()
-    pdf.write(8,linestring)
-    pdf.ln(20)
-    pdf.output("DigiFiles/KannadaOutput.pdf", 'F')
