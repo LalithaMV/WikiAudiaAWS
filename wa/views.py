@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 import json
 from django.core import serializers
+from django.utils import simplejson
 from django.conf import settings
 import os
 from PIL import Image
@@ -162,6 +163,48 @@ def myprofile(request):
         return render(request, 'wa/myprofile.html', context)
     else:
         return HttpResponseRedirect('/wa')
+
+def userDetailsLangwise(request):
+    category = request.GET['category']
+    log = logging.getLogger("wa")
+    log.info("category " + category)
+    user_id = request.user.id
+    userActions = UserHistory.objects.filter(user = CustomUser.objects.get(pk = user_id))
+    ofCategory = userActions.filter(action = category)
+    log.info("count: %d", ofCategory.count())
+    res = []
+    if(category == "up"):
+        print("coming to up")
+        langs = Language.objects.all()
+        for l in langs:
+            print(l)
+            c = ofCategory.filter(uploadedBook__lang__langName = l).count()
+            if(c > 0):
+                temp = {}
+                temp['language'] = l
+                temp['count'] = c
+                res.append(temp)
+    else:
+        user_langs = CustomUser.objects.get(pk = user_id).languages_known.split(',')
+        for l in user_langs:
+            log.info(l)
+            l = l.strip()
+            '''
+            if(category == "up"):
+                c = ofCategory.filter(uploadedBook__lang__langName = l).count()
+            else:
+            '''
+            c = ofCategory.filter(paragraph__book__lang__langName = l).count()
+            log.info(c)
+            if(c > 0):
+                temp = {}
+                temp['language'] = l
+                temp['count'] = c
+                res.append(temp)
+    log.info(res)
+    #res = serializers.serialize("json", res)
+    return HttpResponse(simplejson.dumps(res), content_type = "application/javascript; charset=utf8")
+    #return HttpResponse(simplejson.dumps(res))
 
 def getImage(request, book_id):
     response = HttpResponse(mimetype = "image/jpg")
@@ -488,9 +531,16 @@ def uploadDigi(request, book_id, para_id):
         log = logging.getLogger("wa")
         log.info("Upload Digi:"+isChapter)
         para = Paragraph.objects.get(pk = para_id)
-        para.isChapter = isChapter
+        #if(isChapter)
+        #para.isChapter = isChapter
+        if(isChapter == "true"):
+            print("coming to true")
+            para.isChapter = True
+        elif(isChapter == "false"):
+            print("coming to false")
+            para.isChapter = False
         para.save()
-        #print("isChapter: " + str(isChapter))
+        print("para.isChapter: " + str(para.isChapter))
     if request.POST.has_key('unicode_data'):
         
         file_name = "/tmp/Digi" + str(para_id) + ".txt"
