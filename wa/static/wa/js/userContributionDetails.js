@@ -123,13 +123,13 @@ function addDivs(index)
 	tempDiv = document.createElement('div');
 	if(type == "re" || type == "di")
 	{ 
-		tempDiv.innerHTML = "" + dataGlobal[index].count  + "texts of " + dataGlobal[index].language + "" ;
+		tempDiv.innerHTML = "" + dataGlobal[index].count  + "  texts of " + dataGlobal[index].language + "" ;
 	}
 	else if(type = "up")
 	{
-		tempDiv.innerHTML = "" + dataGlobal[index].count  + "books of " + dataGlobal[index].language + "" ;
+		tempDiv.innerHTML = "" + dataGlobal[index].count  + " books of " + dataGlobal[index].language + "" ;
 	}
 	//alert(spanDiv);
 	// TOADD
-	//spanDiv.appendChild(tempDiv);
+	spanDiv.append(tempDiv);
 }

@@ -379,3 +379,26 @@
 [25/Mar/2014 17:32:54] INFO [wa:190]  Telugu
 [25/Mar/2014 17:32:54] INFO [wa:198] 4
 [25/Mar/2014 17:32:54] INFO [wa:204] [{'count': 1, 'language': u'English'}, {'count': 4, 'language': u'Telugu'}]
+[25/Mar/2014 18:07:52] INFO [wa:170] category di
+[25/Mar/2014 18:07:53] INFO [wa:174] count: 5
+[25/Mar/2014 18:07:53] INFO [wa:190] English
+[25/Mar/2014 18:07:53] INFO [wa:198] 1
+[25/Mar/2014 18:07:53] INFO [wa:190]  Telugu
+[25/Mar/2014 18:07:53] INFO [wa:198] 4
+[25/Mar/2014 18:07:53] INFO [wa:204] [{'count': 1, 'language': u'English'}, {'count': 4, 'language': u'Telugu'}]
+[25/Mar/2014 18:08:07] INFO [wa:170] category re
+[25/Mar/2014 18:08:07] INFO [wa:174] count: 1
+[25/Mar/2014 18:08:07] INFO [wa:190] English
+[25/Mar/2014 18:08:07] INFO [wa:198] 0
+[25/Mar/2014 18:08:07] INFO [wa:190]  Telugu
+[25/Mar/2014 18:08:07] INFO [wa:198] 1
+[25/Mar/2014 18:08:07] INFO [wa:204] [{'count': 1, 'language': u'Telugu'}]
+[25/Mar/2014 18:08:12] INFO [wa:170] category up
+[25/Mar/2014 18:08:12] INFO [wa:174] count: 1
+[25/Mar/2014 18:08:12] INFO [wa:204] [{'count': 1, 'language': <Language: Hindi>}]
+[25/Mar/2014 18:08:17] INFO [wa:170] category up
+[25/Mar/2014 18:08:17] INFO [wa:174] count: 1
+[25/Mar/2014 18:08:17] INFO [wa:204] [{'count': 1, 'language': <Language: Hindi>}]
+[25/Mar/2014 18:08:37] INFO [wa:170] category up
+[25/Mar/2014 18:08:37] INFO [wa:174] count: 1
+[25/Mar/2014 18:08:37] INFO [wa:204] [{'count': 1, 'language': <Language: Hindi>}]

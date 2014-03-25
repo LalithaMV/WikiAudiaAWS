@@ -379,3 +379,6 @@
 [25/Mar/2014 17:32:54] INFO [wa:190]  Telugu
 [25/Mar/2014 17:32:54] INFO [wa:198] 4
 [25/Mar/2014 17:32:54] INFO [wa:204] [{'count': 1, 'language': u'English'}, {'count': 4, 'language': u'Telugu'}]
+[25/Mar/2014 18:10:38] INFO [wa:170] category up
+[25/Mar/2014 18:10:38] INFO [wa:174] count: 1
+[25/Mar/2014 18:10:38] INFO [wa:204] [{'count': 1, 'language': u'Hindi'}]

@@ -71,7 +71,7 @@ def home(request):
     #return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
     else:
         return HttpResponseRedirect('/wa')
-'''
+
 def register_user(request):
     emailValue="" 	
     nameValue=""
@@ -111,42 +111,6 @@ def register_user(request):
     else:
         form= CustomUserCreationForm()
         		
-    return render(request,  'wa/session/register.html', {
-        'form': form,
-    })
-'''
-def register_user(request):
-    if request.method == 'POST':
-        form=CustomUserCreationForm(request.POST)
-        print("printing from register_user")    
-        formStr=str(form)   
-        print(formStr)      
-            
-        soup = BeautifulSoup.BeautifulSoup(formStr)
-        val=soup.find(id="id_email")
-        print(val['value'])     
-        try:        
-            is_valid = validate_email(val['value'],verify=True)
-
-        except Exception, e:
-            is_valid=False      
-        print("is_valid")
-        print(is_valid)             
-        #print(form.Meta.model.USERNAME_FIELD)      
-        #print(formStr)     
-            
-        if (form.is_valid() & is_valid):
-            form.save()
-            #languages_known_v = form.Languages
-            log = logging.getLogger("wa")
-            #log.info(languages_known_v)
-            return HttpResponseRedirect('/wa/register_success')
-        else:
-            form=CustomUserCreationForm(request.POST)
-            #print(form.id_email)           
-    else:
-        form= CustomUserCreationForm()
-                
     return render(request,  'wa/session/register.html', {
         'form': form,
     })
@@ -217,7 +181,7 @@ def userDetailsLangwise(request):
             c = ofCategory.filter(uploadedBook__lang__langName = l).count()
             if(c > 0):
                 temp = {}
-                temp['language'] = l
+                temp['language'] = l.langName
                 temp['count'] = c
                 res.append(temp)
     else:
@@ -485,32 +449,18 @@ def langBooks(request):
     #returns a JSON object with all books of a language which haven't been completed depending on the action
     
     language = request.GET['language']
-<<<<<<< HEAD
-    log = logging.getLogger("wa")
-    log.info("langBooks : ")
-    log.info(language)
-=======
     request.session['language']=language	
->>>>>>> 2d9d52935453c292d619e580aea442131f619a31
     language = Language.objects.get(langName = language)
     #Only send those books which aren't finished yet
     #languageBooks = language.book_set.all()
     languageBooks = Book.objects.filter(lang = language)
-    log.info(len(languageBooks))
     if(request.session['action'] == "digitize"):
-        log.info("Digi")
-        log.info(languageBooks)
         languageBooks = languageBooks.exclude(percentageCompleteDigi = F('numberOfChunks'))
-        log.info(languageBooks)
     elif(request.session['action'] == "record"):
-        log.info("Record")
-        log.info(languageBooks)
         languageBooks = languageBooks.exclude(percentageCompleteAudio = F('numberOfChunks'))
-        log.info(languageBooks)
     ret = serializers.serialize("json", languageBooks)
     #resp = HttpResponse(content_type = "application/json");
     #json.dump(languageBooks, resp)
-    log.info(ret)
     return HttpResponse(ret)
 
 
