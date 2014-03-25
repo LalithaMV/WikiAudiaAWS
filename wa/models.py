@@ -18,6 +18,8 @@ from django.db.models.signals import post_save#, post_save, pre_delete, post_del
 from django.dispatch import receiver
 import logging
 from datetime import datetime
+import wave
+
 
 # Create your models here.
 # Have used camel case for all var names
@@ -177,7 +179,43 @@ def concat(book_id):
 	#print(all_files_list)
 	return all_files_list
 
-	
+def audioConcatenation(book_id):
+    all_files_list=concat(book_id)
+    count=1;
+    for i in all_files_list:
+        for j in i:
+            a = default_storage.open(j)
+            path_to_save='/tmp/audioFiles/'
+            local_fs = FileSystemStorage(location=path_to_save)
+            local_fs.save(a.name,a)
+    for i in all_files_list:  
+        data= []
+        outfile='/tmp/audioFiles/'+str(book_id)+'/'+str(count)+'.wav'
+        with wave.open(outfile, 'wb') as output:        
+            # each chapter ka chunk
+            for j in i:   
+                temp='/tmp/audioFiles/'+j
+                w = wave.open(temp, 'rb')
+                data.append( [w.getparams(), w.readframes(w.getnframes())] )
+                w.close()
+                
+        output.setparams(data[0][0])
+        output.writeframes(data[0][1])
+        output.writeframes(data[1][1])
+        output.close()          
+        f = open(outfile, 'rb')
+        myfile = File(f)
+        new_name =str(book_id) + "/AudioChapters/Chapter"+str(count)+".pdf"
+        default_storage.save(new_name,myfile)
+        os.remove(outfile)
+        count=count+1
+    '''     
+    for i in all_files_list:        
+        for j in i:
+            temp='/tmp/audioFiles/'+j
+            os.remove(temp)
+    '''
+
 def pdfGen(Input,fontName,Output):
     pdf = FPDF()
     pdf.add_page()
