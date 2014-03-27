@@ -65,7 +65,7 @@ function getMore(event)
 	}
 	if(remove == false)
 	{
-		alert("coming to add");
+		//alert("coming to add");
 		// add the details
 		// ajax call to get all langwise
 		$.get('/wa/userDetailsLangwise/', {category: event.data.category}, addDetailsToView , "json");
@@ -80,27 +80,31 @@ function getMore(event)
 	{
 		// remove the details
 		// TOADD
-		alert("coming to remove");
+		// alert("coming to remove");
 		if(type == "di")
 		{
 			//remove children of digiMoreContainer
+			spanDiv = $("span#digiMoreContainer");
 		}
 		else if(type == "re")
 		{
 			// remove children of recMoreContainer
+			spanDiv = $("span#recMoreContainer");
 		}
 		else if(type == "up")
 		{
 			// remove children of uploadMoreContainer
+			spanDiv = $("span#uploadMoreContainer");
 		}
+		spanDiv.empty();
 	}
 }
 
 function addDetailsToView(data)
 {
 	dataGlobal = data;
-	alert("coming");
-	alert(data[0].language);
+	//alert("coming");
+	//alert(data[0].language);
 	//alert(type);
 	if(type == "di")
 	{

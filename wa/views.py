@@ -30,6 +30,7 @@ from django.db.models import F
 import wave
 import BeautifulSoup
 from validate_email import validate_email
+from utilities import pointsToAward
 
 #from wa.splitBook import splitBookIntoPages
 # Create your views here.
@@ -69,6 +70,8 @@ def auth_view(request):
 def home(request):
     if request.user.is_authenticated():
         return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
+        #ret = myprofile(request)
+        #return ret
     #return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
     else:
         return HttpResponseRedirect('/wa')
@@ -273,11 +276,12 @@ def getAudio(request, book_id, para_id):
     '''
     image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/hindi.jpg") 
     image.save(response, 'png')
-    #image = Image.open(settings.BASE_DIR) 
+    image = Image.open(settings.BASE_DIR) 
     '''
     #response=HttpResponse()	
     path_to_save = "documents/"+str(book_id) + "_" + str(para_id) + "_sound.wav"
-    print(path_to_save)	
+    #path_to_save = str(book_id) + "/chunks/" + str(para_id) + "/AudioFiles/1.wav"
+    print(path_to_save)
     a = default_storage.open(path_to_save)
     local_fs = FileSystemStorage(location='/tmp/audio')
     local_fs.save(a.name,a)
@@ -333,7 +337,7 @@ def bookParas(request):
     
     
     #bookParagraphs = book.paragraph_set.all()[:10]
-    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='re')[:5]
+    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='va')[:5]
 	
     #bookParagraphs = book.paragraph_set.filter(status_id='re')[:4]
     #bookParagraphs = book.paragraph_set.all.filter(status='re')[:5]
@@ -442,6 +446,8 @@ def audioUploadForm(request, book_id, para_id):
             para.save()
             #soundProcessWithAuphonic('documents/Ashu.wav')
             user_id = request.user.id
+            #set it before sending it for processing to avoid showing it again for recording But change appropriately if an error occurs while processing
+            uploadAudioDb(para_id, user_id)
             soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id,user_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
         
@@ -450,7 +456,9 @@ def langBooks(request):
     #returns a JSON object with all books of a language which haven't been completed depending on the action
     
     language = request.GET['language']
-    request.session['language']=language	
+    language = language.strip()
+    request.session['language']=language
+    print(language)
     language = Language.objects.get(langName = language)
     #Only send those books which aren't finished yet
     #languageBooks = language.book_set.all()
@@ -466,8 +474,7 @@ def langBooks(request):
 
 
 #def audioUpload(request):
-    
-    
+
     
 def uploadBook(request):
     # Handle file upload
@@ -480,11 +487,16 @@ def uploadBook(request):
                 log = logging.getLogger("wa")
                 log.info("Upload Book :")
                 log.info(request.POST['language'])
-                b = Book(lang = Language.objects.get(langName = request.POST.get("language", "")), author = request.POST.get("author", ""), bookName = request.POST.get("bookName", ""))
+                b = Book(lang = Language.objects.get(langName = request.POST.get("language", "")), author = request.POST.get("author", ""), bookName = request.POST.get("bookName", ""), shouldConcatAudio = True, shouldConcatDigi = True)
                 b.save()
                 user_id = request.user.id
                 uh = UserHistory(user = CustomUser.objects.get(pk = user_id), action = 'up', uploadedBook = b)
                 uh.save()
+                # add points
+                user = CustomUser.objects.get(pk = user_id)
+                user.points = user.points + pointsToAward("up")
+                user.save()
+                
                 newdoc = Document(docfile = request.FILES['docfile'])
 
                 #newdoc.docfile.save(str(b.id) + "/original/originalBook.pdf", request.FILES['docfile'], save=False)

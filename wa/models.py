@@ -18,7 +18,7 @@ from django.db.models.signals import post_save#, post_save, pre_delete, post_del
 from django.dispatch import receiver
 import logging
 from datetime import datetime
-import wave
+#import wave
 
 
 # Create your models here.
@@ -40,7 +40,7 @@ class CustomUserManager(BaseUserManager):
         now = timezone.now()
         if not email:
             raise ValueError('The given email must be set')
-        			
+                    
               
         email = self.normalize_email(email)
         user = self.model(email=email,
@@ -142,6 +142,8 @@ class Book(models.Model):
     dBookDownloads = models.PositiveIntegerField(default = 0)
     aBookDownloads = models.PositiveIntegerField(default = 0)
     numberOfChunks = models.PositiveIntegerField(default = 0)
+    shouldConcatAudio = models.BooleanField(default = False)
+    shouldConcatDigi = models.BooleanField(default = False)
     def __unicode__(self):
         return self.author + ',' + self.bookName + ',' + self.lang.langName
 
@@ -159,62 +161,28 @@ class Paragraph(models.Model):
     upVotes = models.PositiveIntegerField(default = 0)
     downVotes = models.PositiveIntegerField(default = 0)
     status = models.CharField(max_length = 2, choices = (('re', 'Recording'),('va', 'Validating'),('do', 'Done')))
-	
+    
 def concat(book_id):
-	para_no = Paragraph.objects.filter(book=Book.objects.get(pk=book_id))
-	infiles_list = []
-	all_files_list = []
-	offset=1;
-	for i in para_no:
-		file_name = str(book_id) + "/chunks/" + str(i.id) + "/DigiFiles/1.txt"
-		if i.isChapter == 1:
-			infiles_list = []
-		infiles_list.append(file_name)
-		if(offset<=len(para_no)-1):
-			if (para_no[offset].isChapter==1):
-				all_files_list.append(infiles_list)
-		offset=offset+1
+    para_no = Paragraph.objects.filter(book=Book.objects.get(pk=book_id))
+    infiles_list = []
+    all_files_list = []
+    offset=1;
+    for i in para_no:
+        file_name = str(book_id) + "/chunks/" + str(i.id) + "/DigiFiles/1.txt"
+        if i.isChapter == 1:
+            infiles_list = []
+        infiles_list.append(file_name)
+        if(offset<=len(para_no)-1):
+            if (para_no[offset].isChapter==1):
+                all_files_list.append(infiles_list)
+        if(offset==len(para_no)):
+            all_files_list.append(infiles_list)
+        offset=offset+1
 
-	#print("all_files_list")
-	#print(all_files_list)
-	return all_files_list
+    #print("all_files_list")
+    #print(all_files_list)
+    return all_files_list
 
-def audioConcatenation(book_id):
-    all_files_list=concat(book_id)
-    count=1;
-    for i in all_files_list:
-        for j in i:
-            a = default_storage.open(j)
-            path_to_save='/tmp/audioFiles/'
-            local_fs = FileSystemStorage(location=path_to_save)
-            local_fs.save(a.name,a)
-    for i in all_files_list:  
-        data= []
-        outfile='/tmp/audioFiles/'+str(book_id)+'/'+str(count)+'.wav'
-        with wave.open(outfile, 'wb') as output:        
-            # each chapter ka chunk
-            for j in i:   
-                temp='/tmp/audioFiles/'+j
-                w = wave.open(temp, 'rb')
-                data.append( [w.getparams(), w.readframes(w.getnframes())] )
-                w.close()
-                
-        output.setparams(data[0][0])
-        output.writeframes(data[0][1])
-        output.writeframes(data[1][1])
-        output.close()          
-        f = open(outfile, 'rb')
-        myfile = File(f)
-        new_name =str(book_id) + "/AudioChapters/Chapter"+str(count)+".pdf"
-        default_storage.save(new_name,myfile)
-        os.remove(outfile)
-        count=count+1
-    '''     
-    for i in all_files_list:        
-        for j in i:
-            temp='/tmp/audioFiles/'+j
-            os.remove(temp)
-    '''
 
 def pdfGen(Input,fontName,Output):
     pdf = FPDF()
@@ -227,52 +195,53 @@ def pdfGen(Input,fontName,Output):
     pdf.ln(20)
     pdf.output(Output, 'F')
 
-	
+    
 def digiConcatenation(book_id):
-	all_files_list=concat(book_id)
-	count=1;
-	Lang=Book.objects.get(pk = book_id).lang.langName
-	#Lang=Language.objects.get(id=(Book.objects.get(pk = book_id)).lang).langName
-	for i in all_files_list:
-		for j in i:
-			a = default_storage.open(j)
-			path_to_save='/tmp/digiFiles/'
-			local_fs = FileSystemStorage(location=path_to_save)
-			local_fs.save(a.name,a)
-	
-		# all chapters: For each chapter one final1, final2.txt ..and corresponding pdf.
-	for i in all_files_list:  
-		path_final='/tmp/digiFiles/'+str(book_id)+'/'+str(count)+'.txt'
-		with open(path_final, 'w') as fout:		
-			# each chapter ka chunk
-			for j in i:	  
-				temp='/tmp/digiFiles/'+j
-				ins = open( temp, "r" )
-				for line in ins:
-					fout.write(line)
-				fout.write('\n\n')
-		path_pdf='/tmp/digiFiles/'+str(book_id)+'/'+str(count)+'.pdf'		
-		pdfGen(path_final,fontLanguageMap[Lang],path_pdf)	
-		f = open(path_pdf, 'rb')
-		myfile = File(f)
-		new_name =str(book_id) + "/DigiChapters/Chapter"+str(count)+".pdf"
-		default_storage.save(new_name,myfile)
-		os.remove(path_final)
-		os.remove(path_pdf)
-		#local_fs.delete(path_final)
-		count=count+1
-		#fout.write('\f')	
-	#path='/tmp/digiFiles/'
-	#os.remove(path)
-	'''
-	for i in all_files_list:		
-		for j in i:
-			temp='/tmp/digiFiles/'
-			os.remove(temp)
-	'''
+    all_files_list=concat(book_id)
+    count=1;
+    Lang=Book.objects.get(pk = book_id).lang.langName
+    #Lang=Language.objects.get(id=(Book.objects.get(pk = book_id)).lang).langName
+    for i in all_files_list:
+        for j in i:
+            a = default_storage.open(j)
+            path_to_save='/tmp/digiFiles/'
+            local_fs = FileSystemStorage(location=path_to_save)
+            local_fs.save(a.name,a)
+    
+        # all chapters: For each chapter one final1, final2.txt ..and corresponding pdf.
+    for i in all_files_list:  
+        path_final='/tmp/digiFiles/'+str(book_id)+'/'+str(count)+'.txt'
+        with open(path_final, 'w') as fout:     
+            # each chapter ka chunk
+            for j in i:   
+                temp='/tmp/digiFiles/'+j
+                ins = open( temp, "r" )
+                for line in ins:
+                    fout.write(line)
+                fout.write('\n\n')
+        path_pdf='/tmp/digiFiles/'+str(book_id)+'/'+str(count)+'.pdf'       
+        pdfGen(path_final,fontLanguageMap[Lang],path_pdf)   
+        f = open(path_pdf, 'rb')
+        myfile = File(f)
+        new_name =str(book_id) + "/DigiChapters/Chapter"+str(count)+".pdf"
+        default_storage.save(new_name,myfile)
+        os.remove(path_final)
+        os.remove(path_pdf)
+        #local_fs.delete(path_final)
+        count=count+1
+        #fout.write('\f')   
+    #path='/tmp/digiFiles/'
+    #os.remove(path)
+    '''
+    for i in all_files_list:        
+        for j in i:
+            temp='/tmp/digiFiles/'
+            os.remove(temp)
+    '''
 #@receiver(pre_save, sender=Book)
 #check for completion pre_save of Paragraph
 def checkForCompletion(sender, **kwargs): 
+    from wa.tasks import concatAudio
     log = logging.getLogger("wa")
     log.setLevel(10)
     log.info("In checkForCompletion")
@@ -283,10 +252,18 @@ def checkForCompletion(sender, **kwargs):
     log.info("book_id: " + str(book.id))
     chunks = book.numberOfChunks
     log.info("chunks: " + str(chunks) + "percentageCompleteAudio: " + str(book.percentageCompleteAudio))
-    if((chunks != 0) and (book.percentageCompleteAudio == chunks)):
+    if((chunks != 0) and (book.percentageCompleteAudio == chunks) and (book.shouldConcatAudio == True)):
+        log.info("coming inside if condition. Going to call audioconcat")
+        book.shouldConcatAudio = False
+        book.save()
+        print("Going to call audio concat")
+        #audioConcatenation(book.id) 
+        concatAudio.delay(book.id)
         print("Calling Audio concat")
-    if((chunks!= 0) and (book.percentageCompleteDigi == chunks)):
-        digiConcatenation(book.id)	        
+    if((chunks!= 0) and (book.percentageCompleteDigi == chunks) and (book.shouldConcatDigi == True)):
+        book.shouldConcatDigi = False
+        book.save()
+        digiConcatenation(book.id)          
         print("Calling pdfGen")
 
 post_save.connect(checkForCompletion, sender=Book)
