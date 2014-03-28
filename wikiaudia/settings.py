@@ -77,8 +77,8 @@ DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.mysql',
         'NAME': 'wikiaudia',
-	'USER': 'jo',
-	'PASSWORD': 'mineSweeper15',
+	'USER': 'wikiaudia',
+	'PASSWORD': 'wikiaudia',
 	'PORT': 3306,
     },
     'fileMongo': {

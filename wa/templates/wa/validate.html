@@ -19,13 +19,14 @@ function downVote()
 </script>
 
 
-<img border="1px" src="/wa/getParagraph/{{ book_id }}/{{ para_id }}/" />
+<img border="1px" src="http://54.213.4.161/scripts/getImage.php?filename={{ book_id }}/chunks/{{ para_id }}/image.png" />
 </br></br></br></br>
 
 <audio controls>
-  <source src="/wa/getAudio/{{ book_id }}/{{ para_id }}/" type="audio/wav">
-  <embed height="50" width="100" src="/wa/getAudio/{{ book_id }}/{{ para_id }}/">
+  <source src="http://54.213.4.161/scripts/getAudio.php?filename={{ book_id }}/chunks/{{ para_id }}/AudioFiles/1.wav" type="audio/wav"></source>
+  <embed height="50" width="100" src="http://54.213.4.161/scripts/getAudio.php?filename={{ book_id }}/chunks/{{ para_id }}/AudioFiles/1.wav"></embed>
 </audio>
+<a href="http://54.213.4.161/scripts/getAudio.php?filename={{ book_id }}/chunks/{{ para_id }}/AudioFiles/1.wav">Play</a>
 </br></br></br></br>
 
 <button id="up" id="good" class="btn btn-round" onclick="upVote()"><span>Good</span></button>

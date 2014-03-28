@@ -1,0 +1,426 @@
+[Sat Mar 22 16:09:18 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:10:12 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:10:12 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:10:12 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:10:27 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:21:13 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:21:16 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:24:30 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:30:30 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:55:43 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:55:59 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 16:56:05 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 17:17:52 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 17:21:39 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 17:22:38 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 17:24:40 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 17:25:31 2014] [crit] [client 122.167.16.151] (13)Permission denied: /home/ubuntu/Wikiaudia_app/Wikiaudia/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151] mod_wsgi (pid=11361): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151] Traceback (most recent call last):
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/wsgi.py", line 236, in __call__
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]     self.load_middleware()
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 45, in load_middleware
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 53, in __getattr__
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]     self._setup(name)
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 49, in _setup
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]     self._configure_logging()
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 84, in _configure_logging
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]     logging_config_func(self.LOGGING)
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 777, in dictConfig
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]     dictConfigClass(config).configure()
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 575, in configure
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151]     '%r: %s' % (name, e))
+[Sat Mar 22 23:01:21 2014] [error] [client 122.167.16.151] ValueError: Unable to configure handler 'logfile': [Errno 13] Permission denied: '/home/ubuntu/Wikiaudia_app/Wikiaudia/logfile'
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151] mod_wsgi (pid=11462): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151] Traceback (most recent call last):
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/wsgi.py", line 236, in __call__
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]     self.load_middleware()
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 45, in load_middleware
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 53, in __getattr__
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]     self._setup(name)
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 49, in _setup
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]     self._configure_logging()
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 84, in _configure_logging
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]     logging_config_func(self.LOGGING)
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 777, in dictConfig
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]     dictConfigClass(config).configure()
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 575, in configure
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151]     '%r: %s' % (name, e))
+[Sat Mar 22 23:03:10 2014] [error] [client 122.167.16.151] ValueError: Unable to configure handler 'logfile': [Errno 13] Permission denied: '/home/ubuntu/Wikiaudia_app/Wikiaudia/logfile'
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151] mod_wsgi (pid=11459): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151] Traceback (most recent call last):
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/wsgi.py", line 236, in __call__
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]     self.load_middleware()
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 45, in load_middleware
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 53, in __getattr__
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]     self._setup(name)
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 49, in _setup
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]     self._configure_logging()
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 84, in _configure_logging
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]     logging_config_func(self.LOGGING)
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 777, in dictConfig
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]     dictConfigClass(config).configure()
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 575, in configure
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151]     '%r: %s' % (name, e))
+[Sat Mar 22 23:04:15 2014] [error] [client 122.167.16.151] ValueError: Unable to configure handler 'logfile': [Errno 13] Permission denied: '/home/ubuntu/Wikiaudia_app/Wikiaudia/logfile'
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151] mod_wsgi (pid=11460): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151] Traceback (most recent call last):
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/wsgi.py", line 236, in __call__
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]     self.load_middleware()
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 45, in load_middleware
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 53, in __getattr__
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]     self._setup(name)
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 49, in _setup
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]     self._configure_logging()
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 84, in _configure_logging
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]     logging_config_func(self.LOGGING)
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 777, in dictConfig
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]     dictConfigClass(config).configure()
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 575, in configure
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151]     '%r: %s' % (name, e))
+[Sat Mar 22 23:06:00 2014] [error] [client 122.167.16.151] ValueError: Unable to configure handler 'logfile': [Errno 13] Permission denied: '/home/ubuntu/Wikiaudia_app/Wikiaudia/logfile'
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151] mod_wsgi (pid=11461): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151] Traceback (most recent call last):
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/wsgi.py", line 236, in __call__
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]     self.load_middleware()
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 45, in load_middleware
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 53, in __getattr__
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]     self._setup(name)
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 49, in _setup
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]     self._configure_logging()
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 84, in _configure_logging
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]     logging_config_func(self.LOGGING)
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 777, in dictConfig
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]     dictConfigClass(config).configure()
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 575, in configure
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151]     '%r: %s' % (name, e))
+[Sat Mar 22 23:06:04 2014] [error] [client 122.167.16.151] ValueError: Unable to configure handler 'logfile': [Errno 13] Permission denied: '/home/ubuntu/Wikiaudia_app/Wikiaudia/logfile'
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151] mod_wsgi (pid=11463): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151] Traceback (most recent call last):
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/wsgi.py", line 236, in __call__
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]     self.load_middleware()
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 45, in load_middleware
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 53, in __getattr__
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]     self._setup(name)
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 49, in _setup
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]     self._configure_logging()
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 84, in _configure_logging
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]     logging_config_func(self.LOGGING)
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 777, in dictConfig
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]     dictConfigClass(config).configure()
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 575, in configure
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151]     '%r: %s' % (name, e))
+[Sat Mar 22 23:08:56 2014] [error] [client 122.167.16.151] ValueError: Unable to configure handler 'logfile': [Errno 13] Permission denied: '/home/ubuntu/Wikiaudia_app/Wikiaudia/logfile'
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151] mod_wsgi (pid=11470): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151] Traceback (most recent call last):
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/wsgi.py", line 236, in __call__
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]     self.load_middleware()
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 45, in load_middleware
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]     for middleware_path in settings.MIDDLEWARE_CLASSES:
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 53, in __getattr__
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]     self._setup(name)
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 49, in _setup
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]     self._configure_logging()
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 84, in _configure_logging
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]     logging_config_func(self.LOGGING)
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 777, in dictConfig
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]     dictConfigClass(config).configure()
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]   File "/usr/lib/python2.7/logging/config.py", line 575, in configure
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151]     '%r: %s' % (name, e))
+[Sat Mar 22 23:08:59 2014] [error] [client 122.167.16.151] ValueError: Unable to configure handler 'logfile': [Errno 13] Permission denied: '/home/ubuntu/Wikiaudia_app/Wikiaudia/logfile'
+[Sat Mar 22 23:46:02 2014] [error] [client 157.56.92.152] mod_wsgi (pid=11699): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sat Mar 22 23:46:02 2014] [error] [client 157.56.92.152] IOError: failed to write data
+[Sun Mar 23 00:47:56 2014] [error] [client 157.56.92.152] mod_wsgi (pid=11691): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sun Mar 23 00:47:56 2014] [error] [client 157.56.92.152] IOError: failed to write data
+[Sun Mar 23 10:04:38 2014] [error] [client 82.165.136.156] mod_wsgi (pid=11699): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sun Mar 23 10:04:38 2014] [error] [client 82.165.136.156] IOError: failed to write data
+[Sun Mar 23 11:16:26 2014] [error] [client 157.55.36.45] mod_wsgi (pid=14229): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sun Mar 23 11:16:26 2014] [error] [client 157.55.36.45] IOError: failed to write data
+[Sun Mar 23 11:20:31 2014] [error] [client 66.85.140.110] mod_wsgi (pid=14247): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'.
+[Sun Mar 23 11:20:31 2014] [error] [client 66.85.140.110] IOError: failed to write data
+[Sun Mar 23 11:29:08 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:08 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:08 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:08 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:08 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:08 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 11:29:09 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:09 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:09 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:09 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 11:29:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 11:29:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Sun Mar 23 05:59:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/staticwa, referer: http://54.213.4.161/wa/
+[Mon Mar 24 05:10:01 2014] [error] [client 122.172.10.54] script '/home/ubuntu/Wikiaudia_app/Wikiaudia/getImage.php' not found or unable to stat
+[Mon Mar 24 10:40:10 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/home
+[Mon Mar 24 05:25:44 2014] [error] [client 122.172.10.54] script '/var/www/scripts/getImahe.php' not found or unable to stat
+[Mon Mar 24 05:25:47 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 3
+[Mon Mar 24 05:25:59 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 3
+[Mon Mar 24 05:26:56 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:27:22 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:29:18 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:30:15 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:31:36 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:32:40 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:40:54 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'MongoClient' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:41:31 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 11:12:29 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:44:28 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:47:38 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:49:53 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 05:50:22 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 06:17:38 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/sample.php on line 7
+[Mon Mar 24 06:53:27 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 06:53:51 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 06:57:35 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 06:58:16 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 07:02:01 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 07:10:02 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 07:12:02 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 07:13:09 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 07:13:49 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 07:17:28 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4, referer: http://54.213.4.161/scripts/try.html
+[Mon Mar 24 07:22:07 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4, referer: http://54.213.4.161/scripts/try.html
+[Mon Mar 24 07:22:12 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 12:52:35 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 07:24:13 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 07:24:47 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 07:24:56 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 13:24:44 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 07:57:34 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 08:00:27 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 08:05:11 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 08:23:09 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 08:23:19 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 08:23:36 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 08:28:17 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 08:28:41 2014] [error] [client 122.172.10.54] Target WSGI script not found or unable to stat: /home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.pywa
+[Mon Mar 24 08:29:03 2014] [error] [client 122.172.10.54] Target WSGI script not found or unable to stat: /home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.pywa
+[Mon Mar 24 08:33:04 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/home
+[Mon Mar 24 08:33:33 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/static/wa/img/pramukhime-icon.png, referer: http://54.213.4.161/wa/audio/11/
+[Mon Mar 24 14:09:22 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/static/wa/img/pramukhime-icon.png, referer: http://54.213.4.161/wa/audio/11/
+[Mon Mar 24 14:12:06 2014] [error] [client 122.172.10.54] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/static/wa/img/pramukhime-icon.png, referer: http://54.213.4.161/wa/audio/11/
+[Mon Mar 24 15:12:17 2014] [error] [client 190.120.226.135] script '/var/www/scripts/setup.php' not found or unable to stat
+[Mon Mar 24 15:23:33 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 15:23:39 2014] [error] [client 54.213.4.161] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 4
+[Mon Mar 24 09:59:35 2014] [error] [client 122.172.10.54] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 5
+[Mon Mar 24 10:01:05 2014] [error] [client 122.167.12.151] PHP Fatal error:  Class 'Mongo' not found in /var/www/scripts/getImage.php on line 5
+[Mon Mar 24 10:06:43 2014] [error] [client 122.172.10.54] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 17
+[Mon Mar 24 10:09:22 2014] [error] [client 122.172.10.54] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 17
+[Mon Mar 24 16:01:35 2014] [error] [client 127.0.0.1] File does not exist: /var/www/scripts/getImage
+[Mon Mar 24 10:32:24 2014] [error] [client 54.213.4.161] File does not exist: /var/www/scripts/getImage
+[Mon Mar 24 10:32:37 2014] [error] [client 54.213.4.161] PHP Parse error:  syntax error, unexpected '[' in /var/www/scripts/getImage.php on line 5
+[Mon Mar 24 10:33:10 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected '[' in /var/www/scripts/getImage.php on line 5
+[Mon Mar 24 16:03:27 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected '[' in /var/www/scripts/getImage.php on line 5
+[Mon Mar 24 10:35:02 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected '[' in /var/www/scripts/getImage.php on line 5
+[Mon Mar 24 10:37:08 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 14
+[Mon Mar 24 16:08:55 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 14
+[Mon Mar 24 10:39:34 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 15
+[Mon Mar 24 10:39:57 2014] [error] [client 122.172.10.54] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 15
+[Mon Mar 24 12:23:03 2014] [error] [client 122.172.215.37] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 16
+[Mon Mar 24 17:53:49 2014] [error] [client 122.172.215.37] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 17
+[Mon Mar 24 12:24:27 2014] [error] [client 122.172.215.37] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 17
+[Mon Mar 24 12:24:45 2014] [error] [client 122.172.215.37] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 17
+[Mon Mar 24 12:25:15 2014] [error] [client 122.172.215.37] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 17
+[Mon Mar 24 12:26:33 2014] [error] [client 122.172.215.37] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 18
+[Mon Mar 24 12:27:18 2014] [error] [client 122.172.215.37] PHP Parse error:  syntax error, unexpected ';' in /var/www/scripts/getImage.php on line 18
+[Mon Mar 24 12:28:00 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22
+[Mon Mar 24 12:29:53 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22
+[Mon Mar 24 12:35:13 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22
+[Mon Mar 24 12:38:24 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Mon Mar 24 18:17:31 2014] [error] [client 122.172.215.37] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/audio/
+[Mon Mar 24 18:17:34 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Mon Mar 24 18:19:34 2014] [error] [client 122.172.215.37] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/digiSelection/
+[Mon Mar 24 18:21:39 2014] [error] [client 122.172.215.37] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/audio/
+[Mon Mar 24 18:23:31 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Mon Mar 24 18:23:53 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Mon Mar 24 19:59:47 2014] [error] [client 117.192.203.190] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 19:59:47 2014] [error] [client 117.192.203.190] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 19:59:47 2014] [error] [client 117.192.203.190] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 19:59:47 2014] [error] [client 117.192.203.190] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 19:59:47 2014] [error] [client 117.192.203.190] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 14:29:47 2014] [error] [client 117.192.203.190] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 19:59:47 2014] [error] [client 117.192.203.190] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 19:59:47 2014] [error] [client 117.192.203.190] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 19:59:47 2014] [error] [client 117.192.203.190] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 19:59:48 2014] [error] [client 117.192.203.190] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 19:59:48 2014] [error] [client 117.192.203.190] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Mon Mar 24 20:01:59 2014] [error] [client 117.192.203.190] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Mon Mar 24 20:02:04 2014] [error] [client 117.192.203.190] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Mon Mar 24 20:03:40 2014] [error] [client 117.192.203.190] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/digiSelection/
+[Mon Mar 24 20:03:44 2014] [error] [client 117.192.203.190] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Mon Mar 24 20:03:45 2014] [error] [client 117.192.203.190] File does not exist: /home/ubuntu/Wikiaudia_app/Wikiaudia/wa/static/wa/img/pramukhime-icon.png, referer: http://54.213.4.161/wa/audio/11/
+[Tue Mar 25 03:57:21 2014] [error] [client 190.109.209.116] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Tue Mar 25 10:51:35 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 10:51:40 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Tue Mar 25 10:55:46 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 10:55:48 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Tue Mar 25 10:57:43 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 10:57:46 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Tue Mar 25 11:02:37 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 11:06:47 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 11:06:58 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 11:07:25 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 11:09:14 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/digiSelection/
+[Tue Mar 25 11:09:19 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 11:10:20 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 11:15:04 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 11:25:42 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Tue Mar 25 11:26:10 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Tue Mar 25 11:26:12 2014] [error] [client 122.172.215.37] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Tue Mar 25 21:22:38 2014] [error] [client 198.50.128.244] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:)
+[Wed Mar 26 11:38:34 2014] [error] [client 122.167.12.151] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Wed Mar 26 06:08:36 2014] [error] [client 122.167.12.151] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 11:44:15 2014] [error] [client 122.167.12.151] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/
+[Wed Mar 26 11:44:16 2014] [error] [client 122.167.12.151] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 06:15:39 2014] [error] [client 122.167.12.151] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 06:15:39 2014] [error] [client 122.167.12.151] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:39 2014] [error] [client 122.167.12.151] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 11:45:58 2014] [error] [client 122.167.12.151] mod_wsgi (pid=3011): Exception occurred processing WSGI script '/home/ubuntu/Wikiaudia_app/Wikiaudia/apache/wsgi.py'., referer: http://54.213.4.161/wa/audio/11/9/
+[Wed Mar 26 11:45:58 2014] [error] [client 122.167.12.151] IOError: failed to write data, referer: http://54.213.4.161/wa/audio/11/9/
+[Wed Mar 26 19:43:58 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: filename in /var/www/scripts/getImage.php on line 6
+[Wed Mar 26 19:43:58 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19
+[Wed Mar 26 19:44:17 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getAudio.php on line 22
+[Wed Mar 26 19:48:42 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:42 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:42 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:42 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:42 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:42 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:42 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:42 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:42 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:43 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:43 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:43 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:43 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:48:43 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:10 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:10 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:10 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:10 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:10 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:10 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:10 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:10 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:10 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:10 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:11 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:11 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:11 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:49:11 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:06 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 14:22:06 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:52:06 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:52:06 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:52:06 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:52:15 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/4/
+[Wed Mar 26 19:52:16 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/4/
+[Wed Mar 26 19:52:33 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 14:22:33 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:52:33 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:52:33 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 14:22:33 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 14:22:44 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 14:22:44 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:44 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:45 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 19:52:48 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 14:22:48 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:52:48 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:52:48 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:52:48 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 19:53:00 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/5/
+[Wed Mar 26 19:53:00 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/5/
+[Wed Mar 26 14:31:05 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/5/
+[Wed Mar 26 20:01:06 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/5/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 14:33:09 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 14:33:09 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getImage.php on line 19, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:09 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/valSelection/
+[Wed Mar 26 20:03:16 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 20:03:16 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 14:33:16 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 14:33:16 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 20:03:16 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 20:03:19 2014] [error] [client 122.172.1.254] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/4/
+[Wed Mar 26 14:33:19 2014] [error] [client 122.172.1.254] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/4/
+[Wed Mar 26 21:08:02 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/4/
+[Wed Mar 26 21:08:06 2014] [error] [client 122.172.26.178] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/4/
+[Wed Mar 26 21:08:44 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/4/
+[Wed Mar 26 15:38:44 2014] [error] [client 122.172.26.178] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/4/
+[Wed Mar 26 21:08:55 2014] [error] [client 122.172.26.178] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/4/
+[Wed Mar 26 21:10:07 2014] [error] [client 122.172.26.178] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/4/
+[Wed Mar 26 15:40:08 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:08 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:08 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:08 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:08 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:15 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/5/
+[Wed Mar 26 15:40:15 2014] [error] [client 122.172.26.178] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/5/
+[Wed Mar 26 15:40:19 2014] [error] [client 122.172.26.178] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/5/
+[Wed Mar 26 15:40:22 2014] [error] [client 122.172.26.178] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/5/
+[Wed Mar 26 15:40:27 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 15:40:27 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:27 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:27 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:27 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:31 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/6/
+[Wed Mar 26 21:10:31 2014] [error] [client 122.172.26.178] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/6/
+[Wed Mar 26 21:10:32 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22
+[Wed Mar 26 15:40:35 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:35 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:35 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:38 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:38 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:40 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/8/
+[Wed Mar 26 21:10:40 2014] [error] [client 122.172.26.178] PHP Fatal error:  Call to a member function getBytes() on a non-object in /var/www/scripts/getAudio.php on line 19, referer: http://54.213.4.161/wa/audio/11/8/
+[Wed Mar 26 21:10:43 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:43 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:43 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:43 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/
+[Wed Mar 26 21:10:43 2014] [error] [client 122.172.26.178] PHP Notice:  Undefined index: contentType in /var/www/scripts/getImage.php on line 22, referer: http://54.213.4.161/wa/audio/11/

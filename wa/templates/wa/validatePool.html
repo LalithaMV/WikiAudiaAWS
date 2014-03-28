@@ -32,7 +32,8 @@ function addParasToPage(data)
 		link.href = "/wa/audio/" + book + "/" +para.pk+"/";
 		image = document.createElement('img');
 		image.id = "figimg_" + para.pk;
-		image.src = "/wa/getParagraph/" + book + "/"+para.pk+"/";
+		image.src = "http://54.213.4.161/scripts/getImage.php?filename="+book+"/chunks/"+para.pk+"/image.png";
+		//		image.src = "/wa/getParagraph/" + book + "/"+para.pk+"/";
 		image.height = 130;
 		image.width = 150;
 		fig.appendChild(image);

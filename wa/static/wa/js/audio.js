@@ -52,7 +52,8 @@ function addBooksToPage(data)
 		link.href = "/wa/audio/" + book.pk + "/";
 		image = document.createElement('img');
 		image.id = "figimg_" + book.pk;
-		image.src = "/wa/audio/getimage/" + book.pk + "/"; 
+		//image.src = "/wa/audio/getimage/" + book.pk + "/";
+		image.src = "http://54.213.4.161/scripts/getImage.php?filename="+book.pk+"/bookThumbnail.png";
 		image.height = 200;
 		image.width = 150;
 		fig.appendChild(image);
