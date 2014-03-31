@@ -472,6 +472,8 @@ def langBooks(request):
         languageBooks = languageBooks.exclude(percentageCompleteDigi = F('numberOfChunks'))
     elif(request.session['action'] == "record"):
         languageBooks = languageBooks.exclude(percentageCompleteAudio = F('numberOfChunks'))
+    elif(request.session['action'] == "browse"):
+        languageBooks = languageBooks.exclude(numberOfChunks = 0).filter(percentageCompleteAudio = F('numberOfChunks'))
     ret = serializers.serialize("json", languageBooks)
     #resp = HttpResponse(content_type = "application/json");
     #json.dump(languageBooks, resp)
@@ -593,6 +595,7 @@ def browse(request):
     if request.user.is_authenticated():    
         log = logging.getLogger("wa")
         log.info("In browse")    
+        request.session['action'] = "browse"
         user_langs = Language.objects.all()
         #for each language find all it books and select the ones which are completed 
         log.info(user_langs) 
