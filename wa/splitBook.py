@@ -1,7 +1,7 @@
 from __future__ import division
-#from PIL import Image as Image2
+from PIL import Image as Image2
 import math
-#import cv2
+import cv2
 import numpy as np
 from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
