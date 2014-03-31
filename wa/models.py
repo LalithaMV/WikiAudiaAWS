@@ -220,6 +220,7 @@ def digiConcatenation(book_id):
                     fout.write(line)
                 fout.write('\n\n')
         path_pdf='/tmp/digiFiles/'+str(book_id)+'/'+str(count)+'.pdf'
+		'''
         langVar=fontLanguageMap[Lang]	
         if(langVar != ""):		
             pdfGen(path_final,fontLanguageMap[Lang],path_pdf)
@@ -228,10 +229,11 @@ def digiConcatenation(book_id):
             new_name =str(book_id) + "/DigiChapters/Chapter"+str(count)+".pdf"
             default_storage.save(new_name,myfile)			 
         else:
-            f = open(path_final, 'rb')
-            myfile = File(f)
-            new_name =str(book_id) + "/DigiChapters/Chapter"+str(count)+".txt"
-            default_storage.save(new_name,myfile)    		
+		'''
+        f = open(path_final, 'rb')
+        myfile = File(f)
+        new_name =str(book_id) + "/DigiChapters/Chapter"+str(count)+".txt"
+        default_storage.save(new_name,myfile)    		
         
         os.remove(path_final)
         os.remove(path_pdf)
