@@ -7,14 +7,16 @@
 <script src="{% static "wa/js/jquery.js" %}"></script>
 <script src="{% static "wa/js/audio.js" %}"></script>
 
-
-
-<select id = 'language' class="chosen">
+<div class="col-sm-offset-5">
+<h4>Select a book to Record</h4>
+</div>
+<!--<select id = 'language' class="chosen">
 <option value = "default">--Choose a Language--</option>
 {% for lang in langs %}
         <option value = "{{lang}}">{{lang}}</option>
 {% endfor %}
-</select>
+</select>-->
+
 <script src="{% static "wa/arctic-sunset-css/js/jquery.chosen.min.js"%}"></script>
 <script type="text/javascript">
 jQuery(document).ready(function(){
@@ -22,7 +24,23 @@ jQuery(document).ready(function(){
 });
 </script>
 <div class="row"></div>
-<div id = 'dispBooks'>
-</div>
+<div id='allLanguageBooks' class="col-sm-offset-2">
+	{% for lang in langs %}
+		<div class="row">
+			<h5>{{lang}}</h5>
+	        <div id = "{{lang}}"></div>
+	        <script type="text/javascript">
+	            //document.getElementById("{{lang}}").
+	            	console.log("Language"+"{{lang}}"+"");
+		            $.get('/wa/audio/langBooks/', {language : "{{lang}}"}, function success(data){
+		            	addBooksToPage(data,"{{lang}}");
+		            }
 
+	            );
+	        </script>
+        </div>
+        <br/><br/>
+        <hr><br/>
+	{% endfor %}
+</div>
 {% endblock %}

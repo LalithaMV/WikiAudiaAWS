@@ -17,6 +17,8 @@ from wa.dbOps import uploadAudioDb
 #import wikiaudia.settings
 import re,os,sys
 import logging
+from concatAudio import audioConcatenation
+import logging
 
 API_URL = "https://auphonic.com/api/simple/productions.json"
 API_DETAILS_URL = "https://auphonic.com/api/production/%s.json"
@@ -54,15 +56,19 @@ def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 			continue
 		time.sleep(10)
 		noOfTries=noOfTries+1
-	download_url = detail_object['data']['output_files'][0]['download_url']
-	#use this URL to download back into the server 
-	out = requests.get(download_url,auth=HTTPBasicAuth(str(username), str(password)))
-	#trialFile = open('trial.mp3','w')
-	#trialFile.write(out.content)
-	trialFile = ContentFile(out.content)
+	if detail_object['status_code']!=200:
+		trialFile = default_storage.open(f)
+		#JO Decrease something the no of chunks.
+	else:
+		download_url = detail_object['data']['output_files'][0]['download_url']
+		#use this URL to download back into the server 
+		out = requests.get(download_url,auth=HTTPBasicAuth(str(username), str(password)))
+		#trialFile = open('trial.mp3','w')
+		#trialFile.write(out.content)
+		trialFile = ContentFile(out.content)
 	#Warning : hardcoded value
 	default_storage.save(str(book_id) + "/chunks/" + str(para_id) + "/AudioFiles/1.wav",trialFile)
-	uploadAudioDb(para_id, user_id)
+	#uploadAudioDb(para_id, user_id)
 	default_storage.delete(f)
 	#trialFile.close()
 
@@ -73,3 +79,9 @@ def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 @app.task(name='wa.tasks.uploadSplitBookIntoGridFS')
 def uploadSplitBookIntoGridFS(f,bookID):
 	splitBookIntoPages(f,bookID)
+
+@app.task(name='wa.tasks.concatAudio')
+def concatAudio(bookID):
+	log = logging.getLogger("wa")
+	log.info("Coming to concatAudio Task")
+	audioConcatenation(bookID)

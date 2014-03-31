@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 import json
 from django.core import serializers
+from django.utils import simplejson
 from django.conf import settings
 import os
 from PIL import Image
@@ -29,6 +30,8 @@ from django.db.models import F
 import wave
 import BeautifulSoup
 from validate_email import validate_email
+from utilities import pointsToAward
+
 #from wa.splitBook import splitBookIntoPages
 # Create your views here.
 
@@ -66,7 +69,10 @@ def auth_view(request):
 #Have not done auth.logout(request) 
 def home(request):
     if request.user.is_authenticated():
-        return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
+	return HttpResponseRedirect('/wa/myprofile/')
+        #return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
+        #ret = myprofile(request)
+        #return ret
     #return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
     else:
         return HttpResponseRedirect('/wa')
@@ -163,6 +169,48 @@ def myprofile(request):
     else:
         return HttpResponseRedirect('/wa')
 
+def userDetailsLangwise(request):
+    category = request.GET['category']
+    log = logging.getLogger("wa")
+    log.info("category " + category)
+    user_id = request.user.id
+    userActions = UserHistory.objects.filter(user = CustomUser.objects.get(pk = user_id))
+    ofCategory = userActions.filter(action = category)
+    log.info("count: %d", ofCategory.count())
+    res = []
+    if(category == "up"):
+        print("coming to up")
+        langs = Language.objects.all()
+        for l in langs:
+            print(l)
+            c = ofCategory.filter(uploadedBook__lang__langName = l).count()
+            if(c > 0):
+                temp = {}
+                temp['language'] = l.langName
+                temp['count'] = c
+                res.append(temp)
+    else:
+        user_langs = CustomUser.objects.get(pk = user_id).languages_known.split(',')
+        for l in user_langs:
+            log.info(l)
+            l = l.strip()
+            '''
+            if(category == "up"):
+                c = ofCategory.filter(uploadedBook__lang__langName = l).count()
+            else:
+            '''
+            c = ofCategory.filter(paragraph__book__lang__langName = l).count()
+            log.info(c)
+            if(c > 0):
+                temp = {}
+                temp['language'] = l
+                temp['count'] = c
+                res.append(temp)
+    log.info(res)
+    #res = serializers.serialize("json", res)
+    return HttpResponse(simplejson.dumps(res), content_type = "application/javascript; charset=utf8")
+    #return HttpResponse(simplejson.dumps(res))
+
 def getImage(request, book_id):
     response = HttpResponse(mimetype = "image/jpg")
     path_to_save = str(book_id) +"/bookThumbnail.png"
@@ -177,6 +225,8 @@ def getImage(request, book_id):
 def digitize(request, book_id):
     if request.user.is_authenticated():
         print("user_id:" + str(request.user.id))
+	book = Book.objects.get(pk = book_id)
+        request.session['language'] = book.lang.langName
         para_id = getChunkID(request.user.id,book_id,1)
         print("para_id: " + str(para_id))
         if(para_id != 0):
@@ -229,11 +279,12 @@ def getAudio(request, book_id, para_id):
     '''
     image = Image.open(os.path.dirname(settings.BASE_DIR) + "/" + "wastore/hindi.jpg") 
     image.save(response, 'png')
-    #image = Image.open(settings.BASE_DIR) 
+    image = Image.open(settings.BASE_DIR) 
     '''
     #response=HttpResponse()	
     path_to_save = "documents/"+str(book_id) + "_" + str(para_id) + "_sound.wav"
-    print(path_to_save)	
+    #path_to_save = str(book_id) + "/chunks/" + str(para_id) + "/AudioFiles/1.wav"
+    print(path_to_save)
     a = default_storage.open(path_to_save)
     local_fs = FileSystemStorage(location='/tmp/audio')
     local_fs.save(a.name,a)
@@ -289,7 +340,7 @@ def bookParas(request):
     
     
     #bookParagraphs = book.paragraph_set.all()[:10]
-    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='re')[:5]
+    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='va')[:5]
 	
     #bookParagraphs = book.paragraph_set.filter(status_id='re')[:4]
     #bookParagraphs = book.paragraph_set.all.filter(status='re')[:5]
@@ -398,15 +449,23 @@ def audioUploadForm(request, book_id, para_id):
             para.save()
             #soundProcessWithAuphonic('documents/Ashu.wav')
             user_id = request.user.id
+            #set it before sending it for processing to avoid showing it again for recording But change appropriately if an error occurs while processing
+            uploadAudioDb(para_id, user_id)
             soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id,user_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
         
 
 def langBooks(request):
     #returns a JSON object with all books of a language which haven't been completed depending on the action
-    
+    log=logging.getLogger("wa")
+    log.info("Language books")
+    log.info("GET:")
+    log.info(request.GET)
     language = request.GET['language']
-    request.session['language']=language	
+    log.info(language)
+    language = language.strip()
+    request.session['language']=language
+    print(language)
     language = Language.objects.get(langName = language)
     #Only send those books which aren't finished yet
     #languageBooks = language.book_set.all()
@@ -418,28 +477,35 @@ def langBooks(request):
     ret = serializers.serialize("json", languageBooks)
     #resp = HttpResponse(content_type = "application/json");
     #json.dump(languageBooks, resp)
+    #log = logging.getLogger("wa")
+    log.info(ret)
     return HttpResponse(ret)
 
 
 #def audioUpload(request):
-    
-    
+
     
 def uploadBook(request):
     # Handle file upload
     if request.user.is_authenticated():
+        	
         if request.method == 'POST':
 
             form = DocumentForm(request.POST, request.FILES)
             if form.is_valid():
                 log = logging.getLogger("wa")
-                log.info("Upload Book :")
+                log.info("Upload Book wa 12345:")
                 log.info(request.POST['language'])
-                b = Book(lang = Language.objects.get(langName = request.POST.get("language", "")), author = request.POST.get("author", ""), bookName = request.POST.get("bookName", ""))
+                b = Book(lang = Language.objects.get(langName = request.POST.get("language", "")), author = request.POST.get("author", ""), bookName = request.POST.get("bookName", ""), shouldConcatAudio = True, shouldConcatDigi = True)
                 b.save()
                 user_id = request.user.id
                 uh = UserHistory(user = CustomUser.objects.get(pk = user_id), action = 'up', uploadedBook = b)
                 uh.save()
+                # add points
+                user = CustomUser.objects.get(pk = user_id)
+                user.points = user.points + pointsToAward("up")
+                user.save()
+                log.info("newdoc") 
                 newdoc = Document(docfile = request.FILES['docfile'])
 
                 #newdoc.docfile.save(str(b.id) + "/original/originalBook.pdf", request.FILES['docfile'], save=False)
@@ -458,6 +524,7 @@ def uploadBook(request):
                 os.remove(mod_path)
                 #--TODO--add it to user history
                 #splitBookIntoPages(str(b.id) + "/original/originalBook.pdf")
+		log.info("going to call uploadSplitBookIntoGridFS.delay")
                 uploadSplitBookIntoGridFS.delay( str(b.id) + "/original/originalBook.pdf", b.id)
                 # Redirect to the document list after POST
                 #delete the file from default storage
@@ -488,11 +555,17 @@ def uploadDigi(request, book_id, para_id):
         log = logging.getLogger("wa")
         log.info("Upload Digi:"+isChapter)
         para = Paragraph.objects.get(pk = para_id)
-        para.isChapter = isChapter
+        #if(isChapter)
+        #para.isChapter = isChapter
+        if(isChapter == "true"):
+            print("coming to true")
+            para.isChapter = True
+        elif(isChapter == "false"):
+            print("coming to false")
+            para.isChapter = False
         para.save()
-        #print("isChapter: " + str(isChapter))
+        print("para.isChapter: " + str(para.isChapter))
     if request.POST.has_key('unicode_data'):
-        
         file_name = "/tmp/Digi" + str(para_id) + ".txt"
         file = open(file_name, "w")
         file.write((request.POST['unicode_data']).encode('utf8'))
@@ -520,24 +593,4 @@ def ajax(request):
         return HttpResponse('Success')
     else:
         return render_to_response('WikiApp/AudioDigi/trial.html', context_instance=RequestContext(request))     
-        
-def concatenateDigi(request):
-    filenames = ['DigiFiles/one.txt','DigiFiles/two.txt']
-    with open('DigiFiles/final.txt', 'w') as fout:
-        for line in fileinput.input(filenames):
-            fout.write(line)
 
-def pdfGen(request):
-    pdf = FPDF()
-    pdf.add_page()
-    #pdf.add_font('gargi', '', 'gargi.ttf', uni=True) 
-    #pdf.set_font('gargi', '', 14)
-    #pdf.write(8, u'Hindi: एक अमरीकि')
-    pdf.add_font('Kedage-b', '', 'Kedage-b.ttf', uni=True) 
-    pdf.set_font('Kedage-b', '', 14)
-    #pdf.add_font('TSCu_SaiIndira', '', 'TSCu_SaiIndira.ttf', uni=True) 
-    #pdf.set_font('TSCu_SaiIndira', '', 14)
-    linestring = open('DigiFiles/KannadaInput.txt', 'r').read()
-    pdf.write(8,linestring)
-    pdf.ln(20)
-    pdf.output("DigiFiles/KannadaOutput.pdf", 'F')

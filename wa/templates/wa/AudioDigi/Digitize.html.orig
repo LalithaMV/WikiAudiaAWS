@@ -205,7 +205,7 @@ jQuery(document).ready(function(){
 	
 	<div class="row">
 		<div class="col-sm-6">
-			<img style="border:2px solid black" src="http://54.213.4.161/scripts/getImage.php?filename={{ book_id }}/chunks/{{ para_id }}/image.png"  />    
+			<img style="border:2px solid black" src="/wa/getParagraph/{{ book_id }}/{{ para_id }}/"  />    
 		</div>
 		<div class="col-sm-5 col-sm-offset-1">
 		{% csrf_token %}
@@ -354,7 +354,7 @@ jQuery(document).ready(function(){
 							},
 
 							error : function(xhr,errmsg,err) {
-							//alert(xhr.status + ": " + xhr.responseText);
+							alert(xhr.status + ": " + xhr.responseText);
 							}
 							
 						});
@@ -363,13 +363,18 @@ jQuery(document).ready(function(){
 			</script>	
 			<br/><br/><br/>		
 		</div>
-		<div class="col-sm-offset-6">
+		
 		<label for="chapterrad">Chunk a chapter beginning?</label><br/><br/>
-		<input type="radio" name="chapterrad" id = "chapterrady" value="yes" style="position:absolute;left:20px;top:450px;">Yes</input>
+<<<<<<< HEAD
+		<input type="radio" name="chapterrad" id = "chapterrady" value="yes">Yes</input>
 		<input type="radio" name="chapterrad" id = "chapterradn" value="no" checked>No</input>
+=======
+		<input type="radio" name="chapterrad" id = "chapterrady" value="yes" style="position:absolute;left:20px;top:450px;">Yes</input>
+		<input type="radio" name="chapterrad" id = "chapterradn" value="no">No</input>
+>>>>>>> 732e0fc4ac1317500719df3ae04927a6964a22e7
 		<br/><br/>
 		<button id="uploadDigi" onclick="uploadDigiClick()">Upload</button>
-		<br/></div>
+		<br/>
 		</div>
 		<div>
 		

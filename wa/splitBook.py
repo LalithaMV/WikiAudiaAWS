@@ -13,9 +13,10 @@ from wa.models import Language,Book, Paragraph, UserHistory, Document
 import re,os,sys
 import logging
 
+
 def halve_page(image_path, out_name, outdir, slice,book_id):
     print ("Inside Halve_page")
-    print(image_path)	
+    print(image_path)   
     #print(slice_list)
     with open(str(image_path), 'rb') as f:
         myfile = File(f)
@@ -26,26 +27,26 @@ def halve_page(image_path, out_name, outdir, slice,book_id):
         print(height)
         working_slice = img.crop((0, 0,width,slice))
         print working_slice
-        #working_slice.save(os.path.join(outdir, image_path+"slice_" + out_name + "_1.png"))		
-        working_slice.save(os.path.join(outdir,"1.png"))	
+        #working_slice.save(os.path.join(outdir, image_path+"slice_" + out_name + "_1.png"))        
+        working_slice.save(os.path.join(outdir,"1.png"))    
         with open("1.png", 'rb') as f1:
-            myfile1=File(f1)		    
+            myfile1=File(f1)            
             para = Paragraph(book = Book.objects.get(pk = book_id), status = 're')
             para.save()
-            path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"						
+            path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"                      
             print "para ID: " + str(para.id)
-            default_storage.save(path_to_save, myfile1)    		
+            default_storage.save(path_to_save, myfile1)         
       
    
         working_slice = img.crop((0, slice,width,height))
         working_slice.save(os.path.join(outdir,"1.png"))
         with open("1.png", 'rb') as f1:
-            myfile1=File(f1)		    
+            myfile1=File(f1)            
             para = Paragraph(book = Book.objects.get(pk = book_id), status = 're')
             para.save()
-            path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"						
+            path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"                      
             print "para ID: " + str(para.id)
-            default_storage.save(path_to_save, myfile1)    		
+            default_storage.save(path_to_save, myfile1)         
     
     #working_slice.save(os.path.join(outdir, image_path+"slice_" + out_name + "_2.png"))
    
@@ -64,11 +65,11 @@ def check_line(i,y,mined_list,mode_line_length):
 
 def long_slice(image_path, out_name, outdir, slice_list,book_id):
     print ("Inside Halve_page")
-    print(image_path)	
-    print(slice_list)	
+    print(image_path)   
+    print(slice_list)   
     with open(str(image_path), 'rb') as f:
         myfile = File(f)
-        img = Image2.open(f)	
+        img = Image2.open(f)    
         #img = Image2.open(image_path)
         #print img.size
         width, height = img.size
@@ -90,15 +91,17 @@ def long_slice(image_path, out_name, outdir, slice_list,book_id):
                 upper = slice_list[slice]
             working_slice.save(os.path.join(outdir,"1.png"))
             with open("1.png", 'rb') as f1:
-                myfile1=File(f1)		    
+                myfile1=File(f1)            
                 para = Paragraph(book = Book.objects.get(pk = book_id), status = 're')
                 para.save()
-                path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"						
+                path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"                      
                 print "para ID: " + str(para.id)
                 default_storage.save(path_to_save, myfile1) 
             count +=1
         
 def Split_to_para(image_path,book_id):
+    noChunks=0
+  
     img = cv2.imread(image_path)
     cnt = 0
     height, width, depth = img.shape;
@@ -119,7 +122,7 @@ def Split_to_para(image_path,book_id):
             line_length.append((x2-x1))
             start_point.append(x1)
             end_point.append(x2)
-                      
+                  
     mined_list.sort(key=lambda tup: tup[0])
     mode_line_length= most_common(line_length)
     mode_start_point= most_common(start_point)
@@ -134,7 +137,7 @@ def Split_to_para(image_path,book_id):
                 possible_cutline.append(i)
 
     possible_cutline.sort(key=lambda tup: tup[0])
-    
+   
     if (len(possible_cutline) >0 ):
         final_cutline=[possible_cutline[len(possible_cutline)-1][0]]
         i=0
@@ -164,96 +167,119 @@ def Split_to_para(image_path,book_id):
                 final_cutline.pop(i+1)
             i=i+1
         temp=len(final_cutline)
+        noChunks=temp+1     
+        print("no_chunks form split+para")
+        print(noChunks)     
         if temp != 1:
             long_slice(image_path,"slices", os.getcwd(), final_cutline,book_id)
         else:
             halve_page(image_path,"slices", os.getcwd(), final_cutline[0],book_id)
-	
+    else:
+        noChunks=1  
+        with open(str(image_path), 'rb') as f:
+            myfile = File(f)
+            img = Image2.open(f)
+            outdir=os.getcwd()          
+            img.save(os.path.join(outdir,"1.png"))  
+            with open("1.png", 'rb') as f1:
+                myfile1=File(f1)            
+                para = Paragraph(book = Book.objects.get(pk = book_id), status = 're')
+                para.save()
+                path_to_save = str(book_id) + "/chunks/" + str(para.id) + "/image.png"                      
+                print "para ID: " + str(para.id)
+                default_storage.save(path_to_save, myfile1)         
+    return noChunks         
+    
 def splitBookIntoPages(f_arg, book_id):
-	#print 'splitbook'
-	rxcountpages = re.compile(r"$\s*/Type\s*/Page[/\s]", re.MULTILINE|re.DOTALL)
+    #print 'splitbook'
+    rxcountpages = re.compile(r"$\s*/Type\s*/Page[/\s]", re.MULTILINE|re.DOTALL)
+    noChunks=0;
+    #--TODOJO--Change this depending on your system path
+    sys.path.append('/home/jo/wikiaudia/')
+    #sys.path.append('/home/jo/wikiaudia/wa/')
+    os.environ['DJANGO_SETTINGS_MODULE']='wikiaudia.settings'
+    log = logging.getLogger("wa")
+    #log.info("hiiii")
+    log.info(f_arg)
+    print f_arg
+    print "Before IF"
+    if default_storage.exists(f_arg):
+        print "splitbook file exists"
+        a = default_storage.open(f_arg)
+        
+        local_fs = FileSystemStorage(location='/tmp/pdf')
+        local_fs.save(a.name,a)
+        mod_path = "/tmp/pdf/"+ f_arg
+        print mod_path
+        #default_storage.close(f_arg)
+        data = file(mod_path,"rb").read()
+        #log.info(file(mod_path,"rb").size())
+        no_pages = len(rxcountpages.findall(data))
+        file_for = mod_path+"[%d]"
+        #--TODOJO--save the image in the path as required. Cuurently just stores as temp[i]. 
+        print no_pages
+        continueConversion = True
+        i = 0
+        _img = Image(filename=file_for)
+        while continueConversion:
+            
+            filen = file_for%i
+            try:
+                with Image(filename=filen) as img:
+                    if img:
+                        print type(img)
+                        img.save(filename=("temp[%d].png"%i))
+                    else:
+                        print("false")
+                        continueConversion = False
 
-	#--TODOJO--Change this depending on your system path
-	sys.path.append('/home/jo/wikiaudia/')
-	#sys.path.append('/home/jo/wikiaudia/wa/')
-	os.environ['DJANGO_SETTINGS_MODULE']='wikiaudia.settings'
-	log = logging.getLogger("wa")
-	#log.info("hiiii")
-	log.info(f_arg)
-	print f_arg
-	print "Before IF"
-	if default_storage.exists(f_arg):
-		print "splitbook file exists"
-		a = default_storage.open(f_arg)
-		
-		local_fs = FileSystemStorage(location='/tmp/pdf')
-		local_fs.save(a.name,a)
-		mod_path = "/tmp/pdf/"+ f_arg
-		print mod_path
-		#default_storage.close(f_arg)
-		data = file(mod_path,"rb").read()
-		#log.info(file(mod_path,"rb").size())
-		no_pages = len(rxcountpages.findall(data))
-		file_for = mod_path+"[%d]"
-		#--TODOJO--save the image in the path as required. Cuurently just stores as temp[i]. 
-		print no_pages
-		continueConversion = True
-		i = 0
-		_img = Image(filename=file_for)
-		while continueConversion:
-			
-			filen = file_for%i
-			try:
-				with Image(filename=filen) as img:
-					if img:
-						print type(img)
-						img.save(filename=("temp[%d].png"%i))
-					else:
-						continueConversion = False
 
-
-				with open("temp[%d].png"%i, 'rb') as f:
-					myfile = File(f)
-					if i==0:
-						path_to_save= str(book_id)+"/bookThumbnail.png"
-						default_storage.save(path_to_save, myfile)
-					'''	
-					else:
-						myfile.close()
-						Split_to_para("temp[%d].png"%i,book_id)
-					'''	
-					myfile.close()
-					Split_to_para("temp[%d].png"%i,book_id)
-					os.remove("temp[%d].png"%i)
-				i=i+1
-			except Exception, e:
-				print "Couldn't do it: %s" % e
-				print ("coming to except")
-				break
-		print "-------------------"
-		print i
-		#update book table to add number of chunks
-		book = Book.objects.get(pk = book_id)
-		book.numberOfChunks = i-2
-		book.save()
-		os.remove(mod_path)
-		
-	else:
-		print "doesn't exist"
+                with open("temp[%d].png"%i, 'rb') as f:
+                    
+                    myfile = File(f)
+                    if i==0:
+                        path_to_save= str(book_id)+"/bookThumbnail.png"
+                        default_storage.save(path_to_save, myfile)
+                    ''' 
+                    else:
+                        myfile.close()
+                        Split_to_para("temp[%d].png"%i,book_id)
+                    ''' 
+                    myfile.close()
+                    
+                    noChunks=noChunks+Split_to_para("temp[%d].png"%i,book_id)
+                    print("no_chunks form book +split")
+                    print(noChunks)     
+                    os.remove("temp[%d].png"%i)
+                i=i+1
+            except Exception, e:
+                print "Couldn't do it: %s" % e
+                print ("coming to except")
+                break
+        print "-------------------"
+        print i
+        #update book table to add number of chunks
+        book = Book.objects.get(pk = book_id)
+        book.numberOfChunks = noChunks
+        book.save()
+        os.remove(mod_path)
+        
+    else:
+        print "doesn't exist"
 
 def to_infinity():
-	index = 0
-	while 1: 
-		yield index
-		index += 1
+    index = 0
+    while 1: 
+        yield index
+        index += 1
 
 
-	'''
-	data = file(f_arg,"rb").read()
-	no_pages = len(rxcountpages.findall(data))
-	file_for = f_arg+"[%d]"
-	for i in range(0,2):
-		filen = file_for%i
-		with Image(filename=filen) as img:
-			img.save(filename=("temp[%d].jpg"%i))
-	'''
+    '''
+    data = file(f_arg,"rb").read()
+    no_pages = len(rxcountpages.findall(data))
+    file_for = f_arg+"[%d]"
+    for i in range(0,2):
+        filen = file_for%i
+        with Image(filename=filen) as img:
+            img.save(filename=("temp[%d].jpg"%i))
+    '''

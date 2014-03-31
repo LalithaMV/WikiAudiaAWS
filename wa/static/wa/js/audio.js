@@ -2,9 +2,8 @@ $("document").ready(init);
 
 function init()
 {
-	langSel = $("select#language");
-	langSel.change(langChanged);
-
+	/*langSel = $("select#language");
+	langSel.change(langChanged);*/
 }
 
 function langChanged(event)
@@ -13,12 +12,15 @@ function langChanged(event)
 	if(langSel.val() != "default")
 		$.get('/wa/audio/langBooks/', {language : langSel.val()}, addBooksToPage);
 }
-
-function addBooksToPage(data)
+function addBooks()
+{
+	console.log("Add books : ");
+}
+function addBooksToPage(data,lang)
 {
 	//alert(this.oldvalue);
-	console.log(data)
-	dispDiv = document.getElementById('dispBooks');
+	console.log("Add books to page:"+data);
+	dispDiv = document.getElementById(lang);
 	var allLinks = $('a[id^="waLink_"]')
 	//alert("length" + allLinks.length);
 	//for (var aLink in allLinks)
@@ -56,6 +58,7 @@ function addBooksToPage(data)
 		image.src = "http://54.213.4.161/scripts/getImage.php?filename="+book.pk+"/bookThumbnail.png";
 		image.height = 200;
 		image.width = 150;
+		image.style.border = "1px solid black";
 		fig.appendChild(image);
 		figcap = document.createElement('figcaption');
 		figcap.id = "figcap_" + book.pk;

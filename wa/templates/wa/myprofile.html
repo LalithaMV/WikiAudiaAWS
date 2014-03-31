@@ -1,6 +1,9 @@
 {% extends "wa/base_login.html" %}
 
 {% block content %}
+{% load staticfiles %}
+<script src="{% static "wa/js/jquery.js" %}"></script>
+<script src="{% static "wa/js/userContributionDetails.js" %}"></script>
 
 <div id = "points" style = "position: relative; float: right; font-size: large; font-weight: bold; ">
 	<span style = "color: blue;">Points: </span>
@@ -8,26 +11,35 @@
 </div>
 {% if digiNum > 0 %}
 	{% if digiNum == 1%}
-		<p>You have successfully digitized {{digiNum}} part</p>
+		<p>You have successfully digitized {{digiNum}} part
 	{% else %}
-		<p>You have successfully digitized {{digiNum}} parts</p>
+		<p>You have successfully digitized {{digiNum}} parts
 	{% endif %}
+	<span><a id = "digiMore" >more..</a></span>
+	<span id = "digiMoreContainer"/>
+	</p> 
 {% endif %}
 
 {% if recNum > 0 %}
 	{% if recNum == 1%}
-		<p>You have successfully recorded {{recNum}} part</p>
+		<p>You have successfully recorded {{recNum}} part
 	{% else %}
-		<p>You have successfully recorded {{recNum}} parts</p>
+		<p>You have successfully recorded {{recNum}} parts
 	{% endif %}
+	<span><a id = "recMore" >more..</a></span>
+	<span id = "recMoreContainer"/>
+	</p> 
 {% endif %}
 
 {% if uploadNum > 0 %}
 	{% if uploadNum == 1%}
-		<p>You have successfully uploaded {{uploadNum}} part</p>
+		<p>You have successfully uploaded {{uploadNum}} part
 	{% else %}
-		<p>You have successfully uploaded {{uploadNum}} parts</p>
+		<p>You have successfully uploaded {{uploadNum}} parts
 	{% endif %}
+	<span><a id = "uploadMore" >more..</a></span>
+	<span id = "uploadMoreContainer"/>
+	</p> 
 {% endif %}
 
 {% endblock %}
