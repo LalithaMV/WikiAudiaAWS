@@ -1,8 +1,8 @@
-[27/Mar/2014 23:16:38] INFO [wa:203] 64/original/originalBook.pdf
-[27/Mar/2014 23:17:41] INFO [wa:247] In checkForCompletion
-[27/Mar/2014 23:17:41] INFO [wa:249] Coming after ndu
-[27/Mar/2014 23:17:41] INFO [wa:252] book_id: 64
-[27/Mar/2014 23:17:41] INFO [wa:254] chunks: 1percentageCompleteAudio: 0.0
+[31/Mar/2014 10:45:37] INFO [wa:140] in audio Selection
+[31/Mar/2014 10:45:49] INFO [wa:140] in audio Selection
+[31/Mar/2014 11:02:15] INFO [wa:140] in audio Selection
+[31/Mar/2014 11:07:27] INFO [wa:140] in audio Selection
+[31/Mar/2014 11:07:30] INFO [wa:590] In browse
 [28/Mar/2014 10:24:48] INFO [wa:174] category di
 [28/Mar/2014 10:24:48] INFO [wa:178] count: 9
 [28/Mar/2014 10:24:48] INFO [wa:194] English
@@ -554,3 +554,12 @@
 [31/Mar/2014 17:18:45] INFO [wa:60] Count:  2
 [31/Mar/2014 17:18:45] INFO [wa:71] new_name: 77/AudioChapters/Chapter2.wav
 [31/Mar/2014 17:18:45] INFO [wa:75] done
+[31/Mar/2014 18:08:17] INFO [wa:142] in audio Selection
+[31/Mar/2014 18:08:21] INFO [wa:595] In browse
+[31/Mar/2014 18:08:21] INFO [wa:598] [<Language: English>, <Language: Hindi>, <Language: Kannada>, <Language: Assamese>, <Language: Bengali>, <Language: Bodo>, <Language: Dogri>, <Language: Gujarati>, <Language: Konkani>, <Language: Maithili>, <Language: Malayalam>, <Language: Manipuri>, <Language: Marathi>, <Language: Nepali>, <Language: Oriya>, <Language: Punjabi>, <Language: Sanskrit>, <Language: Santali>, <Language: Sindhi>, <Language: Tamil>, '...(remaining elements truncated)...']
+[31/Mar/2014 18:08:42] INFO [wa:142] in audio Selection
+[31/Mar/2014 18:10:06] INFO [wa:142] in audio Selection
+[31/Mar/2014 18:10:14] INFO [wa:595] In browse
+[31/Mar/2014 18:10:14] INFO [wa:598] [<Language: English>, <Language: Hindi>, <Language: Kannada>, <Language: Assamese>, <Language: Bengali>, <Language: Bodo>, <Language: Dogri>, <Language: Gujarati>, <Language: Konkani>, <Language: Maithili>, <Language: Malayalam>, <Language: Manipuri>, <Language: Marathi>, <Language: Nepali>, <Language: Oriya>, <Language: Punjabi>, <Language: Sanskrit>, <Language: Santali>, <Language: Sindhi>, <Language: Tamil>, '...(remaining elements truncated)...']
+[31/Mar/2014 18:11:32] INFO [wa:595] In browse
+[31/Mar/2014 18:11:32] INFO [wa:598] [<Language: English>, <Language: Hindi>, <Language: Kannada>, <Language: Assamese>, <Language: Bengali>, <Language: Bodo>, <Language: Dogri>, <Language: Gujarati>, <Language: Konkani>, <Language: Maithili>, <Language: Malayalam>, <Language: Manipuri>, <Language: Marathi>, <Language: Nepali>, <Language: Oriya>, <Language: Punjabi>, <Language: Sanskrit>, <Language: Santali>, <Language: Sindhi>, <Language: Tamil>, '...(remaining elements truncated)...']

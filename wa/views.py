@@ -589,3 +589,28 @@ def ajax(request):
     else:
         return render_to_response('WikiApp/AudioDigi/trial.html', context_instance=RequestContext(request))     
 
+def browse(request):
+    if request.user.is_authenticated():    
+        log = logging.getLogger("wa")
+        log.info("In browse")    
+        user_langs = Language.objects.all()
+        #for each language find all it books and select the ones which are completed 
+        log.info(user_langs) 
+        '''
+        for lang in user_langs:
+            lang_books = Book.objects.
+        '''
+        context = RequestContext(request, {'langs': user_langs, } )
+        return render(request, 'wa/browse.html', context)
+    else :
+        return HttpResponseRedirect('/wa')
+def browseAudiobooks(request,book_id):
+    if request.user.is_authenticated():
+        b = Book.objects.get(id=book_id)
+        #Counting the no of chapters in the book given by the book ID
+        para = Paragraph.objects.filter(book=b).filter(isChapter=1).count()
+        chapterList = range(1,para+1)
+        context = RequestContext(request, {'noChapters': chapterList,'bookName':b.bookName, 'book_id': book_id} )
+        return render(request, 'wa/browseAudio.html', context)
+    else:
+        return HttpResponseRedirect('/wa')

@@ -33,6 +33,9 @@ urlpatterns = patterns('',
 	url(r'^uploadDigi/(?P<book_id>\d+)/(?P<para_id>\d+)/$', views.uploadDigi, name='uploadDigi'),
 	url(r'^ajaxexample_json/$', views.ajax, name='ajax'),
 	#url(r'^concatenate_digi/$', views.concatenateDigi, name='concatenateDigi'),
+	url(r'^browse/$', views.browse, name='browse'),
+	url(r'^browseAudio/(?P<book_id>\d+)/$', views.browseAudiobooks, name='browseAudio'),
+
 	url(r'^uploadBook/$', views.uploadBook, name='uploadBook'),
 	url(r'^valSelection/$', views.valSelection, name='valSelection'),
 )
