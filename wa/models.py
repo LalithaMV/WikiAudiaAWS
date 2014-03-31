@@ -138,7 +138,7 @@ class Book(models.Model):
     bookName = models.CharField(max_length=200)
     percentageCompleteAudio = models.FloatField(default = 0)
     percentageCompleteDigi = models.FloatField(default = 0)
-    percentageAudioInvalid = models.FloatField(default = 0) 
+    percentageAudioInvalid = models.FloatField(default = 0)
     dBookDownloads = models.PositiveIntegerField(default = 0)
     aBookDownloads = models.PositiveIntegerField(default = 0)
     numberOfChunks = models.PositiveIntegerField(default = 0)
@@ -254,11 +254,11 @@ def checkForCompletion(sender, **kwargs):
     log.info("chunks: " + str(chunks) + "percentageCompleteAudio: " + str(book.percentageCompleteAudio))
     if((chunks != 0) and (book.percentageCompleteAudio == chunks) and (book.shouldConcatAudio == True)):
         log.info("coming inside if condition. Going to call audioconcat")
-        book.shouldConcatAudio = False
-        book.save()
         print("Going to call audio concat")
         #audioConcatenation(book.id) 
-        concatAudio.delay(book.id)
+        concatAudio.apply_async(args = [book.id], countdown = 60)
+        book.shouldConcatAudio = False
+        book.save()
         print("Calling Audio concat")
     if((chunks!= 0) and (book.percentageCompleteDigi == chunks) and (book.shouldConcatDigi == True)):
         book.shouldConcatDigi = False

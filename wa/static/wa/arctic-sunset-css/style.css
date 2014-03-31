@@ -2123,7 +2123,13 @@ input[type="email"]:focus,{
 	padding-bottom: 9px;
 	padding-right: 9px;
 }
-
+.myPoints{
+	font-family: 'Gilda Display', serif;
+	font-size: 80px;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	padding-right: 9px;
+}
 figure{
 	float: left;
 	padding-right: 40px;

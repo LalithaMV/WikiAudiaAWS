@@ -69,7 +69,9 @@ def auth_view(request):
 #Have not done auth.logout(request) 
 def home(request):
     if request.user.is_authenticated():
-        return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
+        return HttpResponseRedirect('/wa/myprofile/')
+        #return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
+        #return render_to_response('wa/myprofile.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
         #ret = myprofile(request)
         #return ret
     #return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
@@ -224,6 +226,8 @@ def getImage(request, book_id):
 def digitize(request, book_id):
     if request.user.is_authenticated():
         print("user_id:" + str(request.user.id))
+        book = Book.objects.get(pk = book_id)
+        request.session['language'] = book.lang.langName
         para_id = getChunkID(request.user.id,book_id,1)
         print("para_id: " + str(para_id))
         if(para_id != 0):
@@ -447,6 +451,7 @@ def audioUploadForm(request, book_id, para_id):
             #soundProcessWithAuphonic('documents/Ashu.wav')
             user_id = request.user.id
             #set it before sending it for processing to avoid showing it again for recording But change appropriately if an error occurs while processing
+            log.info("going to call uploadAudioDb")
             uploadAudioDb(para_id, user_id)
             soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id,user_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
