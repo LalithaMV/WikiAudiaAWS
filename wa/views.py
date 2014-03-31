@@ -604,7 +604,7 @@ def browseAudiobooks(request,book_id):
         b = Book.objects.get(id=book_id)
         #Counting the no of chapters in the book given by the book ID
         para = Paragraph.objects.filter(book=b).filter(isChapter=1).count()
-        chapterList = range(para)
+        chapterList = range(1,para+1)
         context = RequestContext(request, {'noChapters': chapterList,'bookName':b.bookName, } )
         return render(request, 'wa/browseAudio.html', context)
     else:
