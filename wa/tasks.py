@@ -17,6 +17,7 @@ from wa.dbOps import uploadAudioDb
 #import wikiaudia.settings
 import re,os,sys
 import logging
+from concatAudio import audioConcatenation
 
 API_URL = "https://auphonic.com/api/simple/productions.json"
 API_DETAILS_URL = "https://auphonic.com/api/production/%s.json"
@@ -62,7 +63,7 @@ def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 	trialFile = ContentFile(out.content)
 	#Warning : hardcoded value
 	default_storage.save(str(book_id) + "/chunks/" + str(para_id) + "/AudioFiles/1.wav",trialFile)
-	uploadAudioDb(para_id, user_id)
+	#uploadAudioDb(para_id, user_id)
 	default_storage.delete(f)
 	#trialFile.close()
 
@@ -73,3 +74,7 @@ def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 @app.task(name='wa.tasks.uploadSplitBookIntoGridFS')
 def uploadSplitBookIntoGridFS(f,bookID):
 	splitBookIntoPages(f,bookID)
+
+@app.task(name='wa.tasks.concatAudio')
+def concatAudio(bookID):
+	audioConcatenation(bookID)

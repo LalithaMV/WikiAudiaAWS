@@ -365,8 +365,13 @@ jQuery(document).ready(function(){
 		</div>
 		
 		<label for="chapterrad">Chunk a chapter beginning?</label><br/><br/>
-		<input type="radio" name="chapterrad" id = "chapterrady" value="yes" style="position:absolute;left:20px;top:450px;">Yes</input>
+<<<<<<< HEAD
+		<input type="radio" name="chapterrad" id = "chapterrady" value="yes">Yes</input>
 		<input type="radio" name="chapterrad" id = "chapterradn" value="no" checked>No</input>
+=======
+		<input type="radio" name="chapterrad" id = "chapterrady" value="yes" style="position:absolute;left:20px;top:450px;">Yes</input>
+		<input type="radio" name="chapterrad" id = "chapterradn" value="no">No</input>
+>>>>>>> 732e0fc4ac1317500719df3ae04927a6964a22e7
 		<br/><br/>
 		<button id="uploadDigi" onclick="uploadDigiClick()">Upload</button>
 		<br/>

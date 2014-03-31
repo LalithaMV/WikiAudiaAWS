@@ -16,6 +16,7 @@
         <option value = "{{lang}}">{{lang}}</option>
 {% endfor %}
 </select>-->
+
 <script src="{% static "wa/arctic-sunset-css/js/jquery.chosen.min.js"%}"></script>
 <script type="text/javascript">
 jQuery(document).ready(function(){
@@ -23,13 +24,14 @@ jQuery(document).ready(function(){
 });
 </script>
 <div class="row"></div>
-<div id='allLanguageBooks'>
+<div id='allLanguageBooks' class="col-sm-offset-2">
 	{% for lang in langs %}
 		<div class="row">
 			<h5>{{lang}}</h5>
 	        <div id = "{{lang}}"></div>
 	        <script type="text/javascript">
 	            //document.getElementById("{{lang}}").
+	            	console.log("Language"+"{{lang}}"+"");
 		            $.get('/wa/audio/langBooks/', {language : "{{lang}}"}, function success(data){
 		            	addBooksToPage(data,"{{lang}}");
 		            }

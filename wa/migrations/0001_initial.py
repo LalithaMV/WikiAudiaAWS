@@ -21,7 +21,7 @@ class Migration(SchemaMigration):
             ('is_active', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('date_joined', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
             ('languages_known', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('phoneNo', self.gf('django.db.models.fields.BigIntegerField')(max_length=15)),
+            ('phoneNo', self.gf('django.db.models.fields.PositiveIntegerField')(default=0)),
             ('loginTimes', self.gf('django.db.models.fields.IntegerField')(default=0)),
             ('points', self.gf('django.db.models.fields.IntegerField')(default=0)),
         ))
@@ -181,7 +181,7 @@ class Migration(SchemaMigration):
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'loginTimes': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
-            'phoneNo': ('django.db.models.fields.BigIntegerField', [], {'max_length': '15'}),
+            'phoneNo': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0'}),
             'points': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
         },
