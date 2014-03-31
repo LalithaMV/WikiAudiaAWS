@@ -51,7 +51,7 @@ function addBooksToPageBrowseAudio(data,lang)
 		link = document.createElement('a');
 		link.id = "waLink_" + book.pk;
 		link.name = "waLink_" + book.pk;
-		link.href = "/wa/audio/" + book.pk + "/";
+		link.href = "/wa/browseAudio/" + book.pk + "/";
 		image = document.createElement('img');
 		image.id = "figimg_" + book.pk;
 		//image.src = "/wa/audio/getimage/" + book.pk + "/"; 			

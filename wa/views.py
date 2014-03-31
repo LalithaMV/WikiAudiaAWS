@@ -599,3 +599,13 @@ def browse(request):
         return render(request, 'wa/browse.html', context)
     else :
         return HttpResponseRedirect('/wa')
+def browseAudiobooks(request,book_id):
+    if request.user.is_authenticated():
+        b = Book.objects.get(id=book_id)
+        #Counting the no of chapters in the book given by the book ID
+        para = Paragraph.objects.filter(book=b).filter(isChapter=1).count()
+        chapterList = range(para)
+        context = RequestContext(request, {'noChapters': chapterList,'bookName':b.bookName, } )
+        return render(request, 'wa/browseAudio.html', context)
+    else:
+        return HttpResponseRedirect('/wa')

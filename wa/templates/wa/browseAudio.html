@@ -1,0 +1,20 @@
+{% extends "wa/base_login.html" %}
+
+{% block content %}
+{% load staticfiles %}
+	<div class = "row">
+		<!--Put the link to the image of the book-id -->
+		<img src="#"></img>
+		<p>{{ bookName }}</p>
+	</div>
+	<div class="row">
+		{% for chap in noChapters %}
+			<p>
+				<!--Put the audio link-->
+				<a href="#">Chapter {{chap}} </a>
+			</p>
+			
+		{% endfor %}
+		<!--str(book_id) + "/AudioChapters/Chapter"+str(count)+".wav"-->
+	</div>
+{% endblock %}
