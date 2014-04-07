@@ -9,6 +9,10 @@
 	<script type="text/javascript" src="/static/wa/js/jquery-2.1.0.min.js"></script>
 	<script type='text/javascript' src='/static/wa/js/pramukhindic.js' ></script>
 	<script type="text/javascript" src="/static/wa/js/pramukhime-common.js"></script>
+	<script type = "text/javascript" >
+	//alert("Language in session:" + "{{ request.session.language }}");
+	//alert("Language in session:" );
+	</script>
 {% if request.session.language == 'Assamese' %}
 	<script>
 	$(document).ready(function(){
@@ -350,10 +354,13 @@ jQuery(document).ready(function(){
 								}*/,
 							dataType : "json",
 							success: function( data ){
+								window.location.href = "http://54.213.4.161/wa/digiSelection";
 								console.log("Hello:" +data);
 							},
 
 							error : function(xhr,errmsg,err) {
+								window.location.href = "http://54.213.4.161/wa/digiSelection/";
+								concole.log("Coming to error");
 							//alert(xhr.status + ": " + xhr.responseText);
 							}
 							
@@ -365,7 +372,7 @@ jQuery(document).ready(function(){
 		</div>
 		<div class="col-sm-offset-6">
 		<label for="chapterrad">Chunk a chapter beginning?</label><br/><br/>
-		<input type="radio" name="chapterrad" id = "chapterrady" value="yes" style="position:absolute;left:20px;top:450px;">Yes</input>
+		<input type="radio" name="chapterrad" id = "chapterrady" value="yes">Yes</input>
 		<input type="radio" name="chapterrad" id = "chapterradn" value="no" checked>No</input>
 		<br/><br/>
 		<button id="uploadDigi" onclick="uploadDigiClick()">Upload</button>

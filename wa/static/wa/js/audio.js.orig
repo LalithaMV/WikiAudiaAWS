@@ -54,9 +54,7 @@ function addBooksToPageBrowseAudio(data,lang)
 		link.href = "/wa/browseAudio/" + book.pk + "/";
 		image = document.createElement('img');
 		image.id = "figimg_" + book.pk;
-				//image.src = "/wa/audio/getimage/" + book.pk + "/"; 			
-		
-		image.src = "http://54.213.4.161/scripts/getImage.php?filename="+book.pk+"/bookThumbnail.png";		
+		//image.src = "/wa/audio/getimage/" + book.pk + "/"; 			
 		image.height = 200;
 		image.width = 150;
 		image.style.border = "1px solid black";
@@ -108,8 +106,12 @@ function addBooksToPage(data,lang,hreftype)
 		link.href = "/wa/audio/" + book.pk + "/";
 		image = document.createElement('img');
 		image.id = "figimg_" + book.pk;
+<<<<<<< HEAD
 		//image.src = "/wa/audio/getimage/" + book.pk + "/";
 		image.src = "http://54.213.4.161/scripts/getImage.php?filename="+book.pk+"/bookThumbnail.png";
+=======
+		image.src = "/wa/audio/getimage/" + book.pk + "/"; 			
+>>>>>>> 3751740e278b87fc7901604cc59d2fc187dc1477
 		image.height = 200;
 		image.width = 150;
 		image.style.border = "1px solid black";

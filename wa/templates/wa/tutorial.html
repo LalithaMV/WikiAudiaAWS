@@ -1,0 +1,56 @@
+{% extends "wa/base_login.html" %}
+
+{% block content %}
+<!--
+<embed
+width="420" height="345"
+src="http://youtu.be/kAM68u8SLyU"
+type="application/x-shockwave-flash">
+</embed>
+<object style="height: 390px; width: 640px"><param name="movie" value="https://www.youtube.com/watch?v=kAM68u8SLyU"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="https://www.youtube.com/watch?v=kAM68u8SLyU" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="390"/></object>
+-->
+<iframe
+width="500" height="420" src= "https://www.youtube.com/embed/kAM68u8SLyU" frameborder="0">
+</iframe>
+<h2>Detailed Instructions</h2>
+</br></br>
+<h4><a href="/wa/uploadBook/">Uploading Book</a></h4>
+<p>
+1. Enter book name and author.</br>
+2. Choose the language of the book to be uploaded.</br>
+3. Click on "Choose File" and select the book to be uploaded by navigating in the file system.Kindly note that only PDF input is supported.</br>
+</p>
+<h4><a href="/wa/audio">Recording audio</a></h4>
+<p>
+1. Select the book to record</br>
+2. Allow the browser to use the microphone in the popup at the top. <br/>
+3. Recording a chunk can be done in 2 ways:<br/>
+&nbsp;&nbsp;a) You can use the recorder in the browser: Selecting "Record Audio" will start the recording. Select "Stop Recording" to stop the recording. Then choose "Save audio". This will save the audio file in your Downloads (usually) and you can then choose the file from there while uploading.<br/>
+&nbsp;&nbsp;b) You can also make use of the recorder on your machine: Now you can directly select the audio file you want to upload.
+4. Choose if the chunk is the beginning of chapter or not</br>
+5. Upload the chunk<br/>
+</p>
+<h4><a href="/wa/digiSelection">Digitizing Book</a></h4>
+<p>
+1. Select the book to digitize</br>
+2. Type the text shown in image, in the text box provided.For help, click on the letter adjacent to the language drop down.Choose either Quick Help or Detailed Help. </br>
+3. Choose if the chunk is the beginning of chapter or not</br>
+4. Upload the chunk</br>
+
+</p>
+<h4><a href="/wa/valSelection">Validating Book</a></h4>
+<p>
+1. Select the book to validate as per your choice</br>
+2. Select a paragraph from the pool of parts </br>
+3. Listen to the audio against the image shown .Upvote/Downvote by clicking Good/Bad depending on the clarity and the accuracy of the audio clip </br>
+</p>
+
+<h4><a href="/wa/browse">Browsing Book</a></h4>
+<p>
+1. Select either Audio or Digitized books.</br>
+2. Select the book you want to view or download.</br>
+3. The audio book/digitized book is arranged in the order of chapters</br>
+4. Click on the desired chapter to either view or download the same</br>
+</p>
+
+{% endblock %}

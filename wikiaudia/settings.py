@@ -109,7 +109,7 @@ LOGGING = {
             'level':'DEBUG',
             'class':'logging.handlers.RotatingFileHandler',
             #'filename': BASE_DIR + "/logfile",
-            'filename':"/tmp/logfile",
+            'filename':"/tmp/logfile1",
             'maxBytes': 50000,
             'backupCount': 2,
             'formatter': 'standard',

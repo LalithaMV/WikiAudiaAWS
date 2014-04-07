@@ -71,8 +71,8 @@ def soundProcessingWithAuphonicTask(f,book_id,para_id,user_id):
 	#uploadAudioDb(para_id, user_id)
 	default_storage.delete(f)
 	#trialFile.close()
-
-
+	path = '/tmp/audiofiles/' + f
+	os.remove(path)
 	print download_url		
 	return 0
 

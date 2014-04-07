@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [29/Mar/2014 23:16:00] INFO [wa:203] 38/original/originalBook.pdf
 [29/Mar/2014 23:16:55] INFO [wa:267] In checkForCompletion
 [29/Mar/2014 23:16:55] INFO [wa:269] Coming after ndu
@@ -49,3 +50,18 @@
 [31/Mar/2014 11:19:55] INFO [wa:268] Coming after ndu
 [31/Mar/2014 11:19:55] INFO [wa:271] book_id: 40
 [31/Mar/2014 11:19:55] INFO [wa:273] chunks: 1percentageCompleteAudio: 0.0
+=======
+[31/Mar/2014 20:13:25] INFO [wa:37] one
+[31/Mar/2014 20:13:25] INFO [wa:12] Concat one
+[31/Mar/2014 20:13:25] INFO [wa:29] all_files_list:  []
+[31/Mar/2014 20:13:25] INFO [wa:29] all_files_list:  [['84/chunks/955/AudioFiles/1.wav', '84/chunks/956/AudioFiles/1.wav']]
+[31/Mar/2014 20:13:25] INFO [wa:29] all_files_list:  [['84/chunks/955/AudioFiles/1.wav', '84/chunks/956/AudioFiles/1.wav'], ['84/chunks/957/AudioFiles/1.wav']]
+[31/Mar/2014 20:13:25] INFO [wa:43] j : 84/chunks/955/AudioFiles/1.wav
+[31/Mar/2014 20:13:25] INFO [wa:43] j : 84/chunks/956/AudioFiles/1.wav
+[31/Mar/2014 20:13:25] INFO [wa:43] j : 84/chunks/957/AudioFiles/1.wav
+[31/Mar/2014 20:13:25] INFO [wa:60] Count:  1
+[31/Mar/2014 20:13:25] INFO [wa:71] new_name: 84/AudioChapters/Chapter1.wav
+[31/Mar/2014 20:13:25] INFO [wa:60] Count:  2
+[31/Mar/2014 20:13:25] INFO [wa:71] new_name: 84/AudioChapters/Chapter2.wav
+[31/Mar/2014 20:13:25] INFO [wa:75] done
+>>>>>>> 3751740e278b87fc7901604cc59d2fc187dc1477

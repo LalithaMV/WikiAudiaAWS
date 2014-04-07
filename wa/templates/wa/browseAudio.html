@@ -1,0 +1,22 @@
+{% extends "wa/base_login.html" %}
+
+{% block content %}
+{% load staticfiles %}
+	<div class = "col-sm-10 col-sm-offset-1">
+	<div class="row">
+		<!--Put the link to the image of the book-id -->
+		<img src="http://54.213.4.161/scripts/getImage.php?filename={{book_id}}/bookThumbnail.png" height="200" width="150"></img>
+		<p><b>{{ bookName }}</b></p>
+	</div>
+	<div class="row">
+		{% for chap in noChapters %}
+			<p>
+				<!--Put the audio link-->
+				<a href="http://54.213.4.161/scripts/getAudio.php?filename={{book_id}}/AudioChapters/Chapter{{chap}}.wav">Chapter {{chap}} </a>
+			</p>
+			
+		{% endfor %}
+		<!--str(book_id) + "/AudioChapters/Chapter"+str(count)+".wav"-->
+	</div>
+	</div>
+{% endblock %}

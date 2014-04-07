@@ -199,7 +199,7 @@ def splitBookIntoPages(f_arg, book_id):
     #sys.path.append('/home/jo/wikiaudia/wa/')
     os.environ['DJANGO_SETTINGS_MODULE']='wikiaudia.settings'
     log = logging.getLogger("wa")
-    #log.info("hiiii")
+    log.info("hiiii")
     log.info(f_arg)
     print f_arg
     print "Before IF"

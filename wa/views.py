@@ -25,7 +25,7 @@ from django.core.files.storage import default_storage
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
 from wa.paragraphChunks import getChunkID
-from wa.dbOps import uploadDigiDb, uploadAudioDb
+from wa.dbOps import uploadDigiDb, uploadAudioDb, validatedAudioDb
 from django.db.models import F
 import wave
 import BeautifulSoup
@@ -69,14 +69,26 @@ def auth_view(request):
 #Have not done auth.logout(request) 
 def home(request):
     if request.user.is_authenticated():
-	return HttpResponseRedirect('/wa/myprofile/')
+        return HttpResponseRedirect('/wa/myprofile/')
         #return render_to_response('wa/session/home.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
+        #return render_to_response('wa/myprofile.html', {'full_name':request.user.first_name,'languages_known':request.user.languages_known,'points':request.user.points })
         #ret = myprofile(request)
         #return ret
     #return render_to_response('WikiApp/session/home.html', {'full_name':request.user.userprofile.Languages})
     else:
         return HttpResponseRedirect('/wa')
 
+def aboutUs(request):
+	return render_to_response('wa/aboutUs.html')
+
+def aboutUsOut(request):
+	return render_to_response('wa/aboutUsOut.html')
+
+'''	
+def contributeOut(request):
+	return render_to_response('wa/contributeOut.html')
+'''
+	
 def register_user(request):
     emailValue="" 	
     nameValue=""
@@ -308,28 +320,34 @@ def getAudio(request, book_id, para_id):
     #return HttpResponse("hello")
     return HttpResponse(file, mimetype="audio/wav") 
 def upVoted(request, book_id, para_id):
-	paraToUpVote=Paragraph.objects.get(pk=para_id)
-	print paraToUpVote
+	#paraToUpVote=Paragraph.objects.get(pk=para_id)
+	#print paraToUpVote
 	#paraToUpVote.update(upVotes=1)
 	#paraToUpVote.upVotes=paraToUpVote.upVotes+1
-	paraToUpVote.upVotes = F('upVotes') + 1
-	paraToUpVote.save()
-	return HttpResponseRedirect('/wa')
+	#paraToUpVote.upVotes = F('upVotes') + 1
+	#paraToUpVote.save()
+	user_id = request.user.id
+        validatedAudioDb(para_id, user_id, "upVote")
+	return HttpResponseRedirect('/wa/myprofile')
 	
 def downVoted(request, book_id, para_id):
-	paraToDownVote=Paragraph.objects.get(pk=para_id)
+	#paraToDownVote=Paragraph.objects.get(pk=para_id)
 	#paraToUpVote.update()
-	paraToDownVote.downVotes = F('downVotes') + 1
-	paraToDownVote.save()
-	return HttpResponseRedirect('/wa')
+	#paraToDownVote.downVotes = F('downVotes') + 1
+	#paraToDownVote.save()
+	user_id = request.user.id
+        validatedAudioDb(para_id, user_id, "downVote")
+	return HttpResponseRedirect('/wa/myprofile')
 	
 def bookParas(request):
     print("Into bookParas")
+    log = logging.getLogger("wa")
     #print(os.path.dirname(settings.BASE_DIR))
     #outside = os.path.dirname(settings.BASE_DIR)
     #if(os.path.exists())
     
     book = request.GET['book_id']
+    log.info("bookParas" + book)
     print("book")
     print book
     #print(language);
@@ -338,16 +356,33 @@ def bookParas(request):
     print(book)
     #print(language)
     
-    
+    #log=logging.getLogger("wa")    
     #bookParagraphs = book.paragraph_set.all()[:10]
-    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='va')[:5]
+    log.info("Blup1")
+    bookParagraphs = Paragraph.objects.filter(book__id=bookTemp).filter(status='va')
+    log.info("Blup2")
+    uid=request.user.id
+    #log.info("UserId "+str(uid))
+    userHistory=UserHistory.objects.filter(user__id=uid).filter(action='va')
+    log.info("Blup3")
+    paraids=[]
+    for e in userHistory:
+        paraids.append(e.paragraph.id)
+    log.info(paraids)
+    finalParas=[]
+    count=0	
+    for n in bookParagraphs:
+        if(count!=5):
+            if(n.id not in paraids):
+                finalParas.append(n)
+                count=count+1
 	
     #bookParagraphs = book.paragraph_set.filter(status_id='re')[:4]
     #bookParagraphs = book.paragraph_set.all.filter(status='re')[:5]
 	
 	#print(bookParagraphs)
     
-    ret = serializers.serialize("json", bookParagraphs)
+    ret = serializers.serialize("json", finalParas)
     
 	
 	#resp = HttpResponse(content_type = "application/json");
@@ -358,6 +393,8 @@ def bookParas(request):
     return HttpResponse(ret)
 def validatePool(request,book_id):
 	if request.user.is_authenticated():
+		log = logging.getLogger("wa")
+		log.info("For validatePool" + str(book_id))
 		return render_to_response('wa/validatePool.html', {'book_id': book_id})
 	else :
 		return render_to_response('/wa')
@@ -450,6 +487,7 @@ def audioUploadForm(request, book_id, para_id):
             #soundProcessWithAuphonic('documents/Ashu.wav')
             user_id = request.user.id
             #set it before sending it for processing to avoid showing it again for recording But change appropriately if an error occurs while processing
+            log.info("going to call uploadAudioDb")
             uploadAudioDb(para_id, user_id)
             soundProcessingWithAuphonicTask.delay('documents/'+file_name,book_id,para_id,user_id)
     return HttpResponseRedirect(reverse('wa.views.audioSelection')) 
@@ -474,6 +512,8 @@ def langBooks(request):
         languageBooks = languageBooks.exclude(percentageCompleteDigi = F('numberOfChunks'))
     elif(request.session['action'] == "record"):
         languageBooks = languageBooks.exclude(percentageCompleteAudio = F('numberOfChunks'))
+    elif(request.session['action'] == "browse"):
+        languageBooks = languageBooks.exclude(numberOfChunks = 0).filter(percentageCompleteAudio = F('numberOfChunks'))
     ret = serializers.serialize("json", languageBooks)
     #resp = HttpResponse(content_type = "application/json");
     #json.dump(languageBooks, resp)
@@ -583,6 +623,8 @@ def uploadDigi(request, book_id, para_id):
         uploadDigiDb(para_id, user_id)
         x = request.POST['unicode_data']
         return HttpResponse(x)
+	#return HttpResponseRedirect(reverse('wa.views.myprofile'))
+    #return render_to_response('/wa/myprofile')
     
 def ajax(request):
     if request.POST.has_key('client_response'):
@@ -594,3 +636,32 @@ def ajax(request):
     else:
         return render_to_response('WikiApp/AudioDigi/trial.html', context_instance=RequestContext(request))     
 
+def browse(request):
+    if request.user.is_authenticated():    
+        log = logging.getLogger("wa")
+        log.info("In browse")    
+        request.session['action'] = "browse"
+        user_langs = Language.objects.all()
+        #for each language find all it books and select the ones which are completed 
+        log.info(user_langs) 
+        '''
+        for lang in user_langs:
+            lang_books = Book.objects.
+        '''
+        context = RequestContext(request, {'langs': user_langs, } )
+        return render(request, 'wa/browse.html', context)
+    else :
+        return HttpResponseRedirect('/wa')
+def browseAudiobooks(request,book_id):
+    if request.user.is_authenticated():
+        b = Book.objects.get(id=book_id)
+        #Counting the no of chapters in the book given by the book ID
+        para = Paragraph.objects.filter(book=b).filter(isChapter=1).count()
+        chapterList = range(1,para+1)
+        context = RequestContext(request, {'noChapters': chapterList,'bookName':b.bookName, 'book_id': book_id} )
+        return render(request, 'wa/browseAudio.html', context)
+    else:
+        return HttpResponseRedirect('/wa')
+
+def tutorial(request):
+    return render(request, 'wa/tutorial.html')

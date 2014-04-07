@@ -3,7 +3,7 @@ from wa import views;
 
 urlpatterns = patterns('',
 	url(r'^$', views.front, name='front'),
-	
+	#url(r'^contributeOut/$', views.contributeOut, name='contributeOut'),
 	url(r'audio/bookParas/', views.bookParas, name='bookParas'),
 	url(r'audio/getParaImage/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.getParaImage, name = 'getParaImage'),
 	url(r'audio/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.chooseParaAction, name = 'chooseParaAction'),
@@ -13,6 +13,11 @@ urlpatterns = patterns('',
 	
 	url(r'audio/getimage/(?P<book_id>\d+)/', views.getImage, name = 'getImage'),
 	url(r'audio/(?P<book_id>\d+)/', views.chooseAction, name = 'chooseAction'),
+	url(r'^aboutUs/$', views.aboutUs, name='aboutUs'),
+	url(r'^aboutUsOut/$', views.aboutUsOut, name='aboutUsOut'),
+	#url(r'^tutorial$', views.tutorial, name = 'tutorial'),
+	url(r'tutorial/$', views.tutorial, name = 'tutorial'),
+	
 	url(r'audio/langBooks/', views.langBooks, name='langBooks'),
 	url(r'audio/', views.audioSelection, name = 'audioSelection'),
 	url(r'getParagraph/(?P<book_id>\d+)/(?P<para_id>\d+)/', views.getParagraph, name = 'getParagraph'),
@@ -24,6 +29,7 @@ urlpatterns = patterns('',
     url(r'^audioUpload/$', views.audioUpload, name='audioUpload'),
     url(r'^audioUploadForm/(?P<book_id>\d+)/(?P<para_id>\d+)/$', views.audioUploadForm, name='audioUploadForm'),
 	url(r'^login/$', views.front, name='front'),
+
 	url(r'^auth/$', views.auth_view, name='auth_view'),
 	url(r'^home/$', views.home, name='home'),
 	url(r'^register/$', views.register_user, name='register_user'),
@@ -33,6 +39,9 @@ urlpatterns = patterns('',
 	url(r'^uploadDigi/(?P<book_id>\d+)/(?P<para_id>\d+)/$', views.uploadDigi, name='uploadDigi'),
 	url(r'^ajaxexample_json/$', views.ajax, name='ajax'),
 	#url(r'^concatenate_digi/$', views.concatenateDigi, name='concatenateDigi'),
+	url(r'^browse/$', views.browse, name='browse'),
+	url(r'^browseAudio/(?P<book_id>\d+)/$', views.browseAudiobooks, name='browseAudio'),
+
 	url(r'^uploadBook/$', views.uploadBook, name='uploadBook'),
 	url(r'^valSelection/$', views.valSelection, name='valSelection'),
 )

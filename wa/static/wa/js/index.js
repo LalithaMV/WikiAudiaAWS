@@ -54,6 +54,9 @@ function doneEncoding( blob ) {
 function toggleRecording( e ) {
     if (e.classList.contains("recording")) {
         // stop recording
+	//alert("Coming stop");
+	text = document.getElementById("textInToggle");
+	text.innerHTML = "Record Audio";
         audioRecorder.stop();
         e.classList.remove("recording");
         audioRecorder.getBuffers( drawWave );
@@ -61,6 +64,9 @@ function toggleRecording( e ) {
         // start recording
         if (!audioRecorder)
             return;
+	//alert("Coming start");
+	text = document.getElementById("textInToggle");
+	text.innerHTML = "Stop Recording";
         e.classList.add("recording");
         audioRecorder.clear();
         audioRecorder.record();
